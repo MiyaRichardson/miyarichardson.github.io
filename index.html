@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Miya Richardson | UX Designer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { paper: "#F7F7FF", ink: "#0B1220", accent: "#3B5BFF" } } }
+    }
+  </script>
+  <style>
+    :root { --display: "Space Grotesk", sans-serif; --body: "Plus Jakarta Sans", sans-serif; }
+    body { font-family: var(--body); background-color: #F7F7FF; color: #0B1220; overflow-x: hidden; cursor: none; }
+    .display { font-family: var(--display); letter-spacing: -0.04em; }
+    
+    header { width: 100%; height: 100px; padding: 0 5%; display: flex; justify-content: space-between; align-items: center; position: fixed; top: 0; z-index: 100; background: rgba(247, 247, 255, 0.8); backdrop-filter: blur(10px); }
+    
+    .glass-card { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(0,0,0,0.05); border-radius: 40px; transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1); text-align: left; }
+    .glass-card:hover { transform: translateY(-10px); border-color: #3B5BFF; box-shadow: 0 30px 60px rgba(59, 91, 255, 0.1); }
+    
+    #cursor { width: 20px; height: 20px; background: #3B5BFF; border-radius: 50%; position: fixed; pointer-events: none; z-index: 999; transition: transform 0.15s ease-out; mix-blend-mode: multiply; }
+    
+    /* Increased font size for 2-line impact */
+    .hero-text { font-size: clamp(2.5rem, 6.5vw, 6rem); line-height: 1; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <div id="cursor"></div>
+  <header>
+    <div class="text-left">
+      <p class="text-sm font-bold tracking-tighter uppercase">Miya Richardson</p>
+      <p class="text-[10px] opacity-70 uppercase tracking-widest">UX Designer</p>
+    </div>
+    <nav class="flex space-x-12 text-[11px] font-bold uppercase tracking-widest">
+      <a href="index.html" class="text-accent">Home</a>
+      <a href="case-studies.html" class="opacity-50 hover:opacity-100 transition-opacity">Projects</a>
+      <a href="about.html" class="opacity-50 hover:opacity-100 transition-opacity">About</a>
+    </nav>
+  </header>
+
+  <main class="min-h-screen flex flex-col justify-center pt-20 px-[5%]">
+    <section class="max-w-6xl mx-auto text-center">
+      <p class="text-[10px] font-bold uppercase text-accent tracking-[0.4em] mb-10">Portfolio 2026</p>
+      
+      <h1 class="display hero-text mb-20">
+       I turn <span class="italic text-slate-300">deep user research</span> into <br class="hidden md:block">
+    <span class="text-accent underline decoration-4 underline-offset-8">meaningful</span> digital experiences.
+      </h1>
+
+      <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <a href="nhs-gp-accessibility-redesign.html" class="glass-card p-10 block group">
+          <div class="flex justify-between items-start mb-12">
+            <span class="text-[9px] font-bold uppercase tracking-widest text-blue-600">Website Redesign</span>
+            <span class="text-2xl group-hover:translate-x-2 transition-transform">→</span>
+          </div>
+          <h2 class="display text-3xl font-bold mb-3">Trainline Accessibility</h2>
+          <p class="text-slate-500 text-sm leading-relaxed">Single page redesign for WCAG 2.1 AAA compliance.</p>
+        </a>
+
+        <a href="student-support-finder.html" class="glass-card p-10 block group">
+          <div class="flex justify-between items-start mb-12">
+            <span class="text-[9px] font-bold uppercase tracking-widest text-purple-600">Service Design</span>
+            <span class="text-2xl group-hover:translate-x-2 transition-transform">→</span>
+          </div>
+          <h2 class="display text-3xl font-bold mb-3">Support Finder</h2>
+          <p class="text-slate-500 text-sm leading-relaxed">Simplifying mental health resource navigation for students.</p>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const cursor = document.getElementById('cursor');
+    document.addEventListener('mousemove', e => { 
+      cursor.style.left = e.clientX + 'px'; 
+      cursor.style.top = e.clientY + 'px'; 
+    });
+    document.querySelectorAll('a').forEach(link => {
+      link.addEventListener('mouseenter', () => cursor.style.transform = 'scale(3)');
+      link.addEventListener('mouseleave', () => cursor.style.transform = 'scale(1)');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Trainline Redesign | Miya Richardson</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { paper: "#F7F7FF", ink: "#0B1220", accent: "#3B5BFF" } } }
+    }
+  </script>
+  <style>
+    :root { --display: "Space Grotesk", sans-serif; --body: "Plus Jakarta Sans", sans-serif; }
+    body { font-family: var(--body); background-color: #F7F7FF; color: #0B1220; overflow-x: hidden; cursor: none; }
+    .display { font-family: var(--display); letter-spacing: -0.04em; }
+    header { width: 100%; height: 100px; padding: 0 5%; display: flex; justify-content: space-between; align-items: center; position: fixed; top: 0; z-index: 100; background: rgba(247, 247, 255, 0.8); backdrop-filter: blur(10px); }
+    #cursor { width: 20px; height: 20px; background: #3B5BFF; border-radius: 50%; position: fixed; pointer-events: none; z-index: 999; transition: transform 0.15s ease-out; mix-blend-mode: multiply; }
+
+    .img-container { background: white; border-radius: 32px; padding: 1.5rem; border: 1px solid rgba(0,0,0,0.05); overflow: hidden; margin-top: 2rem; }
+    .img-container img { border-radius: 20px; width: 100%; height: auto; }
+    
+    .img-container.small-img { max-width: 650px; margin-left: auto; margin-right: auto; }
+
+    .content-card { background: white; border-radius: 32px; padding: 2.5rem; border: 1px solid rgba(0,0,0,0.05); }
+    .sticky-nav { position: sticky; top: 140px; }
+    
+    section { border-top: 1px solid rgba(0,0,0,0.06); padding-top: 5rem; margin-top: 5rem; }
+    section:first-of-type { border-top: none; }
+  </style>
+</head>
+<body>
+  <div id="cursor"></div>
+  
+  <header>
+    <div class="text-left">
+      <p class="text-sm font-bold tracking-tighter uppercase">Miya Richardson</p>
+      <p class="text-[10px] opacity-70 uppercase tracking-widest">UX Designer</p>
+    </div>
+    <nav class="flex space-x-12 text-[11px] font-bold uppercase tracking-widest">
+      <a href="index.html" class="opacity-50 hover:opacity-100 transition-opacity">Home</a>
+      <a href="case-studies.html" class="text-accent">Projects</a>
+      <a href="about.html" class="opacity-50 hover:opacity-100 transition-opacity">About</a>
+    </nav>
+  </header>
+
+  <main class="pt-44 pb-32 px-[5%]">
+    <div class="max-w-6xl mx-auto">
+      
+      <a href="case-studies.html" class="inline-flex items-center text-[10px] font-bold uppercase tracking-widest text-slate-400 hover:text-accent transition-colors mb-12">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+        Back to Work
+      </a>
+
+      <div class="max-w-4xl mb-24">
+        <p class="text-[11px] font-bold uppercase text-accent tracking-[0.5em] mb-8">UX Redesign</p>
+        <h1 class="display text-6xl md:text-8xl font-bold mb-12 leading-[0.9]">
+          Inclusive <br> <span class="text-accent">AAA Research</span>
+        </h1>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 pt-10 border-t border-slate-200">
+          <div><p class="text-[10px] uppercase font-bold text-slate-400 mb-2">Role</p><p class="font-bold">UX Researcher</p></div>
+          <div><p class="text-[10px] uppercase font-bold text-slate-400 mb-2">Platform</p><p class="font-bold">Web Concept</p></div>
+          <div><p class="text-[10px] uppercase font-bold text-slate-400 mb-2">Target</p><p class="font-bold">WCAG 2.2 AAA</p></div>
+          
+        </div>
+      </div>
+
+      <div class="grid lg:grid-cols-12 gap-16">
+        <aside class="lg:col-span-3 hidden lg:block">
+          <div class="sticky-nav">
+            <p class="text-[10px] font-bold uppercase tracking-widest text-slate-300 mb-8">Contents</p>
+            <ul class="space-y-4 text-sm font-medium text-slate-400">
+              <li><a href="#overview" class="hover:text-accent transition-colors">Overview</a></li>
+              <li><a href="#evaluation" class="hover:text-accent transition-colors">Existing Evaluation</a></li>
+              <li><a href="#goals" class="hover:text-accent transition-colors">Design Goals</a></li>
+              <li><a href="#outcome" class="hover:text-accent transition-colors">Final Outcome</a></li>
+            </ul>
+          </div>
+        </aside>
+
+        <div class="lg:col-span-9">
+          <section id="overview">
+            <h2 class="display text-4xl font-bold mb-6">Overview</h2>
+            <p class="text-slate-600 text-lg leading-relaxed">Travel disruptions are high-stress moments. My work involved evaluating the Trainline interface through the lens of WCAG 2.2 AAA compliance, ensuring that critical travel information is accessible to everyone, regardless of visual or cognitive impairment.</p>
+          </section>
+
+          <section id="evaluation">
+            <h2 class="display text-4xl font-bold mb-8">Existing Evaluation</h2>
+            <div class="grid md:grid-cols-3 gap-6 mb-12">
+              <div class="content-card p-8"><p class="text-sm font-medium italic">"The status colors are hard to distinguish in bright sunlight."</p></div>
+              <div class="content-card p-8"><p class="text-sm font-medium italic">"I have to scroll through every single operator to find mine."</p></div>
+              <div class="content-card p-8"><p class="text-sm font-medium italic">"Screen readers struggle to identify which alerts are critical."</p></div>
+            </div>
+            <div class="img-container">
+              <p class="text-[10px] font-bold text-slate-400 mb-4 uppercase">Original interface analysis</p>
+              <img src="assets/images/trainline-original.png" alt="Original Trainline Page">
+            </div>
+          </section>
+
+          <section id="goals">
+            <h2 class="display text-4xl font-bold mb-8">Design Goals</h2>
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+              <div class="content-card">
+                <h3 class="font-bold text-accent uppercase text-[10px] tracking-widest mb-4">Research-Led Hierarchy</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">
+                  My research identified that users prioritise "Severity" over "Operator Logos." I restructured the information architecture to surface the most critical disruptions at the top, using plain language to reduce cognitive load.
+                </p>
+              </div>
+              <div class="content-card">
+                <h3 class="font-bold text-accent uppercase text-[10px] tracking-widest mb-4">WCAG 2.2 AAA Standards</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">
+                  To achieve AAA compliance, I ensured a 7:1 contrast ratio for all critical text and removed color-only indicators, ensuring the interface is fully functional for those with total color blindness.
+                </p>
+              </div>
+            </div>
+            
+            <div class="bg-white border border-slate-100 rounded-[32px] p-10">
+              <h4 class="text-[10px] font-bold uppercase tracking-[0.2em] mb-10 text-slate-400">Accessibility Implementation</h4>
+              <ul class="space-y-8">
+                <li class="flex gap-6">
+                  <span class="text-accent font-bold">01</span>
+                  <div><p class="font-bold">Text Contrast (AAA)</p><p class="text-sm text-slate-500">Strict adherence to 7:1 contrast ratios for all informative text.</p></div>
+                </li>
+                <li class="flex gap-6">
+                  <span class="text-accent font-bold">02</span>
+                  <div><p class="font-bold">Non-Visual Context</p><p class="text-sm text-slate-500">Enhanced ARIA labels to communicate disruption severity to screen readers.</p></div>
+                </li>
+                <li class="flex gap-6">
+                  <span class="text-accent font-bold">03</span>
+                  <div><p class="font-bold">Input Focus States</p><p class="text-sm text-slate-500">High-visibility focus rings for 100% keyboard-only navigation.</p></div>
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          <section id="outcome" class="pb-20">
+            <h2 class="display text-4xl font-bold mb-8">Final Outcome</h2>
+            <p class="text-slate-600 mb-8">The final design reduces time-to-insight by grouping major disruptions and providing clear, accessible calls to action. It balances Trainline's brand identity with the rigorous requirements of universal design.</p>
+            <div class="img-container">
+              <p class="text-[10px] font-bold text-slate-400 mb-4 uppercase">High-fidelity redesigned interface</p>
+              <img src="assets/images/trainline-redesign.png" alt="Redesigned Trainline Page">
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const cursor = document.getElementById('cursor');
+    document.addEventListener('mousemove', e => { 
+      cursor.style.left = e.clientX + 'px'; 
+      cursor.style.top = e.clientY + 'px'; 
+    });
+  </script>
+</body>
+</html>
