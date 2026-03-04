@@ -24,7 +24,20 @@
     .glass-card:hover { border-color: #3B5BFF; box-shadow: 0 30px 60px rgba(59, 91, 255, 0.08); }
 
     #cursor { width: 20px; height: 20px; background: #3B5BFF; border-radius: 50%; position: fixed; pointer-events: none; z-index: 999; transition: transform 0.15s ease-out; mix-blend-mode: difference; }
-    .hero-text { font-size: clamp(2.5rem, 6vw, 5.5rem); line-height: 0.9; font-weight: 700; }
+    .hero-text { font-size: clamp(2.2rem, 6vw, 5.5rem); line-height: 1; font-weight: 700; }
+
+    #mobile-nav {
+      position: fixed; top: 0; right: 0; bottom: 0; left: 0;
+      background: #F7F7FF; z-index: 150;
+      display: none; flex-direction: column; align-items: center; justify-content: center;
+    }
+    #mobile-nav.active { display: flex; }
+
+    @media (max-width: 768px) {
+        body { cursor: auto; }
+        #cursor { display: none; }
+        .glass-card { padding: 30px; border-radius: 30px; }
+    }
   </style>
 </head>
 <body>
@@ -34,20 +47,33 @@
       <p class="text-sm font-bold tracking-tighter uppercase">Miya Richardson</p>
       <p class="text-[10px] opacity-70 uppercase tracking-widest">UX Designer</p>
     </div>
-    <nav class="flex space-x-12 text-[11px] font-bold uppercase tracking-widest">
+    <nav class="hidden md:flex space-x-12 text-[11px] font-bold uppercase tracking-widest">
       <a href="index.html" class="opacity-50 hover:opacity-100 transition-opacity">Home</a>
       <a href="case-studies.html" class="opacity-50 hover:opacity-100 transition-opacity">Projects</a>
       <a href="about.html" class="text-accent">About</a>
     </nav>
+    <button id="menu-btn" class="md:hidden flex flex-col space-y-1.5 z-[200]">
+        <span class="w-6 h-0.5 bg-ink"></span>
+        <span class="w-6 h-0.5 bg-ink"></span>
+        <span class="w-6 h-0.5 bg-ink"></span>
+    </button>
   </header>
+
+  <div id="mobile-nav">
+    <nav class="flex flex-col space-y-8 text-center text-xl font-bold uppercase tracking-widest display">
+        <a href="index.html">Home</a>
+        <a href="case-studies.html">Projects</a>
+        <a href="about.html" class="text-accent">About</a>
+    </nav>
+  </div>
 
   <main class="pt-40 pb-20 px-[5%]">
     <section class="max-w-7xl mx-auto">
-      <div class="grid md:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div class="md:col-span-2">
             <p class="text-[10px] font-bold uppercase text-accent tracking-[0.4em] mb-8">About Me</p>
             <h1 class="display hero-text mb-10">Bridging the gap between <span class="italic text-slate-300">logic</span> and <span class="text-accent">empathy.</span></h1>
-            <p class="text-xl text-slate-600 leading-relaxed max-w-2xl">
+            <p class="text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl">
                 I am a UX Designer who is currently completeing a MSc in UX Design and has a BSc in Computer Science. My focus is on creating user centered systems that solve real human problems.
             </p>
         </div>
@@ -63,7 +89,6 @@
                 </ul>
             </div>
             <div class="mt-8 flex space-x-6 text-[10px] font-bold uppercase tracking-widest text-slate-400">
-
                 <a href="https://github.com/MiyaRichardson" class="hover:text-white transition-colors">GitHub</a>
             </div>
         </div>
@@ -80,12 +105,19 @@
 
   <script>
     const cursor = document.getElementById('cursor');
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileNav = document.getElementById('mobile-nav');
+
     document.addEventListener('mousemove', e => { 
         cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px'; 
     });
     document.querySelectorAll('a').forEach(link => {
       link.addEventListener('mouseenter', () => cursor.style.transform = 'scale(4)');
       link.addEventListener('mouseleave', () => cursor.style.transform = 'scale(1)');
+    });
+
+    menuBtn.addEventListener('click', () => {
+        mobileNav.classList.toggle('active');
     });
   </script>
 </body>
