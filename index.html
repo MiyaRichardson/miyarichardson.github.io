@@ -25,23 +25,52 @@
     
     #cursor { width: 20px; height: 20px; background: #3B5BFF; border-radius: 50%; position: fixed; pointer-events: none; z-index: 999; transition: transform 0.15s ease-out; mix-blend-mode: multiply; }
     
-    /* Increased font size for 2-line impact */
-    .hero-text { font-size: clamp(2.5rem, 6.5vw, 6rem); line-height: 1; font-weight: 700; }
+    /* Responsive hero text */
+    .hero-text { font-size: clamp(2.2rem, 6.5vw, 6rem); line-height: 1.1; font-weight: 700; }
+
+    /* Mobile Menu Styles */
+    #mobile-nav {
+      position: fixed; top: 0; right: 0; bottom: 0; left: 0;
+      background: #F7F7FF; z-index: 150;
+      display: none; flex-direction: column; align-items: center; justify-content: center;
+    }
+    #mobile-nav.active { display: flex; }
+
+    @media (max-width: 768px) {
+        body { cursor: auto; }
+        #cursor { display: none; }
+    }
   </style>
 </head>
 <body>
   <div id="cursor"></div>
+  
   <header>
     <div class="text-left">
       <p class="text-sm font-bold tracking-tighter uppercase">Miya Richardson</p>
       <p class="text-[10px] opacity-70 uppercase tracking-widest">UX Designer</p>
     </div>
-    <nav class="flex space-x-12 text-[11px] font-bold uppercase tracking-widest">
+    
+    <nav class="hidden md:flex space-x-12 text-[11px] font-bold uppercase tracking-widest">
       <a href="index.html" class="text-accent">Home</a>
       <a href="case-studies.html" class="opacity-50 hover:opacity-100 transition-opacity">Projects</a>
       <a href="about.html" class="opacity-50 hover:opacity-100 transition-opacity">About</a>
     </nav>
+
+    <button id="menu-btn" class="md:hidden flex flex-col space-y-1.5 z-[200]">
+        <span class="w-6 h-0.5 bg-ink"></span>
+        <span class="w-6 h-0.5 bg-ink"></span>
+        <span class="w-6 h-0.5 bg-ink"></span>
+    </button>
   </header>
+
+  <div id="mobile-nav">
+    <nav class="flex flex-col space-y-8 text-center text-xl font-bold uppercase tracking-widest display">
+        <a href="index.html" class="text-accent">Home</a>
+        <a href="case-studies.html">Projects</a>
+        <a href="about.html">About</a>
+    </nav>
+  </div>
 
   <main class="min-h-screen flex flex-col justify-center pt-20 px-[5%]">
     <section class="max-w-6xl mx-auto text-center">
@@ -52,7 +81,7 @@
     <span class="text-accent underline decoration-4 underline-offset-8">meaningful</span> digital experiences.
       </h1>
 
-      <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto pb-10">
         <a href="nhs-gp-accessibility-redesign.html" class="glass-card p-10 block group">
           <div class="flex justify-between items-start mb-12">
             <span class="text-[9px] font-bold uppercase tracking-widest text-blue-600">Website Redesign</span>
@@ -76,6 +105,10 @@
 
   <script>
     const cursor = document.getElementById('cursor');
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileNav = document.getElementById('mobile-nav');
+
+    // Existing Cursor Logic
     document.addEventListener('mousemove', e => { 
       cursor.style.left = e.clientX + 'px'; 
       cursor.style.top = e.clientY + 'px'; 
@@ -83,6 +116,11 @@
     document.querySelectorAll('a').forEach(link => {
       link.addEventListener('mouseenter', () => cursor.style.transform = 'scale(3)');
       link.addEventListener('mouseleave', () => cursor.style.transform = 'scale(1)');
+    });
+
+    // Mobile Menu Toggle Logic
+    menuBtn.addEventListener('click', () => {
+        mobileNav.classList.toggle('active');
     });
   </script>
 </body>
