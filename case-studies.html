@@ -20,61 +20,88 @@
     header { width: 100%; height: 100px; padding: 0 5%; display: flex; justify-content: space-between; align-items: center; position: fixed; top: 0; z-index: 100; background: rgba(247, 247, 255, 0.8); backdrop-filter: blur(10px); }
     
     #cursor { width: 20px; height: 20px; background: #3B5BFF; border-radius: 50%; position: fixed; pointer-events: none; z-index: 999; transition: transform 0.15s ease-out; mix-blend-mode: multiply; }
-
-    /* Clean, centered rows with larger hover impact */
-    .work-item { border-bottom: 1px solid rgba(0,0,0,0.08); transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); justify-content: center; }
-    .work-item:hover { background-color: white; border-bottom-color: #3B5BFF; padding-top: 5rem; padding-bottom: 5rem; }
     
-    .process-card { background: white; border: 1px solid rgba(0,0,0,0.05); border-radius: 30px; padding: 45px; text-align: left; }
+    .hero-text { font-size: clamp(3rem, 10vw, 8rem); line-height: 1; font-weight: 700; }
+    
+    .work-item { border-bottom: 1px solid rgba(0,0,0,0.05); transition: all 0.4s ease; }
+    .work-item:hover { padding-left: 20px; }
+
+    #mobile-nav {
+      position: fixed; top: 0; right: 0; bottom: 0; left: 0;
+      background: #F7F7FF; z-index: 150;
+      display: none; flex-direction: column; align-items: center; justify-content: center;
+    }
+    #mobile-nav.active { display: flex; }
+
+    @media (max-width: 768px) {
+        body { cursor: auto; }
+        #cursor { display: none; }
+    }
   </style>
 </head>
 <body>
   <div id="cursor"></div>
-  
   <header>
     <div class="text-left">
       <p class="text-sm font-bold tracking-tighter uppercase">Miya Richardson</p>
       <p class="text-[10px] opacity-70 uppercase tracking-widest">UX Designer</p>
     </div>
-    <nav class="flex space-x-12 text-[11px] font-bold uppercase tracking-widest">
+    <nav class="hidden md:flex space-x-12 text-[11px] font-bold uppercase tracking-widest">
       <a href="index.html" class="opacity-50 hover:opacity-100 transition-opacity">Home</a>
       <a href="case-studies.html" class="text-accent">Projects</a>
       <a href="about.html" class="opacity-50 hover:opacity-100 transition-opacity">About</a>
     </nav>
+    <button id="menu-btn" class="md:hidden flex flex-col space-y-1.5 z-[200]">
+        <span class="w-6 h-0.5 bg-ink"></span>
+        <span class="w-6 h-0.5 bg-ink"></span>
+        <span class="w-6 h-0.5 bg-ink"></span>
+    </button>
   </header>
+
+  <div id="mobile-nav">
+    <nav class="flex flex-col space-y-8 text-center text-xl font-bold uppercase tracking-widest display">
+        <a href="index.html">Home</a>
+        <a href="case-studies.html" class="text-accent">Projects</a>
+        <a href="about.html">About</a>
+    </nav>
+  </div>
 
   <main class="pt-52 pb-32 px-[5%]">
     <section class="max-w-5xl mx-auto text-center w-full mb-48">
       <p class="text-[11px] font-bold uppercase text-accent tracking-[0.5em] mb-12">Index</p>
-      <h1 class="display text-7xl md:text-8xl font-bold mb-24">Case <span class="italic text-slate-300">Studies</span></h1>
+      <h1 class="display hero-text mb-24">Case <span class="italic text-slate-300">Studies</span></h1>
       
       <div class="flex flex-col border-t border-slate-200">
-        <a href="nhs-gp-accessibility-redesign.html" class="work-item group relative py-20 flex items-center gap-12">
+        <a href="nhs-gp-accessibility-redesign.html" class="work-item group relative py-12 md:py-20 flex flex-col md:flex-row items-center gap-6 md:gap-12">
           <span class="text-[14px] font-bold text-accent opacity-40">01</span>
-          <h2 class="display text-5xl md:text-7xl font-bold group-hover:text-accent transition-all">Trainline Redesign</h2>
+          <h2 class="display text-4xl md:text-7xl font-bold group-hover:text-accent transition-all">Trainline Redesign</h2>
           <span class="px-4 py-2 rounded-full border border-slate-200 text-[10px] font-bold uppercase tracking-widest text-slate-400">Services</span>
         </a>
 
-        <a href="student-support-finder.html" class="work-item group relative py-20 flex items-center gap-12">
+        <a href="student-support-finder.html" class="work-item group relative py-12 md:py-20 flex flex-col md:flex-row items-center gap-6 md:gap-12">
           <span class="text-[14px] font-bold text-accent opacity-40">02</span>
-          <h2 class="display text-5xl md:text-7xl font-bold group-hover:text-purple-600 transition-all">Support Finder</h2>
+          <h2 class="display text-4xl md:text-7xl font-bold group-hover:text-purple-600 transition-all">Support Finder</h2>
           <span class="px-4 py-2 rounded-full border border-slate-200 text-[10px] font-bold uppercase tracking-widest text-slate-400">Education</span>
         </a>
       </div>
     </section>
-
-    
   </main>
 
   <script>
     const cursor = document.getElementById('cursor');
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileNav = document.getElementById('mobile-nav');
+
     document.addEventListener('mousemove', e => { 
-      cursor.style.left = e.clientX + 'px'; 
-      cursor.style.top = e.clientY + 'px'; 
+      cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px'; 
     });
     document.querySelectorAll('a').forEach(link => {
       link.addEventListener('mouseenter', () => cursor.style.transform = 'scale(4)');
       link.addEventListener('mouseleave', () => cursor.style.transform = 'scale(1)');
+    });
+
+    menuBtn.addEventListener('click', () => {
+        mobileNav.classList.toggle('active');
     });
   </script>
 </body>
