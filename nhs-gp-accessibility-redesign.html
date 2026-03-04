@@ -17,7 +17,7 @@
     :root { --display: "Space Grotesk", sans-serif; --body: "Plus Jakarta Sans", sans-serif; }
     body { font-family: var(--body); background-color: #F7F7FF; color: #0B1220; overflow-x: hidden; cursor: none; }
     .display { font-family: var(--display); letter-spacing: -0.04em; }
-    header { width: 100%; height: 100px; padding: 0 5%; display: flex; justify-content: space-between; align-items: center; position: fixed; top: 0; z-index: 100; background: rgba(247, 247, 255, 0.8); backdrop-filter: blur(10px); }
+    
     #cursor { width: 20px; height: 20px; background: #3B5BFF; border-radius: 50%; position: fixed; pointer-events: none; z-index: 999; transition: transform 0.15s ease-out; mix-blend-mode: multiply; }
 
     .img-container { background: white; border-radius: 32px; padding: 1.5rem; border: 1px solid rgba(0,0,0,0.05); overflow: hidden; margin-top: 2rem; }
@@ -26,28 +26,28 @@
     .img-container.small-img { max-width: 650px; margin-left: auto; margin-right: auto; }
 
     .content-card { background: white; border-radius: 32px; padding: 2.5rem; border: 1px solid rgba(0,0,0,0.05); }
-    .sticky-nav { position: sticky; top: 140px; }
+    .sticky-nav { position: sticky; top: 40px; }
     
-    section { border-top: 1px solid rgba(0,0,0,0.06); padding-top: 5rem; margin-top: 5rem; }
+    section { border-top: 1px solid rgba(0,0,0,0.06); padding-top: 3rem; margin-top: 3rem; }
+    @media (min-width: 768px) {
+      section { padding-top: 5rem; margin-top: 5rem; }
+      .sticky-nav { top: 140px; }
+    }
     section:first-of-type { border-top: none; }
+
+    /* Fix for mobile text size */
+    .hero-title { font-size: clamp(3rem, 12vw, 8rem); line-height: 0.9; }
+
+    @media (max-width: 768px) {
+        body { cursor: auto; }
+        #cursor { display: none; }
+    }
   </style>
 </head>
 <body>
   <div id="cursor"></div>
   
-  <header>
-    <div class="text-left">
-      <p class="text-sm font-bold tracking-tighter uppercase">Miya Richardson</p>
-      <p class="text-[10px] opacity-70 uppercase tracking-widest">UX Designer</p>
-    </div>
-    <nav class="flex space-x-12 text-[11px] font-bold uppercase tracking-widest">
-      <a href="index.html" class="opacity-50 hover:opacity-100 transition-opacity">Home</a>
-      <a href="case-studies.html" class="text-accent">Projects</a>
-      <a href="about.html" class="opacity-50 hover:opacity-100 transition-opacity">About</a>
-    </nav>
-  </header>
-
-  <main class="pt-44 pb-32 px-[5%]">
+  <main class="pt-12 md:pt-44 pb-32 px-[5%]">
     <div class="max-w-6xl mx-auto">
       
       <a href="case-studies.html" class="inline-flex items-center text-[10px] font-bold uppercase tracking-widest text-slate-400 hover:text-accent transition-colors mb-12">
@@ -57,7 +57,7 @@
 
       <div class="max-w-4xl mb-24">
         <p class="text-[11px] font-bold uppercase text-accent tracking-[0.5em] mb-8">UX Redesign</p>
-        <h1 class="display text-6xl md:text-8xl font-bold mb-12 leading-[0.9]">
+        <h1 class="display hero-title font-bold mb-12">
           Inclusive <br> <span class="text-accent">AAA Research</span>
         </h1>
         
@@ -65,7 +65,6 @@
           <div><p class="text-[10px] uppercase font-bold text-slate-400 mb-2">Role</p><p class="font-bold">UX Researcher</p></div>
           <div><p class="text-[10px] uppercase font-bold text-slate-400 mb-2">Platform</p><p class="font-bold">Web Concept</p></div>
           <div><p class="text-[10px] uppercase font-bold text-slate-400 mb-2">Target</p><p class="font-bold">WCAG 2.2 AAA</p></div>
-          
         </div>
       </div>
 
@@ -90,7 +89,7 @@
 
           <section id="evaluation">
             <h2 class="display text-4xl font-bold mb-8">Existing Evaluation</h2>
-            <div class="grid md:grid-cols-3 gap-6 mb-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
               <div class="content-card p-8"><p class="text-sm font-medium italic">"The status colors are hard to distinguish in bright sunlight."</p></div>
               <div class="content-card p-8"><p class="text-sm font-medium italic">"I have to scroll through every single operator to find mine."</p></div>
               <div class="content-card p-8"><p class="text-sm font-medium italic">"Screen readers struggle to identify which alerts are critical."</p></div>
@@ -103,7 +102,7 @@
 
           <section id="goals">
             <h2 class="display text-4xl font-bold mb-8">Design Goals</h2>
-            <div class="grid md:grid-cols-2 gap-8 mb-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
               <div class="content-card">
                 <h3 class="font-bold text-accent uppercase text-[10px] tracking-widest mb-4">Research-Led Hierarchy</h3>
                 <p class="text-sm text-slate-600 leading-relaxed">
@@ -118,7 +117,7 @@
               </div>
             </div>
             
-            <div class="bg-white border border-slate-100 rounded-[32px] p-10">
+            <div class="bg-white border border-slate-100 rounded-[32px] p-8 md:p-10">
               <h4 class="text-[10px] font-bold uppercase tracking-[0.2em] mb-10 text-slate-400">Accessibility Implementation</h4>
               <ul class="space-y-8">
                 <li class="flex gap-6">
