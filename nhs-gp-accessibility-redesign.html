@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Trainline Redesign | Miya Richardson</title>
+  <title>Accessible Web App | Miya Richardson</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,7 +35,6 @@
     }
     section:first-of-type { border-top: none; }
 
-    /* Fix for mobile text size */
     .hero-title { font-size: clamp(3rem, 12vw, 8rem); line-height: 0.9; }
 
     @media (max-width: 768px) {
@@ -56,15 +55,15 @@
       </a>
 
       <div class="max-w-4xl mb-24">
-        <p class="text-[11px] font-bold uppercase text-accent tracking-[0.5em] mb-8">UX Redesign</p>
+        <p class="text-[11px] font-bold uppercase text-accent tracking-[0.5em] mb-8">UX / Accessibility Design</p>
         <h1 class="display hero-title font-bold mb-12">
-          Inclusive <br> <span class="text-accent">AAA Research</span>
+          Accessible <br> <span class="text-accent">Health & Nutrition App</span>
         </h1>
         
         <div class="grid grid-cols-2 md:grid-cols-4 gap-8 pt-10 border-t border-slate-200">
-          <div><p class="text-[10px] uppercase font-bold text-slate-400 mb-2">Role</p><p class="font-bold">UX Researcher</p></div>
-          <div><p class="text-[10px] uppercase font-bold text-slate-400 mb-2">Platform</p><p class="font-bold">Web Concept</p></div>
-          <div><p class="text-[10px] uppercase font-bold text-slate-400 mb-2">Target</p><p class="font-bold">WCAG 2.2 AAA</p></div>
+          <div><p class="text-[10px] uppercase font-bold text-slate-400 mb-2">Role</p><p class="font-bold">UX Designer</p></div>
+          <div><p class="text-[10px] uppercase font-bold text-slate-400 mb-2">Platform</p><p class="font-bold">Web App</p></div>
+          <div><p class="text-[10px] uppercase font-bold text-slate-400 mb-2">Target</p><p class="font-bold">WCAG 2.2 (A–AAA)</p></div>
         </div>
       </div>
 
@@ -74,76 +73,113 @@
             <p class="text-[10px] font-bold uppercase tracking-widest text-slate-300 mb-8">Contents</p>
             <ul class="space-y-4 text-sm font-medium text-slate-400">
               <li><a href="#overview" class="hover:text-accent transition-colors">Overview</a></li>
-              <li><a href="#evaluation" class="hover:text-accent transition-colors">Existing Evaluation</a></li>
+              <li><a href="#evaluation" class="hover:text-accent transition-colors">User Research</a></li>
               <li><a href="#goals" class="hover:text-accent transition-colors">Design Goals</a></li>
+              <li><a href="#wcag" class="hover:text-accent transition-colors">WCAG 2.2</a></li>
               <li><a href="#outcome" class="hover:text-accent transition-colors">Final Outcome</a></li>
+              <li><a href="#update" class="hover:text-accent transition-colors">Post‑Testing Update</a></li>
             </ul>
           </div>
         </aside>
 
         <div class="lg:col-span-9">
+
+          <!-- OVERVIEW -->
           <section id="overview">
             <h2 class="display text-4xl font-bold mb-6">Overview</h2>
-            <p class="text-slate-600 text-lg leading-relaxed">Travel disruptions are high-stress moments. My work involved evaluating the Trainline interface through the lens of WCAG 2.2 AAA compliance, ensuring that critical travel information is accessible to everyone, regardless of visual or cognitive impairment.</p>
+            <p class="text-slate-600 text-lg leading-relaxed">
+              This project involved designing an accessible health and nutrition web application for users with physical, cognitive, visual, and auditory impairments. The goal was to create a platform that supports independent cooking, reduces cognitive load, and ensures nutritional information is perceivable and operable for all users.
+            </p>
           </section>
 
+          <!-- USER RESEARCH -->
           <section id="evaluation">
-            <h2 class="display text-4xl font-bold mb-8">Existing Evaluation</h2>
+            <h2 class="display text-4xl font-bold mb-8">User Research</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-              <div class="content-card p-8"><p class="text-sm font-medium italic">"The status colors are hard to distinguish in bright sunlight."</p></div>
-              <div class="content-card p-8"><p class="text-sm font-medium italic">"I have to scroll through every single operator to find mine."</p></div>
-              <div class="content-card p-8"><p class="text-sm font-medium italic">"Screen readers struggle to identify which alerts are critical."</p></div>
+              <div class="content-card p-8"><p class="text-sm font-medium italic">"I struggle to read ingredients when the contrast is low."</p></div>
+              <div class="content-card p-8"><p class="text-sm font-medium italic">"Too much text overwhelms me — I lose track easily."</p></div>
+              <div class="content-card p-8"><p class="text-sm font-medium italic">"Small buttons are hard to tap when my hands shake."</p></div>
             </div>
+
             <div class="img-container">
-              <p class="text-[10px] font-bold text-slate-400 mb-4 uppercase">Original interface analysis</p>
-              <img src="assets/images/trainline-original.png" alt="Original Trainline Page">
+              <p class="text-[10px] font-bold text-slate-400 mb-4 uppercase">Initial pain points (placeholder)</p>
+              <img src="assets/images/placeholder-research.png" alt="User research findings">
             </div>
           </section>
 
+          <!-- DESIGN GOALS -->
           <section id="goals">
             <h2 class="display text-4xl font-bold mb-8">Design Goals</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
               <div class="content-card">
-                <h3 class="font-bold text-accent uppercase text-[10px] tracking-widest mb-4">Research-Led Hierarchy</h3>
+                <h3 class="font-bold text-accent uppercase text-[10px] tracking-widest mb-4">Cognitive Simplicity</h3>
                 <p class="text-sm text-slate-600 leading-relaxed">
-                  My research identified that users prioritise "Severity" over "Operator Logos." I restructured the information architecture to surface the most critical disruptions at the top, using plain language to reduce cognitive load.
+                  The interface was restructured into a linear, step‑by‑step flow to reduce cognitive load. Each task—searching, cooking, tracking nutrition—was broken into digestible, predictable steps.
                 </p>
               </div>
               <div class="content-card">
-                <h3 class="font-bold text-accent uppercase text-[10px] tracking-widest mb-4">WCAG 2.2 AAA Standards</h3>
+                <h3 class="font-bold text-accent uppercase text-[10px] tracking-widest mb-4">Inclusive Interaction</h3>
                 <p class="text-sm text-slate-600 leading-relaxed">
-                  To achieve AAA compliance, I ensured a 7:1 contrast ratio for all critical text and removed color-only indicators, ensuring the interface is fully functional for those with total color blindness.
+                  Touch targets, spacing, and focus states were designed to support users with motor impairments, while ARIA labels ensured full compatibility with assistive technologies.
                 </p>
               </div>
             </div>
-            
+          </section>
+
+          <!-- WCAG SECTION -->
+          <section id="wcag">
+            <h2 class="display text-4xl font-bold mb-8">WCAG 2.2 Implementation</h2>
             <div class="bg-white border border-slate-100 rounded-[32px] p-8 md:p-10">
-              <h4 class="text-[10px] font-bold uppercase tracking-[0.2em] mb-10 text-slate-400">Accessibility Implementation</h4>
+              <h4 class="text-[10px] font-bold uppercase tracking-[0.2em] mb-10 text-slate-400">Selected Guidelines (A, AA, AAA)</h4>
               <ul class="space-y-8">
                 <li class="flex gap-6">
                   <span class="text-accent font-bold">01</span>
-                  <div><p class="font-bold">Text Contrast (AAA)</p><p class="text-sm text-slate-500">Strict adherence to 7:1 contrast ratios for all informative text.</p></div>
+                  <div><p class="font-bold">1.4.6 Contrast Enhanced (AAA)</p><p class="text-sm text-slate-500">Critical nutritional data uses a 7:1 contrast ratio for maximum clarity.</p></div>
                 </li>
                 <li class="flex gap-6">
                   <span class="text-accent font-bold">02</span>
-                  <div><p class="font-bold">Non-Visual Context</p><p class="text-sm text-slate-500">Enhanced ARIA labels to communicate disruption severity to screen readers.</p></div>
+                  <div><p class="font-bold">2.5.5 Target Size (AAA)</p><p class="text-sm text-slate-500">All interactive elements meet the 44×44px minimum for motor accessibility.</p></div>
                 </li>
                 <li class="flex gap-6">
                   <span class="text-accent font-bold">03</span>
-                  <div><p class="font-bold">Input Focus States</p><p class="text-sm text-slate-500">High-visibility focus rings for 100% keyboard-only navigation.</p></div>
+                  <div><p class="font-bold">3.3.1 Error Identification (A)</p><p class="text-sm text-slate-500">Errors are described in text, not colour alone, supporting cognitive accessibility.</p></div>
+                </li>
+                <li class="flex gap-6">
+                  <span class="text-accent font-bold">04</span>
+                  <div><p class="font-bold">2.4.7 Focus Visible (AA)</p><p class="text-sm text-slate-500">A high‑contrast focus ring ensures full keyboard navigation.</p></div>
+                </li>
+                <li class="flex gap-6">
+                  <span class="text-accent font-bold">05</span>
+                  <div><p class="font-bold">3.1.5 Reading Level (AAA)</p><p class="text-sm text-slate-500">Instructions use plain language and short sentences to reduce cognitive load.</p></div>
                 </li>
               </ul>
             </div>
           </section>
 
+          <!-- FINAL OUTCOME -->
           <section id="outcome" class="pb-20">
             <h2 class="display text-4xl font-bold mb-8">Final Outcome</h2>
-            <p class="text-slate-600 mb-8">The final design reduces time-to-insight by grouping major disruptions and providing clear, accessible calls to action. It balances Trainline's brand identity with the rigorous requirements of universal design.</p>
+            <p class="text-slate-600 mb-8">
+              The final design supports independent cooking through clear hierarchy, simplified steps, and accessible nutritional information. The interface balances visual clarity with inclusive interaction patterns.
+            </p>
             <div class="img-container">
-              <p class="text-[10px] font-bold text-slate-400 mb-4 uppercase">High-fidelity redesigned interface</p>
-              <img src="assets/images/trainline-redesign.png" alt="Redesigned Trainline Page">
+              <p class="text-[10px] font-bold text-slate-400 mb-4 uppercase">High‑fidelity screens (placeholder)</p>
+              <img src="assets/images/placeholder-final.png" alt="Final design screens">
             </div>
           </section>
+
+          <!-- POST TESTING UPDATE -->
+          <section id="update">
+            <h2 class="display text-4xl font-bold mb-8">Post‑Testing Update</h2>
+            <p class="text-slate-600 mb-8">
+              Usability testing revealed that users often lost track of which ingredients they had already used. To address this, a checklist system was added to the recipe steps, with large tap targets and screen‑reader‑friendly states (“Checked / Not checked”).
+            </p>
+            <div class="img-container">
+              <p class="text-[10px] font-bold text-slate-400 mb-4 uppercase">Updated ingredient checklist (placeholder)</p>
+              <img src="assets/images/placeholder-update.png" alt="Updated checklist feature">
+            </div>
+          </section>
+
         </div>
       </div>
     </div>
@@ -158,3 +194,4 @@
   </script>
 </body>
 </html>
+
