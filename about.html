@@ -6,118 +6,104 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
-      theme: { extend: { colors: { paper: "#F7F7FF", ink: "#0B1220", accent: "#3B5BFF" } } }
+      theme: {
+        extend: {
+          colors: { raspberry: "#C2185B", ink: "#111111", sketchgrey: "#777777", paper: "#FFFFFF", warmbg: "#F5F5F7" }
+        }
+      }
     }
   </script>
   <style>
-    :root { --display: "Space Grotesk", sans-serif; --body: "Plus Jakarta Sans", sans-serif; }
-    body { font-family: var(--body); background-color: #F7F7FF; color: #0B1220; overflow-x: hidden; cursor: none; }
-    .display { font-family: var(--display); letter-spacing: -0.04em; }
-    
-    header { width: 100%; height: 100px; padding: 0 5%; display: flex; justify-content: space-between; align-items: center; position: fixed; top: 0; z-index: 100; background: rgba(247, 247, 255, 0.8); backdrop-filter: blur(10px); }
-    
-    .glass-card { background: white; border: 1px solid rgba(0,0,0,0.05); border-radius: 40px; padding: 50px; transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1); }
-    .glass-card:hover { border-color: #3B5BFF; box-shadow: 0 30px 60px rgba(59, 91, 255, 0.08); }
-
-    #cursor { width: 20px; height: 20px; background: #3B5BFF; border-radius: 50%; position: fixed; pointer-events: none; z-index: 999; transition: transform 0.15s ease-out; mix-blend-mode: difference; }
-    .hero-text { font-size: clamp(2.2rem, 6vw, 5.5rem); line-height: 1; font-weight: 700; }
-
-    #mobile-nav {
-      position: fixed; top: 0; right: 0; bottom: 0; left: 0;
-      background: #F7F7FF; z-index: 150;
-      display: none; flex-direction: column; align-items: center; justify-content: center;
+    body { font-family: 'Patrick Hand', cursive; background-color: #F5F5F7; color: #111111; font-size: 1.7rem; perspective: 1500px; }
+    .sketchbook-container { background-color: #F5F5F7; background-image: radial-gradient(rgba(0,0,0,0.03) 1px, transparent 0); background-size: 24px 24px; }
+    .paper-sheet {
+      background-color: #FFFFFF;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.015'/%3E%3C/svg%3E");
+      box-shadow: 0 20px 40px rgba(0,0,0,0.06), inset 0 0 40px rgba(0,0,0,0.02);
+      transform-origin: left center;
+      transition: transform 0.6s cubic-bezier(0.4, 0.0, 0.2, 1), opacity 0.5s ease;
     }
-    #mobile-nav.active { display: flex; }
-
-    @media (max-width: 768px) {
-        body { cursor: auto; }
-        #cursor { display: none; }
-        .glass-card { padding: 30px; border-radius: 30px; }
-    }
+    .page-turn-enter-forward { transform: rotateY(40deg) scale(0.95); opacity: 0; }
+    .page-turn-exit-backwards { transform: rotateY(140deg) scale(0.95); opacity: 0; }
+    .hand-box { border: 2px solid #111111; border-radius: 255px 15px 225px 15px/15px 225px 15px 255px; }
+    .case-text-limit { max-width: 75ch; }
   </style>
 </head>
-<body>
-  <div id="cursor"></div>
-  <header>
-    <div class="text-left">
-      <p class="text-sm font-bold tracking-tighter uppercase">Miya Richardson</p>
-      <p class="text-[10px] opacity-70 uppercase tracking-widest">UX Designer</p>
-    </div>
-    <nav class="hidden md:flex space-x-12 text-[11px] font-bold uppercase tracking-widest">
-      <a href="index.html" class="opacity-50 hover:opacity-100 transition-opacity">Home</a>
-      <a href="case-studies.html" class="opacity-50 hover:opacity-100 transition-opacity">Projects</a>
-      <a href="about.html" class="text-accent">About</a>
-    </nav>
-    <button id="menu-btn" class="md:hidden flex flex-col space-y-1.5 z-[200]">
-        <span class="w-6 h-0.5 bg-ink"></span>
-        <span class="w-6 h-0.5 bg-ink"></span>
-        <span class="w-6 h-0.5 bg-ink"></span>
-    </button>
-  </header>
+<body class="sketchbook-container min-h-screen flex items-center justify-center p-4 md:p-8 overflow-x-hidden">
 
-  <div id="mobile-nav">
-    <nav class="flex flex-col space-y-8 text-center text-xl font-bold uppercase tracking-widest display">
-        <a href="index.html">Home</a>
-        <a href="case-studies.html">Projects</a>
-        <a href="about.html" class="text-accent">About</a>
-    </nav>
-  </div>
+  <div class="w-full max-w-6xl flex relative">
+    
+    <div id="notebook-page" class="paper-sheet page-turn-enter-forward w-full rounded-2xl p-6 md:p-12 min-h-[85vh] relative flex flex-col justify-between border border-black/5 mr-12 md:mr-16">
+      
+      <div class="w-full mb-6">
+        <a href="projects.html" class="nav-link-back text-raspberry font-bold text-3xl inline-flex items-center gap-2 group">
+          <span class="group-hover:-translate-x-1 transition-transform">←</span> Back
+        </a>
+      </div>
 
-  <main class="pt-40 pb-20 px-[5%]">
-    <section class="max-w-7xl mx-auto">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="md:col-span-2">
-            <p class="text-[10px] font-bold uppercase text-accent tracking-[0.4em] mb-8">About Me</p>
-            <h1 class="display hero-text mb-10">Bridging the gap between <span class="italic text-slate-300">logic</span> and <span class="text-accent">empathy.</span></h1>
-            <p class="text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl">
-                I am a UX Designer who is currently completeing a MSc in UX Design and has a BSc in Computer Science. My focus is on creating user centered systems that solve real human problems.
-            </p>
+      <div class="my-auto max-w-3xl w-full mx-auto space-y-8 case-text-limit">
+        <div class="border-b border-dashed border-ink/10 pb-4">
+          <h1 class="text-5xl font-bold text-ink rotate-[-0.5deg]">About My Design Ethos</h1>
+          <p class="text-2xl text-raspberry font-bold">Miya Richardson — UX Researcher & UX Designer</p>
         </div>
 
-        <div class="glass-card bg-ink text-white flex flex-col justify-between">
-            <div>
-                <p class="text-[9px] uppercase tracking-[0.3em] text-slate-500 mb-6">Expertise</p>
-                <ul class="display text-2xl font-bold space-y-3">
-                    <li>Figma</li>
-                    <li>Research</li>
-                    <li>User Testing</li>
-                    <li>Development</li>
-                </ul>
-            </div>
-            <div class="mt-8 flex space-x-6 text-[10px] font-bold uppercase tracking-widest text-slate-400">
-                <a href="https://github.com/MiyaRichardson" class="hover:text-white transition-colors">GitHub</a>
-            </div>
+        <div class="space-y-6 text-2xl text-ink leading-relaxed">
+          <p>
+            I focus on transforming complex and exclusionary processes into clear digital structures. My design background centers on removing systemic barriers and digital reading blocks through logical visual mapping and plain language systems.
+          </p>
+          <p>
+            My Master's degree experience heavily influences this approach and sets me apart in the industry. This advanced academic training developed my skills in qualitative methodologies, empirical user research, and cognitive compliance. It allows me to bridge the gap between analytical insights and practical interactive systems, elevating my work far beyond surface aesthetics. I also bring hands-on experience with front-end development, having coded this responsive portfolio website myself to ensure accurate execution of my design concepts.
+          </p>
+          <p>
+            Good design does not look overly polished; it works cleanly and stands out to users because it resolves real issues. I prefer testing assumptions with users directly, looking at layouts in raw formats early on, and refining microcopy continuously to support users completely.
+          </p>
         </div>
 
-        <div class="glass-card md:col-span-3">
-            <div class="max-w-3xl">
-                <h3 class="display text-2xl font-bold mb-4 text-ink">Background</h3>
-                <p class="text-slate-500 text-lg leading-relaxed">My undergraduate degree in Computer Science ensures I design with developer feasibility at the forefront. I specialise in bridging the gap between complex backend logic and the end user's cognitive load.</p>
-            </div>
+        <div class="hand-box p-6 bg-warmbg/30 space-y-4">
+          <h3 class="text-3xl font-bold text-ink">Core Design Toolkit</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xl">
+            <div>➔ Figma & Component Architecture</div>
+            <div>➔ Qualitative User Interview Systems</div>
+            <div>➔ Front End Interface Implementation</div>
+            <div>➔ Rapid Low Fi / Mid Fi Iteration</div>
+            <div>➔ WCAG 2.2 Compliance Mapping</div>
+            <div>➔ Empirical Evaluation Frameworks</div>
+          </div>
         </div>
       </div>
-    </section>
-  </main>
+
+      <div class="w-full flex justify-between items-end mt-12 pt-4 border-t border-dashed border-ink/10">
+        <p class="text-xl text-sketchgrey">UX Portfolio</p>
+        <p class="text-2xl text-sketchgrey font-bold">Page [ 05 ]</p>
+      </div>
+
+    </div>
+
+    <nav class="absolute right-0 top-12 h-[70vh] flex flex-col justify-start space-y-4 w-12 md:w-16 z-50 text-2xl font-bold">
+      <a href="index.html" class="bg-warmbg text-ink hover:text-raspberry py-4 text-center rounded-r-lg border border-l-0 border-black/10 shadow-sm transition-all [writing-mode:vertical-lr] nav-link-back">Home</a>
+      <a href="projects.html" class="bg-warmbg text-ink hover:text-raspberry py-4 text-center rounded-r-lg border border-l-0 border-black/10 shadow-sm transition-all [writing-mode:vertical-lr] nav-link-back">Projects</a>
+      <a href="about.html" class="bg-raspberry text-white py-4 text-center rounded-r-lg border border-l-0 border-black/10 shadow-sm [writing-mode:vertical-lr]">About</a>
+    </nav>
+
+  </div>
 
   <script>
-    const cursor = document.getElementById('cursor');
-    const menuBtn = document.getElementById('menu-btn');
-    const mobileNav = document.getElementById('mobile-nav');
+    window.addEventListener('DOMContentLoaded', () => {
+      const page = document.getElementById('notebook-page');
+      setTimeout(() => { page.classList.remove('page-turn-enter-forward'); }, 50);
 
-    document.addEventListener('mousemove', e => { 
-        cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px'; 
-    });
-    document.querySelectorAll('a').forEach(link => {
-      link.addEventListener('mouseenter', () => cursor.style.transform = 'scale(4)');
-      link.addEventListener('mouseleave', () => cursor.style.transform = 'scale(1)');
-    });
-
-    menuBtn.addEventListener('click', () => {
-        mobileNav.classList.toggle('active');
+      document.querySelectorAll('.nav-link-back').forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const destination = this.getAttribute('href');
+          page.classList.add('page-turn-exit-backwards');
+          setTimeout(() => { window.location.href = destination; }, 550);
+        });
+      });
     });
   </script>
 </body>
