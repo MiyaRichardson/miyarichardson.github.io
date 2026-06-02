@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>About | Miya Richardson</title>
+  <title>About Miya | Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,7 +30,17 @@
     .page-turn-enter-forward { transform: rotateY(40deg) scale(0.95); opacity: 0; }
     .page-turn-exit-backwards { transform: rotateY(140deg) scale(0.95); opacity: 0; }
     .hand-box { border: 2px solid #111111; border-radius: 255px 15px 225px 15px/15px 225px 15px 255px; }
-    .case-text-limit { max-width: 75ch; }
+    
+    .washi-tape {
+      background-color: rgba(194, 24, 91, 0.15);
+      backdrop-filter: blur(1px);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    /* Ruled paper lines inside the card */
+    .ruled-lines {
+      background-image: linear-gradient(#e5e7eb 1px, transparent 1px);
+      background-size: 100% 2rem;
+    }
   </style>
 </head>
 <body class="sketchbook-container min-h-screen flex items-center justify-center p-4 md:p-8 overflow-x-hidden">
@@ -40,45 +50,96 @@
     <div id="notebook-page" class="paper-sheet page-turn-enter-forward w-full rounded-2xl p-6 md:p-12 min-h-[85vh] relative flex flex-col justify-between border border-black/5 mr-12 md:mr-16">
       
       <div class="w-full mb-6">
-        <a href="projects.html" class="nav-link-back text-raspberry font-bold text-3xl inline-flex items-center gap-2 group">
-          <span class="group-hover:-translate-x-1 transition-transform">←</span> Back
+        <a href="index.html" class="nav-link-back text-raspberry font-bold text-3xl inline-flex items-center gap-2 group">
+          <span class="group-hover:-translate-x-1 transition-transform">←</span> Back Home
         </a>
       </div>
 
-      <div class="my-auto max-w-3xl w-full mx-auto space-y-8 case-text-limit">
-        <div class="border-b border-dashed border-ink/10 pb-4">
-          <h1 class="text-5xl font-bold text-ink rotate-[-0.5deg]">About My Design Ethos</h1>
-          <p class="text-2xl text-raspberry font-bold">Miya Richardson — UX Researcher & UX Designer</p>
+      <div class="my-auto max-w-5xl w-full mx-auto space-y-12">
+        
+        <div class="border-b border-dashed border-ink/10 pb-6 relative">
+          <h1 class="text-5xl md:text-6xl font-bold text-ink rotate-[-1deg] inline-block">
+            About Me <span class="text-raspberry">/</span> My Philosophy
+          </h1>
+          <p class="text-2xl text-sketchgrey mt-2">A peek inside the way I look at user problems.</p>
         </div>
 
-        <div class="space-y-6 text-2xl text-ink leading-relaxed">
-          <p>
-            I focus on transforming complex and exclusionary processes into clear digital structures. My design background centers on removing systemic barriers and digital reading blocks through logical visual mapping and plain language systems.
-          </p>
-          <p>
-            My Master's degree experience heavily influences this approach and sets me apart in the industry. This advanced academic training developed my skills in qualitative methodologies, empirical user research, and cognitive compliance. It allows me to bridge the gap between analytical insights and practical interactive systems, elevating my work far beyond surface aesthetics. I also bring hands-on experience with front-end development, having coded this responsive portfolio website myself to ensure accurate execution of my design concepts.
-          </p>
-          <p>
-            Good design does not look overly polished; it works cleanly and stands out to users because it resolves real issues. I prefer testing assumptions with users directly, looking at layouts in raw formats early on, and refining microcopy continuously to support users completely.
-          </p>
-        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          
+          <div class="lg:col-span-5 flex flex-col items-center space-y-8">
+            
+            <!-- Taped Ruled Index Card Instead of Photo -->
+            <div class="bg-[#FFFFFA] p-6 pt-10 pb-6 shadow-md border-t-2 border-amber-200 rotate-[2deg] relative max-w-[280px] w-full transition-transform hover:rotate-[0deg] duration-300">
+              <!-- Clear angled Washi Tape at the top -->
+              <div class="washi-tape absolute -top-3 left-12 w-24 h-7 z-10 rotate-[-4deg] border-b border-dashed border-raspberry/10"></div>
+              
+              <div class="ruled-lines w-full min-h-[160px] text-xl text-indigo-900 leading-[2rem] font-sans opacity-80">
+                <p class="font-bold text-raspberry border-b border-red-300 pb-1">TO DO: IDEAS</p>
+                <p>➔ Sketch map out steps</p>
+                <p>➔ Prototype layout flow</p>
+                <p>➔ Build interactive logic</p>
+              </div>
+              <p class="text-right mt-4 font-bold text-sketchgrey text-lg italic">System Note #09</p>
+            </div>
 
-        <div class="hand-box p-6 bg-warmbg/30 space-y-4">
-          <h3 class="text-3xl font-bold text-ink">Core Design Toolkit</h3>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xl">
-            <div>➔ Figma & Component Architecture</div>
-            <div>➔ Qualitative User Interview Systems</div>
-            <div>➔ Front End Interface Implementation</div>
-            <div>➔ Rapid Low Fi / Mid Fi Iteration</div>
-            <div>➔ WCAG 2.2 Compliance Mapping</div>
-            <div>➔ Empirical Evaluation Frameworks</div>
+            <!-- Changed Heading & Added Personable Context -->
+            <div class="hand-box p-6 bg-warmbg/30 rotate-[-1.5deg] w-full max-w-sm">
+              <h3 class="text-2xl font-bold text-raspberry mb-2">✦ Personal Log</h3>
+              <ul class="text-xl space-y-2 text-ink">
+                <li>📍 Based in the UK</li>
+                <li>🧠 Masters Academic Background</li>
+                <li>🔍 Habitual UX pattern spotter in the wild</li>
+              </ul>
+            </div>
+
           </div>
+
+          <div class="lg:col-span-7 space-y-10">
+            
+            <div class="space-y-4">
+              <h2 class="text-3xl font-bold text-ink flex items-center gap-2">
+                <span class="text-raspberry">01 /</span> The Core Obsession
+              </h2>
+              <p class="text-2xl text-sketchgrey leading-relaxed">
+                I do not start my design processes inside high fidelity interfaces. I start with an empty unlined journal, messy arrows, and structural breakdowns. To me, a product succeeds when the logic hidden beneath the user journeys fits completely naturally into human habits.
+              </p>
+            </div>
+
+            <div class="hand-box p-6 bg-white rotate-[-0.5deg] border-raspberry relative">
+              <span class="absolute -top-4 right-4 bg-raspberry text-white px-2 py-0.5 text-lg font-bold rounded rotate-[4deg]">Background</span>
+              <h3 class="text-3xl font-bold text-ink mb-2">Bridging the Gap: Masters & Coding</h3>
+              <p class="text-xl text-sketchgrey leading-relaxed">
+                With academic backing from a Master's degree, my approach to research is deeply thorough, data-led, and analytical. Crucially, because I can write code, I don't build designs in an isolated bubble. Understanding how components function on the front end means I map structures that translate flawlessly from raw layout logic directly into implementation.
+              </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2">
+              
+              <div class="hand-box p-5 bg-white shadow-sm rotate-[1deg]">
+                <p class="text-xl font-bold text-raspberry uppercase tracking-wider mb-1">How I Map ➔</p>
+                <p class="text-xl text-ink leading-snug">
+                  Stripping down overwhelming options until only the absolute necessary structure stands clear to the end user.
+                </p>
+              </div>
+
+              <div class="hand-box p-5 bg-white shadow-sm rotate-[-1deg]">
+                <p class="text-xl font-bold text-ink uppercase tracking-wider mb-1">How I Research ➔</p>
+                <p class="text-xl text-ink leading-snug">
+                  Combining advanced Master's methodologies with developer logic to spot systematic design gaps.
+                </p>
+              </div>
+
+            </div>
+
+          </div>
+
         </div>
+
       </div>
 
       <div class="w-full flex justify-between items-end mt-12 pt-4 border-t border-dashed border-ink/10">
-        <p class="text-xl text-sketchgrey">UX Portfolio</p>
-        <p class="text-2xl text-sketchgrey font-bold">Page [ 05 ]</p>
+        <p class="text-xl text-sketchgrey">Miya Richardson Portfolio</p>
+        <p class="text-2xl text-sketchgrey font-bold">Page [ 04 ]</p>
       </div>
 
     </div>
