@@ -2,106 +2,120 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Work | Miya Richardson</title>
+  <title>Projects | Miya Richardson</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
-      theme: { extend: { colors: { paper: "#F7F7FF", ink: "#0B1220", accent: "#3B5BFF" } } }
+      theme: {
+        extend: {
+          colors: { raspberry: "#C2185B", ink: "#111111", sketchgrey: "#777777", paper: "#FFFFFF", warmbg: "#F5F5F7" }
+        }
+      }
     }
   </script>
   <style>
-    :root { --display: "Space Grotesk", sans-serif; --body: "Plus Jakarta Sans", sans-serif; }
-    body { font-family: var(--body); background-color: #F7F7FF; color: #0B1220; overflow-x: hidden; cursor: none; }
-    .display { font-family: var(--display); letter-spacing: -0.04em; }
-    header { width: 100%; height: 100px; padding: 0 5%; display: flex; justify-content: space-between; align-items: center; position: fixed; top: 0; z-index: 100; background: rgba(247, 247, 255, 0.8); backdrop-filter: blur(10px); }
-    
-    #cursor { width: 20px; height: 20px; background: #3B5BFF; border-radius: 50%; position: fixed; pointer-events: none; z-index: 999; transition: transform 0.15s ease-out; mix-blend-mode: multiply; }
-    
-    .hero-text { font-size: clamp(3rem, 10vw, 8rem); line-height: 1; font-weight: 700; }
-    
-    .work-item { border-bottom: 1px solid rgba(0,0,0,0.05); transition: all 0.4s ease; }
-    .work-item:hover { padding-left: 20px; }
-
-    #mobile-nav {
-      position: fixed; top: 0; right: 0; bottom: 0; left: 0;
-      background: #F7F7FF; z-index: 150;
-      display: none; flex-direction: column; align-items: center; justify-content: center;
+    body { font-family: 'Patrick Hand', cursive; background-color: #F5F5F7; color: #111111; font-size: 1.7rem; perspective: 1500px; }
+    .sketchbook-container { background-color: #F5F5F7; background-image: radial-gradient(rgba(0,0,0,0.03) 1px, transparent 0); background-size: 24px 24px; }
+    .paper-sheet {
+      background-color: #FFFFFF;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.015'/%3E%3C/svg%3E");
+      box-shadow: 0 20px 40px rgba(0,0,0,0.06), inset 0 0 40px rgba(0,0,0,0.02);
+      transform-origin: left center;
+      transition: transform 0.6s cubic-bezier(0.4, 0.0, 0.2, 1), opacity 0.5s ease;
     }
-    #mobile-nav.active { display: flex; }
-
-    @media (max-width: 768px) {
-        body { cursor: auto; }
-        #cursor { display: none; }
-    }
+    .page-turn-enter-forward { transform: rotateY(40deg) scale(0.95); opacity: 0; }
+    .page-turn-exit-forward { transform: rotateY(-140deg) scale(0.95); opacity: 0; }
+    .page-turn-exit-backwards { transform: rotateY(140deg) scale(0.95); opacity: 0; }
+    .hand-box { border: 2px solid #111111; border-radius: 255px 15px 225px 15px/15px 225px 15px 255px; }
   </style>
 </head>
-<body>
-  <div id="cursor"></div>
-  <header>
-    <div class="text-left">
-      <p class="text-sm font-bold tracking-tighter uppercase">Miya Richardson</p>
-      <p class="text-[10px] opacity-70 uppercase tracking-widest">UX Designer</p>
-    </div>
-    <nav class="hidden md:flex space-x-12 text-[11px] font-bold uppercase tracking-widest">
-      <a href="index.html" class="opacity-50 hover:opacity-100 transition-opacity">Home</a>
-      <a href="case-studies.html" class="text-accent">Projects</a>
-      <a href="about.html" class="opacity-50 hover:opacity-100 transition-opacity">About</a>
-    </nav>
-    <button id="menu-btn" class="md:hidden flex flex-col space-y-1.5 z-[200]">
-        <span class="w-6 h-0.5 bg-ink"></span>
-        <span class="w-6 h-0.5 bg-ink"></span>
-        <span class="w-6 h-0.5 bg-ink"></span>
-    </button>
-  </header>
+<body class="sketchbook-container min-h-screen flex items-center justify-center p-4 md:p-8 overflow-x-hidden">
 
-  <div id="mobile-nav">
-    <nav class="flex flex-col space-y-8 text-center text-xl font-bold uppercase tracking-widest display">
-        <a href="index.html">Home</a>
-        <a href="case-studies.html" class="text-accent">Projects</a>
-        <a href="about.html">About</a>
+  <div class="w-full max-w-6xl flex relative">
+    
+    <div id="notebook-page" class="paper-sheet page-turn-enter-forward w-full rounded-2xl p-6 md:p-12 min-h-[85vh] relative flex flex-col justify-between border border-black/5 mr-12 md:mr-16">
+      
+      <div class="w-full mb-6">
+        <span class="text-raspberry font-bold text-3xl tracking-wider">✎ Case Studies</span>
+      </div>
+
+      <div class="my-auto max-w-4xl w-full mx-auto space-y-12">
+        <div class="border-b border-dashed border-ink/10 pb-4">
+          <h1 class="text-5xl font-bold text-ink rotate-[-0.5deg]">UX Projects</h1>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          
+          <div class="hand-box p-6 bg-white space-y-4 hover:shadow-md transition-shadow relative group">
+            <span class="text-sm font-bold uppercase tracking-wider text-raspberry">Featured Mobile Concept</span>
+            <h2 class="text-3xl font-bold text-ink">CollectCare Application</h2>
+            <p class="text-sketchgrey text-xl leading-relaxed">
+              Redesigning prescription collection loops to establish predictable, completely queue free pickups through clear language and slot reservation.
+            </p>
+            <div class="pt-2">
+              <a href="case-study-collectcare.html" class="text-raspberry font-bold inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform nav-link-forward">
+                View Full Case Study ➔
+              </a>
+            </div>
+          </div>
+
+          <div class="hand-box p-6 bg-white space-y-4 hover:shadow-md transition-shadow relative group">
+            <span class="text-sm font-bold uppercase tracking-wider text-raspberry">Web UI Systems</span>
+            <h2 class="text-3xl font-bold text-ink">Accessible Health & Nutrition</h2>
+            <p class="text-sketchgrey text-xl leading-relaxed">
+              Developing strict WCAG 2.2 compliant frameworks to assist visually, cognitively, physically, and audibly impaired cooks navigate recipes independently.
+            </p>
+            <div class="pt-2">
+              <a href="case-study-accessibility.html" class="text-raspberry font-bold inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform nav-link-forward">
+                View Full Case Study ➔
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="w-full flex justify-between items-end mt-12 pt-4 border-t border-dashed border-ink/10">
+        <p class="text-xl text-sketchgrey">UX Portfolio</p>
+        <p class="text-2xl text-sketchgrey font-bold">Page [ 02 ]</p>
+      </div>
+
+    </div>
+
+    <nav class="absolute right-0 top-12 h-[70vh] flex flex-col justify-start space-y-4 w-12 md:w-16 z-50 text-2xl font-bold">
+      <a href="index.html" class="bg-warmbg text-ink hover:text-raspberry py-4 text-center rounded-r-lg border border-l-0 border-black/10 shadow-sm transition-all [writing-mode:vertical-lr] nav-link-back">Home</a>
+      <a href="projects.html" class="bg-raspberry text-white py-4 text-center rounded-r-lg border border-l-0 border-black/10 shadow-sm [writing-mode:vertical-lr]">Projects</a>
+      <a href="about.html" class="bg-warmbg text-ink hover:text-raspberry py-4 text-center rounded-r-lg border border-l-0 border-black/10 shadow-sm transition-all [writing-mode:vertical-lr] nav-link-forward">About</a>
     </nav>
+
   </div>
 
-  <main class="pt-52 pb-32 px-[5%]">
-    <section class="max-w-5xl mx-auto text-center w-full mb-48">
-      <p class="text-[11px] font-bold uppercase text-accent tracking-[0.5em] mb-12">Index</p>
-      <h1 class="display hero-text mb-24">Case <span class="italic text-slate-300">Studies</span></h1>
-      
-      <div class="flex flex-col border-t border-slate-200">
-        <a href="nhs-gp-accessibility-redesign.html" class="work-item group relative py-12 md:py-20 flex flex-col md:flex-row items-center gap-6 md:gap-12">
-          <span class="text-[14px] font-bold text-accent opacity-40">01</span>
-          <h2 class="display text-4xl md:text-7xl font-bold group-hover:text-accent transition-all">Accesible Web App</h2>
-          <span class="px-4 py-2 rounded-full border border-slate-200 text-[10px] font-bold uppercase tracking-widest text-slate-400">Services</span>
-        </a>
-
-        <a href="student-support-finder.html" class="work-item group relative py-12 md:py-20 flex flex-col md:flex-row items-center gap-6 md:gap-12">
-          <span class="text-[14px] font-bold text-accent opacity-40">02</span>
-          <h2 class="display text-4xl md:text-7xl font-bold group-hover:text-purple-600 transition-all">Support Finder</h2>
-          <span class="px-4 py-2 rounded-full border border-slate-200 text-[10px] font-bold uppercase tracking-widest text-slate-400">Education</span>
-        </a>
-      </div>
-    </section>
-  </main>
-
   <script>
-    const cursor = document.getElementById('cursor');
-    const menuBtn = document.getElementById('menu-btn');
-    const mobileNav = document.getElementById('mobile-nav');
+    window.addEventListener('DOMContentLoaded', () => {
+      const page = document.getElementById('notebook-page');
+      setTimeout(() => { page.classList.remove('page-turn-enter-forward'); }, 50);
 
-    document.addEventListener('mousemove', e => { 
-      cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px'; 
-    });
-    document.querySelectorAll('a').forEach(link => {
-      link.addEventListener('mouseenter', () => cursor.style.transform = 'scale(4)');
-      link.addEventListener('mouseleave', () => cursor.style.transform = 'scale(1)');
-    });
+      document.querySelectorAll('.nav-link-forward').forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const destination = this.getAttribute('href');
+          page.classList.add('page-turn-exit-forward');
+          setTimeout(() => { window.location.href = destination; }, 550);
+        });
+      });
 
-    menuBtn.addEventListener('click', () => {
-        mobileNav.classList.toggle('active');
+      document.querySelectorAll('.nav-link-back').forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const destination = this.getAttribute('href');
+          page.classList.add('page-turn-exit-backwards');
+          setTimeout(() => { window.location.href = destination; }, 550);
+        });
+      });
     });
   </script>
 </body>
