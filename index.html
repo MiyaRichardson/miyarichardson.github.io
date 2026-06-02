@@ -2,126 +2,144 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Miya Richardson | UX Designer</title>
+  <title>Miya Richardson | Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
-      theme: { extend: { colors: { paper: "#F7F7FF", ink: "#0B1220", accent: "#3B5BFF" } } }
+      theme: {
+        extend: {
+          colors: { raspberry: "#C2185B", ink: "#111111", sketchgrey: "#777777", paper: "#FFFFFF", warmbg: "#F5F5F7" }
+        }
+      }
     }
   </script>
   <style>
-    :root { --display: "Space Grotesk", sans-serif; --body: "Plus Jakarta Sans", sans-serif; }
-    body { font-family: var(--body); background-color: #F7F7FF; color: #0B1220; overflow-x: hidden; cursor: none; }
-    .display { font-family: var(--display); letter-spacing: -0.04em; }
-    
-    header { width: 100%; height: 100px; padding: 0 5%; display: flex; justify-content: space-between; align-items: center; position: fixed; top: 0; z-index: 100; background: rgba(247, 247, 255, 0.8); backdrop-filter: blur(10px); }
-    
-    .glass-card { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(0,0,0,0.05); border-radius: 40px; transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1); text-align: left; }
-    .glass-card:hover { transform: translateY(-10px); border-color: #3B5BFF; box-shadow: 0 30px 60px rgba(59, 91, 255, 0.1); }
-    
-    #cursor { width: 20px; height: 20px; background: #3B5BFF; border-radius: 50%; position: fixed; pointer-events: none; z-index: 999; transition: transform 0.15s ease-out; mix-blend-mode: multiply; }
-    
-    /* Responsive hero text */
-    .hero-text { font-size: clamp(2.2rem, 6.5vw, 6rem); line-height: 1.1; font-weight: 700; }
-
-    /* Mobile Menu Styles */
-    #mobile-nav {
-      position: fixed; top: 0; right: 0; bottom: 0; left: 0;
-      background: #F7F7FF; z-index: 150;
-      display: none; flex-direction: column; align-items: center; justify-content: center;
+    body { font-family: 'Patrick Hand', cursive; background-color: #F5F5F7; color: #111111; font-size: 1.7rem; perspective: 1500px; }
+    .sketchbook-container { background-color: #F5F5F7; background-image: radial-gradient(rgba(0,0,0,0.03) 1px, transparent 0); background-size: 24px 24px; }
+    .paper-sheet {
+      background-color: #FFFFFF;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.015'/%3E%3C/svg%3E");
+      box-shadow: 0 20px 40px rgba(0,0,0,0.06), inset 0 0 40px rgba(0,0,0,0.02);
+      transform-origin: left center;
+      transition: transform 0.6s cubic-bezier(0.4, 0.0, 0.2, 1), opacity 0.5s ease;
     }
-    #mobile-nav.active { display: flex; }
-
-    @media (max-width: 768px) {
-        body { cursor: auto; }
-        #cursor { display: none; }
-    }
+    .page-turn-exit-forward { transform: rotateY(-140deg) scale(0.95); opacity: 0; }
+    .hand-box { border: 2px solid #111111; border-radius: 255px 15px 225px 15px/15px 225px 15px 255px; }
+    .typed-cursor { opacity: 1; animation: blink 0.7s infinite; color: #C2185B; font-weight: bold; }
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
   </style>
 </head>
-<body>
-  <div id="cursor"></div>
-  
-  <header>
-    <div class="text-left">
-      <p class="text-sm font-bold tracking-tighter uppercase">Miya Richardson</p>
-      <p class="text-[10px] opacity-70 uppercase tracking-widest">UX Designer</p>
-    </div>
+<body class="sketchbook-container min-h-screen flex items-center justify-center p-4 md:p-8 overflow-x-hidden">
+
+  <div class="w-full max-w-6xl flex relative">
     
-    <nav class="hidden md:flex space-x-12 text-[11px] font-bold uppercase tracking-widest">
-      <a href="index.html" class="text-accent">Home</a>
-      <a href="case-studies.html" class="opacity-50 hover:opacity-100 transition-opacity">Projects</a>
-      <a href="about.html" class="opacity-50 hover:opacity-100 transition-opacity">About</a>
-    </nav>
-
-    <button id="menu-btn" class="md:hidden flex flex-col space-y-1.5 z-[200]">
-        <span class="w-6 h-0.5 bg-ink"></span>
-        <span class="w-6 h-0.5 bg-ink"></span>
-        <span class="w-6 h-0.5 bg-ink"></span>
-    </button>
-  </header>
-
-  <div id="mobile-nav">
-    <nav class="flex flex-col space-y-8 text-center text-xl font-bold uppercase tracking-widest display">
-        <a href="index.html" class="text-accent">Home</a>
-        <a href="case-studies.html">Projects</a>
-        <a href="about.html">About</a>
-    </nav>
-  </div>
-
-  <main class="min-h-screen flex flex-col justify-center pt-20 px-[5%]">
-    <section class="max-w-6xl mx-auto text-center">
-      <p class="text-[10px] font-bold uppercase text-accent tracking-[0.4em] mb-10">Portfolio 2026</p>
+    <div id="notebook-page" class="paper-sheet w-full rounded-2xl p-6 md:p-12 min-h-[85vh] relative flex flex-col justify-between border border-black/5 mr-12 md:mr-16">
       
-      <h1 class="display hero-text mb-20">
-       I turn <span class="italic text-slate-300">deep user research</span> into <br class="hidden md:block">
-    <span class="text-accent underline decoration-4 underline-offset-8">meaningful</span> digital experiences.
-      </h1>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto pb-10">
-        <a href="nhs-gp-accessibility-redesign.html" class="glass-card p-10 block group">
-          <div class="flex justify-between items-start mb-12">
-            <span class="text-[9px] font-bold uppercase tracking-widest text-blue-600">Website Redesign</span>
-            <span class="text-2xl group-hover:translate-x-2 transition-transform">→</span>
-          </div>
-          <h2 class="display text-3xl font-bold mb-3">Accessibile Web App</h2>
-          <p class="text-slate-500 text-sm leading-relaxed">Web App for WCAG 2.2 compliance.</p>
-        </a>
-
-        <a href="student-support-finder.html" class="glass-card p-10 block group">
-          <div class="flex justify-between items-start mb-12">
-            <span class="text-[9px] font-bold uppercase tracking-widest text-purple-600">Service Design</span>
-            <span class="text-2xl group-hover:translate-x-2 transition-transform">→</span>
-          </div>
-          <h2 class="display text-3xl font-bold mb-3">Support Finder</h2>
-          <p class="text-slate-500 text-sm leading-relaxed">Simplifying mental health resource navigation for students.</p>
+      <div class="w-full flex justify-end items-center mb-6">
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="text-2xl font-bold hover:text-raspberry transition-colors flex items-center gap-1">
+          GitHub ↗
         </a>
       </div>
-    </section>
-  </main>
+
+      <div class="my-auto max-w-2xl w-full mx-auto space-y-6 text-center md:text-left">
+        <div class="space-y-2">
+          <p class="text-4xl font-bold text-ink">Hey, I'm Miya ✦</p>
+          <h1 class="text-5xl md:text-6xl font-bold text-raspberry leading-tight min-h-[140px] md:min-h-[120px]">
+            User Experience Designer & <br class="hidden md:block"/>
+            <span id="typing-text"></span><span class="typed-cursor">|</span>
+          </h1>
+        </div>
+        
+        <p class="text-3xl text-sketchgrey max-w-xl leading-relaxed">
+          Finding the core patterns in complex chaos, mapping intuitive journeys, and designing products that feel natural to use.
+        </p>
+
+        <div class="pt-4 flex flex-col sm:flex-row gap-6 justify-center md:justify-start">
+          <a href="projects.html" class="hand-box px-8 py-3 bg-raspberry text-white font-bold text-2xl text-center hover:bg-raspberry/90 transition-all inline-block shadow-sm nav-link">
+            View Case Studies ➔
+          </a>
+          <a href="about.html" class="hand-box px-8 py-3 bg-white text-ink border-2 border-ink font-bold text-2xl text-center hover:bg-warmbg transition-all inline-block nav-link">
+            About My Work
+          </a>
+        </div>
+      </div>
+
+      <div class="w-full flex justify-between items-end mt-12 pt-4 border-t border-dashed border-ink/10">
+        <p class="text-xl text-sketchgrey">UX Portfolio</p>
+        <p class="text-2xl text-sketchgrey font-bold">Page [ 01 ]</p>
+      </div>
+
+    </div>
+
+    <nav class="absolute right-0 top-12 h-[70vh] flex flex-col justify-start space-y-4 w-12 md:w-16 z-50 text-2xl font-bold">
+      <a href="index.html" class="bg-raspberry text-white py-4 text-center rounded-r-lg border border-l-0 border-black/10 shadow-sm [writing-mode:vertical-lr]">Home</a>
+      <a href="projects.html" class="bg-warmbg text-ink hover:text-raspberry py-4 text-center rounded-r-lg border border-l-0 border-black/10 shadow-sm transition-all [writing-mode:vertical-lr] nav-link">Projects</a>
+      <a href="about.html" class="bg-warmbg text-ink hover:text-raspberry py-4 text-center rounded-r-lg border border-l-0 border-black/10 shadow-sm transition-all [writing-mode:vertical-lr] nav-link">About</a>
+    </nav>
+
+  </div>
 
   <script>
-    const cursor = document.getElementById('cursor');
-    const menuBtn = document.getElementById('menu-btn');
-    const mobileNav = document.getElementById('mobile-nav');
+    window.addEventListener('DOMContentLoaded', () => {
+      const phrases = [
+        "Interaction Designer.",
+        "User Researcher.",
+        "Human Centred Problem Solver."
+      ];
+      
+      let currentPhraseIdx = 0;
+      let currentCharIdx = phrases[0].length;
+      let isDeleting = false;
+      const typingSpeed = 80;
+      const deletingSpeed = 40;
+      const pauseTime = 2000;
+      const textEl = document.getElementById('typing-text');
+      
+      textEl.textContent = phrases[0];
 
-    // Existing Cursor Logic
-    document.addEventListener('mousemove', e => { 
-      cursor.style.left = e.clientX + 'px'; 
-      cursor.style.top = e.clientY + 'px'; 
-    });
-    document.querySelectorAll('a').forEach(link => {
-      link.addEventListener('mouseenter', () => cursor.style.transform = 'scale(3)');
-      link.addEventListener('mouseleave', () => cursor.style.transform = 'scale(1)');
-    });
+      function typeCycle() {
+        const currentFullText = phrases[currentPhraseIdx];
+        
+        if (isDeleting) {
+          textEl.textContent = currentFullText.substring(0, currentCharIdx - 1);
+          currentCharIdx--;
+        } else {
+          textEl.textContent = currentFullText.substring(0, currentCharIdx + 1);
+          currentCharIdx++;
+        }
 
-    // Mobile Menu Toggle Logic
-    menuBtn.addEventListener('click', () => {
-        mobileNav.classList.toggle('active');
+        if (!isDeleting && currentCharIdx === currentFullText.length) {
+          isDeleting = true;
+          setTimeout(typeCycle, pauseTime);
+          return;
+        }
+
+        if (isDeleting && currentCharIdx === 0) {
+          isDeleting = false;
+          currentPhraseIdx = (currentPhraseIdx + 1) % phrases.length;
+          setTimeout(typeCycle, 300);
+          return;
+        }
+
+        setTimeout(typeCycle, isDeleting ? deletingSpeed : typingSpeed);
+      }
+
+      setTimeout(() => { isDeleting = true; typeCycle(); }, pauseTime);
+
+      const page = document.getElementById('notebook-page');
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const destination = this.getAttribute('href');
+          page.classList.add('page-turn-exit-forward');
+          setTimeout(() => { window.location.href = destination; }, 550);
+        });
+      });
     });
   </script>
 </body>
-</html>
+</html
