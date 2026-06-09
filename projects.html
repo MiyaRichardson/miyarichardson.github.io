@@ -1,77 +1,92 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
   <meta charset="UTF-8">
   <title>Projects | Miya Richardson</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
-          colors: { raspberry: "#C2185B", ink: "#111111", sketchgrey: "#777777", paper: "#FFFFFF", warmbg: "#F5F5F7" }
+          colors: { deepindigo: "#2E2A4F", slatepurple: "#5A5481", ink: "#16151A", sketchgrey: "#44464F", paper: "#FAF9F6", warmbg: "#EAE9E2" }
         }
       }
     }
   </script>
   <style>
-    body { font-family: 'Patrick Hand', cursive; background-color: #F5F5F7; color: #111111; font-size: 1.7rem; perspective: 1500px; }
-    .sketchbook-container { background-color: #F5F5F7; background-image: radial-gradient(rgba(0,0,0,0.03) 1px, transparent 0); background-size: 24px 24px; }
-    .paper-sheet {
-      background-color: #FFFFFF;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.015'/%3E%3C/svg%3E");
-      box-shadow: 0 20px 40px rgba(0,0,0,0.06), inset 0 0 40px rgba(0,0,0,0.02);
-      transform-origin: left center;
-      transition: transform 0.6s cubic-bezier(0.4, 0.0, 0.2, 1), opacity 0.5s ease;
+    body { font-family: 'Playfair Display', serif; background-color: #EAE9E2; color: #16151A; font-size: 1.25rem; perspective: 1500px; }
+    .ui-sans { font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+    .mono { font-family: 'Space Mono', monospace; font-size: 0.9rem; }
+    
+    .sketchbook-container { 
+      background-color: #EAE9E2; 
+      background-image: radial-gradient(rgba(46, 42, 79, 0.05) 1.5px, transparent 0); 
+      background-size: 24px 24px; 
     }
-    .page-turn-enter-forward { transform: rotateY(40deg) scale(0.95); opacity: 0; }
-    .page-turn-exit-forward { transform: rotateY(-140deg) scale(0.95); opacity: 0; }
-    .page-turn-exit-backwards { transform: rotateY(140deg) scale(0.95); opacity: 0; }
-    .hand-box { border: 2px solid #111111; border-radius: 255px 15px 225px 15px/15px 225px 15px 255px; }
+    
+    .paper-sheet {
+      background-color: #FAF9F6;
+      background-image: 
+        linear-gradient(to right, rgba(46, 42, 79, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(46, 42, 79, 0.03) 1px, transparent 1px);
+      background-size: 24px 24px;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.08), inset 0 0 40px rgba(0,0,0,0.01);
+      transform-origin: left center;
+      transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease;
+    }
+
+    .page-turn-enter-forward { transform: rotateY(40deg) scale(0.98); opacity: 0; }
+    .page-turn-exit-forward { transform: rotateY(-140deg) scale(0.98); opacity: 0; }
+    .page-turn-exit-backwards { transform: rotateY(140deg) scale(0.98); opacity: 0; }
+    
+    /* Tactile pop out hover effects */
+    .design-box { border: 1px solid #16151A; background-color: #FAF9F6; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+    .design-box:hover { transform: translateY(-8px) scale(1.02); border-color: #2E2A4F; box-shadow: 12px 12px 0px rgba(46, 42, 79, 0.12); }
   </style>
 </head>
 <body class="sketchbook-container min-h-screen flex items-center justify-center p-4 md:p-8 overflow-x-hidden">
 
   <div class="w-full max-w-6xl flex relative">
     
-    <div id="notebook-page" class="paper-sheet page-turn-enter-forward w-full rounded-2xl p-6 md:p-12 min-h-[85vh] relative flex flex-col justify-between border border-black/5 mr-12 md:mr-16">
+    <div id="notebook-page" class="paper-sheet page-turn-enter-forward w-full rounded-xl p-8 md:p-16 min-h-[80vh] relative flex flex-col justify-between border border-black/[0.02] mr-12 md:mr-16 overflow-hidden">
       
       <div class="w-full mb-6">
-        <span class="text-raspberry font-bold text-3xl tracking-wider">✎ Case Studies</span>
+        <span class="mono text-xs uppercase tracking-widest text-deepindigo font-bold">// Case Studies</span>
       </div>
 
-      <div class="my-auto max-w-4xl w-full mx-auto space-y-12">
-        <div class="border-b border-dashed border-ink/10 pb-4">
-          <h1 class="text-5xl font-bold text-ink rotate-[-0.5deg]">UX Projects</h1>
+      <div class="my-auto max-w-5xl w-full mx-auto space-y-12">
+        <div class="border-b border-solid border-black/5 pb-4">
+          <h1 class="text-4xl md:text-5xl font-normal text-ink">Selected UX Work</h1>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           
-          <div class="hand-box p-6 bg-white space-y-4 hover:shadow-md transition-shadow relative group">
-            <span class="text-sm font-bold uppercase tracking-wider text-raspberry">Featured Mobile Concept</span>
-            <h2 class="text-3xl font-bold text-ink">CollectCare Application</h2>
-            <p class="text-sketchgrey text-xl leading-relaxed">
-              Redesigning prescription collection loops to establish predictable, completely queue free pickups through clear language and slot reservation.
+          <div class="design-box p-8 space-y-4 relative group">
+            <span class="mono text-xs font-bold uppercase tracking-wider text-slatepurple">// Featured Mobile Concept</span>
+            <h2 class="text-3xl font-normal text-ink">CollectCare Application</h2>
+            <p class="ui-sans text-base text-sketchgrey leading-relaxed">
+              Redesigning pharmacy collection journeys to establish predictable, queue free pickups through straightforward messaging and slot booking systems.
             </p>
-            <div class="pt-2">
-              <a href="case-study-collectcare.html" class="text-raspberry font-bold inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform nav-link-forward">
-                View Full Case Study ➔
+            <div class="pt-4">
+              <a href="case-study-collectcare.html" class="mono text-xs font-bold uppercase text-deepindigo inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform nav-link-forward">
+                View Case Study ➔
               </a>
             </div>
           </div>
 
-          <div class="hand-box p-6 bg-white space-y-4 hover:shadow-md transition-shadow relative group">
-            <span class="text-sm font-bold uppercase tracking-wider text-raspberry">Web UI Systems</span>
-            <h2 class="text-3xl font-bold text-ink">Accessible Health & Nutrition</h2>
-            <p class="text-sketchgrey text-xl leading-relaxed">
-              Developing strict WCAG 2.2 compliant frameworks to assist visually, cognitively, physically, and audibly impaired cooks navigate recipes independently.
+          <div class="design-box p-8 space-y-4 relative group">
+            <span class="mono text-xs font-bold uppercase tracking-wider text-slatepurple">// Web UI Systems</span>
+            <h2 class="text-3xl font-normal text-ink">Accessible Health Platform</h2>
+            <p class="ui-sans text-base text-sketchgrey leading-relaxed">
+              Developing digital frameworks to help visually, cognitively, and physically impaired home cooks navigate intricate preparation guides completely independently.
             </p>
-            <div class="pt-2">
-              <a href="case-study-accessibility.html" class="text-raspberry font-bold inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform nav-link-forward">
-                View Full Case Study ➔
+            <div class="pt-4">
+              <a href="case-study-accessibility.html" class="mono text-xs font-bold uppercase text-deepindigo inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                View Case Study ➔
               </a>
             </div>
           </div>
@@ -79,17 +94,17 @@
         </div>
       </div>
 
-      <div class="w-full flex justify-between items-end mt-12 pt-4 border-t border-dashed border-ink/10">
-        <p class="text-xl text-sketchgrey">UX Portfolio</p>
-        <p class="text-2xl text-sketchgrey font-bold">Page [ 02 ]</p>
+      <div class="w-full flex justify-between items-end mt-16 pt-4 border-t border-solid border-black/5 mono text-xs uppercase tracking-widest text-sketchgrey">
+        <p>UX Portfolio</p>
+        <p>02 // Document Index</p>
       </div>
 
     </div>
 
-    <nav class="absolute right-0 top-12 h-[70vh] flex flex-col justify-start space-y-4 w-12 md:w-16 z-50 text-2xl font-bold">
-      <a href="index.html" class="bg-warmbg text-ink hover:text-raspberry py-4 text-center rounded-r-lg border border-l-0 border-black/10 shadow-sm transition-all [writing-mode:vertical-lr] nav-link-back">Home</a>
-      <a href="projects.html" class="bg-raspberry text-white py-4 text-center rounded-r-lg border border-l-0 border-black/10 shadow-sm [writing-mode:vertical-lr]">Projects</a>
-      <a href="about.html" class="bg-warmbg text-ink hover:text-raspberry py-4 text-center rounded-r-lg border border-l-0 border-black/10 shadow-sm transition-all [writing-mode:vertical-lr] nav-link-forward">About</a>
+    <nav class="absolute right-0 top-16 h-[60vh] flex flex-col justify-start space-y-2 w-12 md:w-16 z-50 mono text-xs uppercase tracking-widest">
+      <a href="index.html" class="bg-paper text-ink hover:text-deepindigo py-6 text-center rounded-r border border-l-0 border-black/5 shadow-sm transition-all [writing-mode:vertical-lr] nav-link-back">Home</a>
+      <a href="projects.html" class="bg-deepindigo text-paper py-6 text-center rounded-r border-l-0 border-black/5 shadow-sm [writing-mode:vertical-lr]">Projects</a>
+      <a href="about.html" class="bg-paper text-ink hover:text-deepindigo py-6 text-center rounded-r border border-l-0 border-black/5 shadow-sm transition-all [writing-mode:vertical-lr] nav-link-forward">About</a>
     </nav>
 
   </div>
