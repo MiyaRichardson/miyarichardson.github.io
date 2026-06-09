@@ -1,145 +1,220 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
   <meta charset="UTF-8">
   <title>Miya Richardson | Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
-          colors: { raspberry: "#C2185B", ink: "#111111", sketchgrey: "#777777", paper: "#FFFFFF", warmbg: "#F5F5F7" }
+          colors: { deepindigo: "#2E2A4F", slatepurple: "#5A5481", ink: "#16151A", sketchgrey: "#44464F", paper: "#FAF9F6", warmbg: "#EAE9E2" }
         }
       }
     }
   </script>
   <style>
-    body { font-family: 'Patrick Hand', cursive; background-color: #F5F5F7; color: #111111; font-size: 1.7rem; perspective: 1500px; }
-    .sketchbook-container { background-color: #F5F5F7; background-image: radial-gradient(rgba(0,0,0,0.03) 1px, transparent 0); background-size: 24px 24px; }
-    .paper-sheet {
-      background-color: #FFFFFF;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.015'/%3E%3C/svg%3E");
-      box-shadow: 0 20px 40px rgba(0,0,0,0.06), inset 0 0 40px rgba(0,0,0,0.02);
-      transform-origin: left center;
-      transition: transform 0.6s cubic-bezier(0.4, 0.0, 0.2, 1), opacity 0.5s ease;
+    body { font-family: 'Playfair Display', serif; background-color: #EAE9E2; color: #16151A; font-size: 1.25rem; perspective: 1500px; }
+    .ui-sans { font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+    .mono { font-family: 'Space Mono', monospace; font-size: 0.9rem; }
+    
+    .sketchbook-container { 
+      background-color: #EAE9E2; 
+      background-image: radial-gradient(rgba(46, 42, 79, 0.05) 1.5px, transparent 0); 
+      background-size: 24px 24px; 
     }
-    .page-turn-exit-forward { transform: rotateY(-140deg) scale(0.95); opacity: 0; }
-    .hand-box { border: 2px solid #111111; border-radius: 255px 15px 225px 15px/15px 225px 15px 255px; }
-    .typed-cursor { opacity: 1; animation: blink 0.7s infinite; color: #C2185B; font-weight: bold; }
-    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    
+    .paper-sheet {
+      background-color: #FAF9F6;
+      background-image: 
+        linear-gradient(to right, rgba(46, 42, 79, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(46, 42, 79, 0.03) 1px, transparent 1px);
+      background-size: 24px 24px;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.08), inset 0 0 40px rgba(0,0,0,0.01);
+      transform-origin: left center;
+      transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease;
+    }
+
+    .page-turn-exit-forward { transform: rotateY(-140deg) scale(0.98); opacity: 0; }
+    
+    .design-box { border: 1px solid #16151A; background-color: #FAF9F6; transition: all 0.3s ease; }
+    .design-box:hover { border-color: #2E2A4F; box-shadow: 4px 4px 0px rgba(46, 42, 79, 0.15); }
+    
+    /* Clean CSS typewriter reveal loop replacing the messy background block gradients */
+    .typewrite-text {
+      border-right: 2px solid #2E2A4F;
+      white-space: nowrap;
+      animation: blinkCursor 0.8s step-end infinite;
+    }
+    @keyframes blinkCursor { from, to { border-color: transparent } 50% { border-color: #2E2A4F; } }
+
+    .tape-strip {
+      background-color: rgba(46, 42, 79, 0.08);
+      backdrop-filter: blur(0.5px);
+    }
+
+    #alignment-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 10;
+    }
   </style>
 </head>
 <body class="sketchbook-container min-h-screen flex items-center justify-center p-4 md:p-8 overflow-x-hidden">
 
   <div class="w-full max-w-6xl flex relative">
     
-    <div id="notebook-page" class="paper-sheet w-full rounded-2xl p-6 md:p-12 min-h-[85vh] relative flex flex-col justify-between border border-black/5 mr-12 md:mr-16">
+    <div id="notebook-page" class="paper-sheet w-full rounded-xl p-8 md:p-16 min-h-[80vh] relative flex flex-col justify-between border border-black/[0.02] mr-12 md:mr-16 overflow-hidden">
       
-      <div class="w-full flex justify-end items-center mb-6">
-        <a href="https://github.com/MiyaRichardson" target="_blank" rel="noopener noreferrer" class="text-2xl font-bold hover:text-raspberry transition-colors flex items-center gap-1">
+      <canvas id="alignment-canvas"></canvas>
+
+      <div class="w-full flex justify-between items-start mb-12 z-20">
+        <div class="bg-paper border border-black/10 px-4 py-2 rotate-[-0.5deg] relative text-xs uppercase tracking-widest mono text-ink">
+          <div class="tape-strip absolute -top-2 left-6 w-12 h-4"></div>
+          Folio Index // 2026
+        </div>
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="mono text-sm uppercase tracking-widest hover:text-deepindigo transition-colors flex items-center gap-1">
           GitHub ↗
         </a>
       </div>
 
-      <div class="my-auto max-w-2xl w-full mx-auto space-y-6 text-center md:text-left">
-        <div class="space-y-2">
-          <p class="text-4xl font-bold text-ink">Hey, I'm Miya ✦</p>
-          <h1 class="text-5xl md:text-6xl font-bold text-raspberry leading-tight min-h-[140px] md:min-h-[120px]">
-            User Experience Designer & <br class="hidden md:block"/>
-            <span id="typing-text"></span><span class="typed-cursor">|</span>
+      <div class="my-auto max-w-4xl w-full mx-auto space-y-8 text-left z-20">
+        <div class="space-y-4">
+          <p class="mono text-xs uppercase tracking-widest text-slatepurple font-bold">// Systems &amp; Digital Interaction</p>
+          <h1 class="text-4xl md:text-6xl font-normal text-ink leading-tight flex flex-wrap items-center gap-x-3">
+            <span>Hey, I'm Miya. User Experience Designer focused on</span>
+            <span id="type-target" class="italic text-deepindigo typewrite-text font-serif">User Research.</span>
           </h1>
         </div>
         
-        <p class="text-3xl text-sketchgrey max-w-xl leading-relaxed">
-          Finding the core patterns in complex chaos, mapping intuitive journeys, and designing products that feel natural to use.
+        <p class="ui-sans text-xl text-sketchgrey max-w-2xl font-normal leading-relaxed">
+          Finding the core patterns in complex chaos, mapping intuitive journeys, and designing digital products that feel entirely natural to use.
         </p>
 
-        <div class="pt-4 flex flex-col sm:flex-row gap-6 justify-center md:justify-start">
-          <a href="projects.html" class="hand-box px-8 py-3 bg-raspberry text-white font-bold text-2xl text-center hover:bg-raspberry/90 transition-all inline-block shadow-sm nav-link">
-            View Case Studies ➔
+        <div class="pt-6 flex flex-col sm:flex-row gap-4 justify-start">
+          <a href="projects.html" class="mono px-8 py-4 bg-deepindigo text-paper text-center hover:bg-slatepurple transition-all inline-block shadow-sm tracking-widest uppercase text-xs nav-link">
+            Explore Case Studies →
           </a>
-          <a href="about.html" class="hand-box px-8 py-3 bg-white text-ink border-2 border-ink font-bold text-2xl text-center hover:bg-warmbg transition-all inline-block nav-link">
-            About My Work
+          <a href="about.html" class="mono px-8 py-4 border border-ink text-ink text-center hover:bg-black/[0.02] transition-all inline-block tracking-widest uppercase text-xs nav-link">
+            Read About Me
           </a>
         </div>
       </div>
 
-      <div class="w-full flex justify-between items-end mt-12 pt-4 border-t border-dashed border-ink/10">
-        <p class="text-xl text-sketchgrey">UX Portfolio</p>
-        <p class="text-2xl text-sketchgrey font-bold">Page [ 01 ]</p>
+      <div class="w-full flex justify-between items-end mt-16 pt-4 border-t border-solid border-black/5 mono text-xs uppercase tracking-widest text-sketchgrey z-20">
+        <p>Miya Richardson</p>
+        <p>01</p>
       </div>
 
     </div>
 
-    <nav class="absolute right-0 top-12 h-[70vh] flex flex-col justify-start space-y-4 w-12 md:w-16 z-50 text-2xl font-bold">
-      <a href="index.html" class="bg-raspberry text-white py-4 text-center rounded-r-lg border border-l-0 border-black/10 shadow-sm [writing-mode:vertical-lr]">Home</a>
-      <a href="projects.html" class="bg-warmbg text-ink hover:text-raspberry py-4 text-center rounded-r-lg border border-l-0 border-black/10 shadow-sm transition-all [writing-mode:vertical-lr] nav-link">Projects</a>
-      <a href="about.html" class="bg-warmbg text-ink hover:text-raspberry py-4 text-center rounded-r-lg border border-l-0 border-black/10 shadow-sm transition-all [writing-mode:vertical-lr] nav-link">About</a>
+    <nav class="absolute right-0 top-16 h-[60vh] flex flex-col justify-start space-y-2 w-12 md:w-16 z-50 mono text-xs uppercase tracking-widest">
+      <a href="index.html" class="bg-deepindigo text-paper py-6 text-center rounded-r border-l-0 border-black/5 shadow-sm [writing-mode:vertical-lr]">Home</a>
+      <a href="projects.html" class="bg-paper text-ink hover:text-deepindigo py-6 text-center rounded-r border border-l-0 border-black/5 shadow-sm transition-all [writing-mode:vertical-lr] nav-link">Projects</a>
+      <a href="about.html" class="bg-paper text-ink hover:text-deepindigo py-6 text-center rounded-r border border-l-0 border-black/5 shadow-sm transition-all [writing-mode:vertical-lr] nav-link">About</a>
     </nav>
 
   </div>
 
   <script>
     window.addEventListener('DOMContentLoaded', () => {
-      const phrases = [
-        "Interaction Designer.",
-        "User Researcher.",
-        "Human Centred Problem Solver."
-      ];
-      
-      let currentPhraseIdx = 0;
-      let currentCharIdx = phrases[0].length;
-      let isDeleting = false;
-      const typingSpeed = 80;
-      const deletingSpeed = 40;
-      const pauseTime = 2000;
-      const textEl = document.getElementById('typing-text');
-      
-      textEl.textContent = phrases[0];
+      // Clean text array type cycle loop
+      const target = document.getElementById('type-target');
+      const words = ["User Research.", "User-Centred Desgin.", "User Interaction."];
+      let wordIdx = 0;
+      let charIdx = words[0].length;
+      let deleting = true;
 
-      function typeCycle() {
-        const currentFullText = phrases[currentPhraseIdx];
-        
-        if (isDeleting) {
-          textEl.textContent = currentFullText.substring(0, currentCharIdx - 1);
-          currentCharIdx--;
+      function loop() {
+        const full = words[wordIdx];
+        if (deleting) {
+          target.textContent = full.substring(0, charIdx - 1);
+          charIdx--;
         } else {
-          textEl.textContent = currentFullText.substring(0, currentCharIdx + 1);
-          currentCharIdx++;
+          target.textContent = full.substring(0, charIdx + 1);
+          charIdx++;
         }
 
-        if (!isDeleting && currentCharIdx === currentFullText.length) {
-          isDeleting = true;
-          setTimeout(typeCycle, pauseTime);
+        if (!deleting && charIdx === full.length) {
+          deleting = true;
+          setTimeout(loop, 2000);
           return;
         }
-
-        if (isDeleting && currentCharIdx === 0) {
-          isDeleting = false;
-          currentPhraseIdx = (currentPhraseIdx + 1) % phrases.length;
-          setTimeout(typeCycle, 300);
+        if (deleting && charIdx === 0) {
+          deleting = false;
+          wordIdx = (wordIdx + 1) % words.length;
+          setTimeout(loop, 300);
           return;
         }
-
-        setTimeout(typeCycle, isDeleting ? deletingSpeed : typingSpeed);
+        setTimeout(loop, deleting ? 40 : 80);
       }
+      setTimeout(loop, 2000);
 
-      setTimeout(() => { isDeleting = true; typeCycle(); }, pauseTime);
+      // Purposeful Interaction: Alignment / Component Grid Scanner lines
+      const canvas = document.getElementById('alignment-canvas');
+      const ctx = canvas.getContext('2d');
+      const container = document.getElementById('notebook-page');
+      let mouseX = -100;
+      let mouseY = -100;
+      let active = false;
 
-      const page = document.getElementById('notebook-page');
+      function resize() {
+        canvas.width = container.offsetWidth;
+        canvas.height = container.offsetHeight;
+      }
+      resize();
+      window.addEventListener('resize', resize);
+
+      container.addEventListener('mousemove', (e) => {
+        const rect = container.getBoundingClientRect();
+        mouseX = e.clientX - rect.left;
+        mouseY = e.clientY - rect.top;
+        active = true;
+      });
+
+      container.addEventListener('mouseleave', () => { active = false; });
+
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        if (active) {
+          ctx.strokeStyle = 'rgba(46, 42, 79, 0.08)';
+          ctx.lineWidth = 1;
+          ctx.setLineDash([4, 4]);
+          
+          // Horizontal blueprint line crossing the workspace
+          ctx.beginPath();
+          ctx.moveTo(0, mouseY);
+          ctx.lineTo(canvas.width, mouseY);
+          ctx.stroke();
+
+          // Vertical blueprint line crossing the workspace
+          ctx.beginPath();
+          ctx.moveTo(mouseX, 0);
+          ctx.lineTo(mouseX, canvas.height);
+          ctx.stroke();
+          ctx.setLineDash([]);
+        }
+        requestAnimationFrame(draw);
+      }
+      draw();
+
       document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', function(e) {
           e.preventDefault();
-          const destination = this.getAttribute('href');
-          page.classList.add('page-turn-exit-forward');
-          setTimeout(() => { window.location.href = destination; }, 550);
+          const dest = this.getAttribute('href');
+          container.classList.add('page-turn-exit-forward');
+          setTimeout(() => { window.location.href = dest; }, 550);
         });
       });
     });
   </script>
 </body>
-</html
+</html>
