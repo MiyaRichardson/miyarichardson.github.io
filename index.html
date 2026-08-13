@@ -1,220 +1,274 @@
 <!DOCTYPE html>
 <html lang="en-GB">
+
 <head>
   <meta charset="UTF-8">
-  <title>Miya Richardson | Portfolio</title>
+  <title>Miya Richardson | UX Designer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: { deepindigo: "#2E2A4F", slatepurple: "#5A5481", ink: "#16151A", sketchgrey: "#44464F", paper: "#FAF9F6", warmbg: "#EAE9E2" }
-        }
-      }
-    }
-  </script>
-  <style>
-    body { font-family: 'Playfair Display', serif; background-color: #EAE9E2; color: #16151A; font-size: 1.25rem; perspective: 1500px; }
-    .ui-sans { font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
-    .mono { font-family: 'Space Mono', monospace; font-size: 0.9rem; }
-    
-    .sketchbook-container { 
-      background-color: #EAE9E2; 
-      background-image: radial-gradient(rgba(46, 42, 79, 0.05) 1.5px, transparent 0); 
-      background-size: 24px 24px; 
-    }
-    
-    .paper-sheet {
-      background-color: #FAF9F6;
-      background-image: 
-        linear-gradient(to right, rgba(46, 42, 79, 0.03) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(46, 42, 79, 0.03) 1px, transparent 1px);
-      background-size: 24px 24px;
-      box-shadow: 0 30px 60px rgba(0,0,0,0.08), inset 0 0 40px rgba(0,0,0,0.01);
-      transform-origin: left center;
-      transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease;
-    }
 
-    .page-turn-exit-forward { transform: rotateY(-140deg) scale(0.98); opacity: 0; }
-    
-    .design-box { border: 1px solid #16151A; background-color: #FAF9F6; transition: all 0.3s ease; }
-    .design-box:hover { border-color: #2E2A4F; box-shadow: 4px 4px 0px rgba(46, 42, 79, 0.15); }
-    
-    /* Clean CSS typewriter reveal loop replacing the messy background block gradients */
-    .typewrite-text {
-      border-right: 2px solid #2E2A4F;
-      white-space: nowrap;
-      animation: blinkCursor 0.8s step-end infinite;
-    }
-    @keyframes blinkCursor { from, to { border-color: transparent } 50% { border-color: #2E2A4F; } }
+  <meta
+    name="description"
+    content="Miya Richardson — User Experience Designer focused on user research, user-centred design and interaction."
+  >
 
-    .tape-strip {
-      background-color: rgba(46, 42, 79, 0.08);
-      backdrop-filter: blur(0.5px);
-    }
-
-    #alignment-canvas {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 10;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body class="sketchbook-container min-h-screen flex items-center justify-center p-4 md:p-8 overflow-x-hidden">
 
-  <div class="w-full max-w-6xl flex relative">
-    
-    <div id="notebook-page" class="paper-sheet w-full rounded-xl p-8 md:p-16 min-h-[80vh] relative flex flex-col justify-between border border-black/[0.02] mr-12 md:mr-16 overflow-hidden">
-      
-      <canvas id="alignment-canvas"></canvas>
+<body>
 
-      <div class="w-full flex justify-between items-start mb-12 z-20">
-        <div class="bg-paper border border-black/10 px-4 py-2 rotate-[-0.5deg] relative text-xs uppercase tracking-widest mono text-ink">
-          <div class="tape-strip absolute -top-2 left-6 w-12 h-4"></div>
-          Portfolio // 2026
-        </div>
-        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="mono text-sm uppercase tracking-widest hover:text-deepindigo transition-colors flex items-center gap-1">
-          GitHub ↗
-        </a>
-      </div>
+<header class="site-header">
+  <div class="container site-nav">
 
-      <div class="my-auto max-w-4xl w-full mx-auto space-y-8 text-left z-20">
-        <div class="space-y-4">
-          <p class="mono text-xs uppercase tracking-widest text-slatepurple font-bold">// Systems &amp; Digital Interaction</p>
-          <h1 class="text-4xl md:text-6xl font-normal text-ink leading-tight flex flex-wrap items-center gap-x-3">
-            <span>Hey, I'm Miya. User Experience Designer focused on</span>
-            <span id="type-target" class="italic text-deepindigo typewrite-text font-serif">User Research.</span>
-          </h1>
-        </div>
-        
-        <p class="ui-sans text-xl text-sketchgrey max-w-2xl font-normal leading-relaxed">
-          Finding the core patterns in complex chaos, mapping intuitive journeys, and designing digital products that feel entirely natural to use.
+    <a href="index.html" class="logo">
+      Miya Richardson<span>.</span>
+    </a>
+
+    <nav class="nav-links">
+      <a href="#work" class="nav-link">Work</a>
+      <a href="about.html" class="nav-link">About</a>
+
+      <a
+        href="https://github.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="nav-link"
+      >
+        GitHub ↗
+      </a>
+    </nav>
+
+  </div>
+</header>
+
+
+<main>
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="container">
+
+      <p class="eyebrow">
+        UX Designer · Research · Interaction
+      </p>
+
+      <h1>
+        Hey, I'm Miya.
+        <span class="soft">
+          User Experience Designer focused on
+        </span>
+        User Research.
+      </h1>
+
+      <div class="hero-bottom">
+
+        <p class="hero-description">
+          Finding the core patterns in complex chaos, mapping intuitive
+          journeys, and designing digital products that feel entirely
+          natural to use.
         </p>
 
-        <div class="pt-6 flex flex-col sm:flex-row gap-4 justify-start">
-          <a href="projects.html" class="mono px-8 py-4 bg-deepindigo text-paper text-center hover:bg-slatepurple transition-all inline-block shadow-sm tracking-widest uppercase text-xs nav-link">
-            Explore Case Studies →
-          </a>
-          <a href="about.html" class="mono px-8 py-4 border border-ink text-ink text-center hover:bg-black/[0.02] transition-all inline-block tracking-widest uppercase text-xs nav-link">
-            Read About Me
-          </a>
-        </div>
-      </div>
+        <a href="#work" class="text-arrow">
+          Explore my work
+          <span class="circle-arrow">↓</span>
+        </a>
 
-      <div class="w-full flex justify-between items-end mt-16 pt-4 border-t border-solid border-black/5 mono text-xs uppercase tracking-widest text-sketchgrey z-20">
-        <p>Miya Richardson</p>
-        <p>01</p>
       </div>
 
     </div>
 
-    <nav class="absolute right-0 top-16 h-[60vh] flex flex-col justify-start space-y-2 w-12 md:w-16 z-50 mono text-xs uppercase tracking-widest">
-      <a href="index.html" class="bg-deepindigo text-paper py-6 text-center rounded-r border-l-0 border-black/5 shadow-sm [writing-mode:vertical-lr]">Home</a>
-      <a href="projects.html" class="bg-paper text-ink hover:text-deepindigo py-6 text-center rounded-r border border-l-0 border-black/5 shadow-sm transition-all [writing-mode:vertical-lr] nav-link">Projects</a>
-      <a href="about.html" class="bg-paper text-ink hover:text-deepindigo py-6 text-center rounded-r border border-l-0 border-black/5 shadow-sm transition-all [writing-mode:vertical-lr] nav-link">About</a>
-    </nav>
+  </section>
+
+
+  <!-- WORK -->
+
+  <section id="work" class="section">
+
+    <div class="container">
+
+      <div class="projects-heading">
+
+        <div>
+          <p class="eyebrow">Selected work</p>
+          <h2>Projects</h2>
+        </div>
+
+        <span class="muted">
+          02 case studies
+        </span>
+
+      </div>
+
+
+      <!-- COLLECTCARE -->
+
+      <a
+        href="case-study-collectcare.html"
+        class="project"
+      >
+
+        <div class="project-number">
+          01
+        </div>
+
+        <div>
+
+          <p class="project-category">
+            Featured Mobile Concept
+          </p>
+
+          <h3>
+            CollectCare Application
+          </h3>
+
+          <p class="project-description">
+            Redesigning pharmacy collection journeys to establish
+            predictable, queue free pickups through straightforward
+            messaging and slot booking systems.
+          </p>
+
+          <div class="project-image">
+            <img
+              src="assets/images/collectcare-final.png"
+              alt="CollectCare final interface designs"
+            >
+          </div>
+
+        </div>
+
+        <div class="project-arrow">
+          ↗
+        </div>
+
+      </a>
+
+
+      <!-- ACCESSIBILITY -->
+
+      <a
+        href="case-study-accessibility.html"
+        class="project"
+      >
+
+        <div class="project-number">
+          02
+        </div>
+
+        <div>
+
+          <p class="project-category">
+            Web UI Systems
+          </p>
+
+          <h3>
+            Accessible Health Platform
+          </h3>
+
+          <p class="project-description">
+            Developing digital frameworks to help visually, cognitively,
+            and physically impaired home cooks navigate intricate
+            preparation guides completely independently.
+          </p>
+
+          <div class="project-image">
+            <img
+              src="assets/images/placeholder-finalscreens.png"
+              alt="Accessible Health Platform final screens"
+            >
+          </div>
+
+        </div>
+
+        <div class="project-arrow">
+          ↗
+        </div>
+
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- ABOUT PREVIEW -->
+
+  <section class="about-preview section-border">
+
+    <div class="container">
+
+      <div class="about-grid">
+
+        <div>
+          <p class="eyebrow">
+            About me
+          </p>
+        </div>
+
+        <div>
+
+          <h2>
+            I build digital products from the ground up,
+            focusing on usability over decoration.
+          </h2>
+
+          <p>
+            By structuring clear navigation systems and mapping journeys
+            to real user mental models, I design interfaces that feel
+            natural and intuitive to navigate.
+          </p>
+
+          <a
+            href="about.html"
+            class="text-arrow"
+          >
+            More about me
+            <span style="color: var(--accent)">→</span>
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <div class="container footer-inner">
+
+    <p>
+      © 2026 Miya Richardson
+    </p>
+
+    <div class="footer-links">
+
+      <a href="#work" class="nav-link">
+        Work
+      </a>
+
+      <a href="about.html" class="nav-link">
+        About
+      </a>
+
+      <a
+        href="https://github.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="nav-link"
+      >
+        GitHub ↗
+      </a>
+
+    </div>
 
   </div>
 
-  <script>
-    window.addEventListener('DOMContentLoaded', () => {
-      // Clean text array type cycle loop
-      const target = document.getElementById('type-target');
-      const words = ["User Research.", "User-Centred Desgin.", "User Interaction."];
-      let wordIdx = 0;
-      let charIdx = words[0].length;
-      let deleting = true;
+</footer>
 
-      function loop() {
-        const full = words[wordIdx];
-        if (deleting) {
-          target.textContent = full.substring(0, charIdx - 1);
-          charIdx--;
-        } else {
-          target.textContent = full.substring(0, charIdx + 1);
-          charIdx++;
-        }
-
-        if (!deleting && charIdx === full.length) {
-          deleting = true;
-          setTimeout(loop, 2000);
-          return;
-        }
-        if (deleting && charIdx === 0) {
-          deleting = false;
-          wordIdx = (wordIdx + 1) % words.length;
-          setTimeout(loop, 300);
-          return;
-        }
-        setTimeout(loop, deleting ? 40 : 80);
-      }
-      setTimeout(loop, 2000);
-
-      // Purposeful Interaction: Alignment / Component Grid Scanner lines
-      const canvas = document.getElementById('alignment-canvas');
-      const ctx = canvas.getContext('2d');
-      const container = document.getElementById('notebook-page');
-      let mouseX = -100;
-      let mouseY = -100;
-      let active = false;
-
-      function resize() {
-        canvas.width = container.offsetWidth;
-        canvas.height = container.offsetHeight;
-      }
-      resize();
-      window.addEventListener('resize', resize);
-
-      container.addEventListener('mousemove', (e) => {
-        const rect = container.getBoundingClientRect();
-        mouseX = e.clientX - rect.left;
-        mouseY = e.clientY - rect.top;
-        active = true;
-      });
-
-      container.addEventListener('mouseleave', () => { active = false; });
-
-      function draw() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        if (active) {
-          ctx.strokeStyle = 'rgba(46, 42, 79, 0.08)';
-          ctx.lineWidth = 1;
-          ctx.setLineDash([4, 4]);
-          
-          // Horizontal blueprint line crossing the workspace
-          ctx.beginPath();
-          ctx.moveTo(0, mouseY);
-          ctx.lineTo(canvas.width, mouseY);
-          ctx.stroke();
-
-          // Vertical blueprint line crossing the workspace
-          ctx.beginPath();
-          ctx.moveTo(mouseX, 0);
-          ctx.lineTo(mouseX, canvas.height);
-          ctx.stroke();
-          ctx.setLineDash([]);
-        }
-        requestAnimationFrame(draw);
-      }
-      draw();
-
-      document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', function(e) {
-          e.preventDefault();
-          const dest = this.getAttribute('href');
-          container.classList.add('page-turn-exit-forward');
-          setTimeout(() => { window.location.href = dest; }, 550);
-        });
-      });
-    });
-  </script>
 </body>
 </html>
