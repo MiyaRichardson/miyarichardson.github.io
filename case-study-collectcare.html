@@ -1,344 +1,685 @@
 <!DOCTYPE html>
 <html lang="en-GB">
+
 <head>
   <meta charset="UTF-8">
   <title>CollectCare Case Study | Miya Richardson</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: { deepindigo: "#2E2A4F", slatepurple: "#5A5481", ink: "#16151A", sketchgrey: "#44464F", paper: "#FAF9F6", warmbg: "#EAE9E2" }
-        }
-      }
-    }
-  </script>
-  <style>
-    body { font-family: 'Playfair Display', serif; background-color: #EAE9E2; color: #16151A; font-size: 1.25rem; perspective: 1500px; }
-    .ui-sans { font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
-    .mono { font-family: 'Space Mono', monospace; font-size: 0.9rem; }
-    
-    .sketchbook-container { 
-      background-color: #EAE9E2; 
-      background-image: radial-gradient(rgba(46, 42, 79, 0.05) 1.5px, transparent 0); 
-      background-size: 24px 24px; 
-    }
-    
-    .paper-sheet {
-      background-color: #FAF9F6;
-      background-image: 
-        linear-gradient(to right, rgba(46, 42, 79, 0.03) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(46, 42, 79, 0.03) 1px, transparent 1px);
-      background-size: 24px 24px;
-      box-shadow: 0 30px 60px rgba(0,0,0,0.08), inset 0 0 40px rgba(0,0,0,0.01);
-      transform-origin: left center;
-      transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease;
-    }
 
-    .page-turn-enter-forward { transform: rotateY(40deg) scale(0.95); opacity: 0; }
-    .page-turn-exit-backwards { transform: rotateY(140deg) scale(0.95); opacity: 0; }
-    
-    .design-box { border: 1px solid #16151A; background-color: #FAF9F6; transition: all 0.3s ease; }
-    .design-box:hover { border-color: #2E2A4F; box-shadow: 4px 4px 0px rgba(46, 42, 79, 0.15); }
-
-    .tape-strip {
-      background-color: rgba(46, 42, 79, 0.08);
-      backdrop-filter: blur(0.5px);
-    }
-
-    #alignment-canvas {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 10;
-    }
-    .case-text-limit { max-width: 75ch; }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body class="sketchbook-container min-h-screen flex items-center justify-center p-4 md:p-8 overflow-x-hidden">
 
-  <div class="w-full max-w-6xl flex relative">
-    
-    <div id="notebook-page" class="paper-sheet page-turn-enter-forward w-full rounded-xl p-8 md:p-16 min-h-[80vh] relative flex flex-col justify-between border border-black/[0.02] mr-12 md:mr-16 overflow-hidden">
-      
-      <canvas id="alignment-canvas"></canvas>
+<body>
 
-      <div class="w-full flex justify-between items-start mb-12 z-20">
-        <div class="bg-paper border border-black/10 px-4 py-2 rotate-[-0.5deg] relative text-xs uppercase tracking-widest mono text-ink">
-          <div class="tape-strip absolute -top-2 left-6 w-12 h-4"></div>
-          Case Study // CollectCare
-        </div>
-        <a href="projects.html" class="mono text-sm uppercase tracking-widest hover:text-deepindigo transition-colors flex items-center gap-2 nav-link-back">
-          ← Back to Projects
-        </a>
-      </div>
+<header class="site-header">
 
-      <div class="my-auto max-w-4xl w-full mx-auto space-y-12 z-20 text-left">
-        
-        <article class="space-y-12">
-          <div class="border-b border-solid border-black/5 pb-6">
-            <p class="mono text-xs uppercase tracking-widest text-slatepurple font-bold mb-2">// Mobile UX &amp; Systems Design</p>
-            <h1 class="text-4xl md:text-5xl font-normal text-ink leading-tight">
-              CollectCare — Improving the Prescription Pickup Experience
-            </h1>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6 text-sm mono uppercase tracking-wider">
-              <div class="border border-black/10 p-3 bg-warmbg/10"><span class="text-slatepurple block text-xs font-bold">// Role</span>UX Designer &amp; Researcher</div>
-              <div class="border border-black/10 p-3 bg-warmbg/10"><span class="text-slatepurple block text-xs font-bold">// Platform</span>Mobile Concept</div>
-              <div class="border border-black/10 p-3 bg-warmbg/10"><span class="text-slatepurple block text-xs font-bold">// Core Goal</span>Queue-Free Collection</div>
-            </div>
-          </div>
+  <div class="container site-nav">
 
-          <div class="space-y-12 text-xl leading-relaxed case-text-limit">
-            
-            <section class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-              <div class="md:col-span-2 space-y-4">
-                <h2 class="text-2xl font-normal italic text-deepindigo">Overview</h2>
-                <p class="ui-sans text-sketchgrey">
-                  CollectCare is a mobile concept designed to make prescription collection predictable and completely queue-free. The goal was to give users clear updates, remove uncertainty, and let them collect medication without waiting.
-                </p>
-                <p class="ui-sans text-sketchgrey">
-                  People often arrive at pharmacies unsure whether their prescription is ready. This leads to unnecessary waiting, repeated trips, and confusion about next steps.
-                </p>
-              </div>
-              <div class="w-full max-w-[180px] mx-auto p-2 border border-black/5 bg-warmbg/10 flex justify-center">
-                <img src="assets/images/collectcare-splash.png" alt="CollectCare Splash Screen Concept" class="w-full h-auto object-contain">
-              </div>
-            </section>
+    <a href="index.html" class="logo">
+      Miya Richardson<span>.</span>
+    </a>
 
-            <div class="design-box p-6 bg-paper rounded-sm">
-              <p class="mono text-xs uppercase tracking-widest text-slatepurple font-bold mb-1">// Problem Statement</p>
-              <p class="text-xl text-deepindigo font-normal">Users need a clearer, more predictable way to collect prescriptions without waiting.</p>
-            </div>
+    <nav class="nav-links">
 
-            <section class="space-y-4">
-              <h2 class="text-2xl font-normal italic text-deepindigo">Research &amp; Insights</h2>
-              <p class="ui-sans text-sketchgrey">
-                I visited a local GP surgery and spoke with reception staff about how prescriptions are processed and why delays happen.
-              </p>
-              
-              <div class="design-box p-6 bg-warmbg/10 rounded-sm">
-                <p class="mono text-xs uppercase tracking-widest text-deepindigo font-bold mb-4">// Key Insights from Staff</p>
-                <ul class="space-y-3 ui-sans text-sketchgrey text-base">
-                  <li class="flex items-start gap-3"><span class="text-deepindigo font-bold">01 /</span> <span>Patients frequently arrive before prescriptions are prepared.</span></li>
-                  <li class="flex items-start gap-3"><span class="text-deepindigo font-bold">02 /</span> <span>Staff spend time repeating the same information (It is not ready yet).</span></li>
-                  <li class="flex items-start gap-3"><span class="text-deepindigo font-bold">03 /</span> <span>There is no real-time communication between pharmacy and patient.</span></li>
-                  <li class="flex items-start gap-3"><span class="text-deepindigo font-bold">04 /</span> <span>Many patients assume sent to pharmacy means ready to collect.</span></li>
-                </ul>
-              </div>
-            </section>
+      <a href="index.html#work" class="nav-link">
+        Work
+      </a>
 
-            <section class="space-y-4">
-              <h2 class="text-2xl font-normal italic text-deepindigo">Competitor Analysis</h2>
-              <p class="ui-sans text-sketchgrey">
-                I analysed several existing applications to understand what they do well and where they fall short:
-              </p>
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="design-box p-5 rounded-sm">
-                  <h4 class="mono text-xs uppercase tracking-wide text-deepindigo font-bold border-b border-black/5 pb-1 mb-2">NHS App</h4>
-                  <p class="ui-sans text-sketchgrey text-base">Shows prescription history and lets users request repeats. However, there is no real-time status and no indication of when medication will actually be ready.</p>
-                </div>
-                <div class="design-box p-5 rounded-sm">
-                  <h4 class="mono text-xs uppercase tracking-wide text-deepindigo font-bold border-b border-black/5 pb-1 mb-2">Pharmacy2U</h4>
-                  <p class="ui-sans text-sketchgrey text-base">Good repeat prescription management but entirely delivery focused. It lacks an in-person pickup flow or a time slot system.</p>
-                </div>
-                <div class="design-box p-5 rounded-sm">
-                  <h4 class="mono text-xs uppercase tracking-wide text-deepindigo font-bold border-b border-black/5 pb-1 mb-2">Boots App</h4>
-                  <p class="ui-sans text-sketchgrey text-base">Shows order status and offers click-and-collect options. Unfortunately, status updates are vague (In progress), and users still often queue.</p>
-                </div>
-                <div class="design-box p-5 rounded-sm">
-                  <h4 class="mono text-xs uppercase tracking-wide text-deepindigo font-bold border-b border-black/5 pb-1 mb-2">Well Pharmacy App</h4>
-                  <p class="ui-sans text-sketchgrey text-base">Provides clearer status steps but gives no guaranteed pickup time and lacks a ready-before-you-arrive promise.</p>
-                </div>
-              </div>
-              
-              <div class="design-box p-6 bg-ink text-paper rounded-sm">
-                <p class="mono text-xs uppercase tracking-widest text-warmbg font-bold mb-3">// Key Gaps Across Competitors</p>
-                <ul class="space-y-2 ui-sans text-warmbg/80 text-base">
-                  <li>• No application guarantees a queue-free pickup.</li>
-                  <li>• Status wording is often unclear or delayed.</li>
-                  <li>• None show exactly when the prescription will be ready.</li>
-                  <li>• No application supports a time-slot model for predictable collection.</li>
-                </ul>
-              </div>
-            </section>
+      <a href="about.html" class="nav-link">
+        About
+      </a>
 
-            <section class="space-y-6">
-              <h2 class="text-2xl font-normal italic text-deepindigo">Design Approach</h2>
-              
-              <div class="space-y-2">
-                <h3 class="text-xl font-normal text-ink">User Flow Map</h3>
-                <p class="ui-sans text-sketchgrey">Before sketching, I mapped out the core journey to ensure the path from notification to pickup felt seamless.</p>
-                <div class="design-box p-4 bg-warmbg/10 rounded-sm">
-                  <img src="assets/images/collectcare-userflow.png" alt="CollectCare User Flow Diagram" class="w-full h-auto object-contain">
-                </div>
-              </div>
-              
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
-                <div class="space-y-2">
-                  <h3 class="mono text-xs uppercase tracking-wide text-deepindigo font-bold">// Low Fidelity</h3>
-                  <p class="ui-sans text-sketchgrey text-base">I started with low-fi wireframes to focus on structure, flow, decision points, and user journey clarity without getting distracted by UI polish.</p>
-                  <div class="design-box p-3 rounded-sm">
-                    <img src="assets/images/collectcare-lowfi.png" alt="Low Fidelity Wireframes" class="w-full h-auto object-contain">
-                  </div>
-                </div>
-                <div class="space-y-2">
-                  <h3 class="mono text-xs uppercase tracking-wide text-deepindigo font-bold">// Mid Fidelity</h3>
-                  <p class="ui-sans text-sketchgrey text-base">Mid-fi helped refine hierarchy, spacing, button placement, copy, and interaction logic to clarify initial user misunderstandings.</p>
-                  <div class="design-box p-3 rounded-sm">
-                    <img src="assets/images/collectcare-midfi.png" alt="Mid Fidelity Wireframes" class="w-full h-auto object-contain">
-                  </div>
-                </div>
-              </div>
-            </section>
+      <a
+        href="https://github.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="nav-link"
+      >
+        GitHub ↗
+      </a>
 
-            <section class="space-y-8">
-              <div class="border-b border-solid border-black/5 pb-2">
-                <h2 class="text-2xl font-normal italic text-deepindigo">Usability Testing &amp; Key Iterations</h2>
-                <p class="mono text-xs uppercase tracking-widest text-slatepurple font-bold mt-1">// Testing iteration refinements</p>
-              </div>
-
-              <div class="space-y-4 text-base ui-sans text-sketchgrey">
-                <div class="design-box p-5 rounded-sm">
-                  <h4 class="mono text-xs uppercase tracking-wide text-deepindigo font-bold mb-1">1. Wording adjustments for due status</h4>
-                  <p>Users did not know if prescription due meant ready for collection or needing renewal. I updated this label to: <strong>Prescription to be renewed.</strong></p>
-                </div>
-                
-                <div class="design-box p-5 rounded-sm space-y-3">
-                  <h4 class="mono text-xs uppercase tracking-wide text-deepindigo font-bold mb-1">2. Pharmacy check-in timing</h4>
-                  <p>Users questioned why they could check in before choosing a time. I removed the button until a slot is booked or the prescription is ready.</p>
-                  <img src="assets/images/collectcare-iteration2.png" alt="Check in button adjustment" class="w-full max-w-md h-auto object-contain mx-auto border border-black/5">
-                </div>
-                
-                <div class="design-box p-5 rounded-sm">
-                  <h4 class="mono text-xs uppercase tracking-wide text-deepindigo font-bold mb-1">3. Waiting time labels</h4>
-                  <p>Testers noted that displaying a waiting time felt confusing when booking a specific slot. I removed all waiting time labels and replaced the header with: <strong>Your prescription will be ready to collect before your selected time slot.</strong></p>
-                </div>
-                
-                <div class="design-box p-5 rounded-sm space-y-3">
-                  <h4 class="mono text-xs uppercase tracking-wide text-deepindigo font-bold mb-1">4. Streamlining time slot cards</h4>
-                  <p>Removing waiting times made the individual slot cards much cleaner and easier to scan quickly.</p>
-                  <img src="assets/images/collectcare-iteration4.png" alt="Streamlined slot cards" class="w-full max-w-md h-auto object-contain mx-auto border border-black/5">
-                </div>
-                
-                <div class="design-box p-5 rounded-sm space-y-3">
-                  <h4 class="mono text-xs uppercase tracking-wide text-deepindigo font-bold mb-1">5. Displaying selected times</h4>
-                  <p>Several testers wanted to see their chosen slot again to ensure they did not forget. I added a permanent collection time banner at the top of the main page after a slot is selected.</p>
-                  <img src="assets/images/collectcare-iteration5.png" alt="Time banner indicator" class="w-full max-w-md h-auto object-contain mx-auto border border-black/5">
-                </div>
-              </div>
-            </section>
-
-            <section class="space-y-4">
-              <h2 class="text-2xl font-normal italic text-deepindigo">Final Design</h2>
-              <p class="ui-sans text-sketchgrey">The final interface design is calm, clear, and highly predictable.</p>
-              
-              <div class="design-box p-4 rounded-sm bg-warmbg/10 mb-6">
-                <img src="assets/images/collectcare-final.png" alt="Final High Fidelity App Presentation" class="w-full h-auto object-contain">
-              </div>
-              
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm mono uppercase tracking-wider">
-                <div class="p-3 border border-black/10 bg-warmbg/10">// Clear prescription status</div>
-                <div class="p-3 border border-black/10 bg-warmbg/10">// Predictable pickup slot booking</div>
-                <div class="p-3 border border-black/10 bg-warmbg/10">// Guided check-in flow</div>
-                <div class="p-3 border border-black/10 bg-warmbg/10">// Simple, user-friendly language</div>
-              </div>
-            </section>
-
-            <section class="space-y-4">
-              <h2 class="text-2xl font-normal italic text-deepindigo">Reflection</h2>
-              <p class="ui-sans text-sketchgrey">
-                This project showed me how much clarity and wording matter. Speaking to real staff, analysing existing applications, and testing early helped me design an experience that genuinely reduces uncertainty. Small changes, like removing waiting times or rewriting a label, made the entire app feel far more intuitive and trustworthy.
-              </p>
-            </section>
-
-          </div>
-        </article>
-
-      </div>
-
-      <div class="w-full flex justify-between items-end mt-16 pt-4 border-t border-solid border-black/5 mono text-xs uppercase tracking-widest text-sketchgrey z-20">
-        <p>Miya Richardson</p>
-        <p>03 // Case Study</p>
-      </div>
-
-    </div>
-
-    <nav class="absolute right-0 top-16 h-[60vh] flex flex-col justify-start space-y-2 w-12 md:w-16 z-50 mono text-xs uppercase tracking-widest">
-      <a href="index.html" class="bg-paper text-ink hover:text-deepindigo py-6 text-center rounded-r border border-l-0 border-black/5 shadow-sm transition-all [writing-mode:vertical-lr] nav-link-back">Home</a>
-      <a href="projects.html" class="bg-deepindigo text-paper py-6 text-center rounded-r border-l-0 border-black/5 shadow-sm [writing-mode:vertical-lr]">Projects</a>
-      <a href="about.html" class="bg-paper text-ink hover:text-deepindigo py-6 text-center rounded-r border border-l-0 border-black/5 shadow-sm transition-all [writing-mode:vertical-lr] nav-link-back">About</a>
     </nav>
 
   </div>
 
-  <script>
-    window.addEventListener('DOMContentLoaded', () => {
-      const page = document.getElementById('notebook-page');
-      setTimeout(() => { page.classList.remove('page-turn-enter-forward'); }, 50);
-      
-      document.querySelectorAll('.nav-link-back').forEach(link => {
-        link.addEventListener('click', function(e) {
-          e.preventDefault();
-          const destination = this.getAttribute('href');
-          page.classList.add('page-turn-exit-backwards');
-          setTimeout(() => { window.location.href = destination; }, 550);
-        });
-      });
+</header>
 
-      // Interactive Alignment Grid lines
-      const canvas = document.getElementById('alignment-canvas');
-      const ctx = canvas.getContext('2d');
-      const container = document.getElementById('notebook-page');
-      let mouseX = -100;
-      let mouseY = -100;
-      let active = false;
 
-      function resize() {
-        canvas.width = container.offsetWidth;
-        canvas.height = container.offsetHeight;
-      }
-      resize();
-      window.addEventListener('resize', resize);
+<main>
 
-      container.addEventListener('mousemove', (e) => {
-        const rect = container.getBoundingClientRect();
-        mouseX = e.clientX - rect.left;
-        mouseY = e.clientY - rect.top;
-        active = true;
-      });
+  <!-- HERO -->
 
-      container.addEventListener('mouseleave', () => { active = false; });
+  <section class="case-hero">
 
-      function draw() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        if (active) {
-          ctx.strokeStyle = 'rgba(46, 42, 79, 0.08)';
-          ctx.lineWidth = 1;
-          ctx.setLineDash([4, 4]);
-          
-          ctx.beginPath();
-          ctx.moveTo(0, mouseY);
-          ctx.lineTo(canvas.width, mouseY);
-          ctx.stroke();
+    <div class="container">
 
-          ctx.beginPath();
-          ctx.moveTo(mouseX, 0);
-          ctx.lineTo(mouseX, canvas.height);
-          ctx.stroke();
-          ctx.setLineDash([]);
-        }
-        requestAnimationFrame(draw);
-      }
-      draw();
-    });
-  </script>
+      <p class="eyebrow">
+        Mobile UX &amp; Systems Design
+      </p>
+
+      <h1>
+        CollectCare — Improving the Prescription Pickup Experience
+      </h1>
+
+      <p class="case-intro">
+        CollectCare is a mobile concept designed to make prescription
+        collection predictable and completely queue-free. The goal was
+        to give users clear updates, remove uncertainty, and let them
+        collect medication without waiting.
+      </p>
+
+
+      <div class="case-meta">
+
+        <div class="case-meta-item">
+
+          <span class="case-meta-label">
+            Role
+          </span>
+
+          <span class="case-meta-value">
+            UX Designer &amp; Researcher
+          </span>
+
+        </div>
+
+
+        <div class="case-meta-item">
+
+          <span class="case-meta-label">
+            Platform
+          </span>
+
+          <span class="case-meta-value">
+            Mobile Concept
+          </span>
+
+        </div>
+
+
+        <div class="case-meta-item">
+
+          <span class="case-meta-label">
+            Core Goal
+          </span>
+
+          <span class="case-meta-value">
+            Queue-Free Collection
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTENT -->
+
+  <section class="case-content">
+
+    <div class="container">
+
+
+      <!-- OVERVIEW -->
+
+      <article class="case-section">
+
+        <div class="case-section-grid">
+
+          <div>
+            <span class="case-section-label">
+              01 · Overview
+            </span>
+          </div>
+
+          <div>
+
+            <h2>
+              The problem
+            </h2>
+
+            <p>
+              People often arrive at pharmacies unsure whether their
+              prescription is ready. This leads to unnecessary waiting,
+              repeated trips, and confusion about next steps.
+            </p>
+
+            <div class="case-image">
+              <img
+                src="assets/images/collectcare-splash.png"
+                alt="CollectCare Splash Screen Concept"
+              >
+            </div>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- PROBLEM -->
+
+      <article class="case-section">
+
+        <div class="case-section-grid">
+
+          <div>
+            <span class="case-section-label">
+              Problem statement
+            </span>
+          </div>
+
+          <div>
+
+            <p style="font-size: 28px; color: var(--ink);">
+              Users need a clearer, more predictable way to collect
+              prescriptions without waiting.
+            </p>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- RESEARCH -->
+
+      <article class="case-section">
+
+        <div class="case-section-grid">
+
+          <div>
+            <span class="case-section-label">
+              02 · Research
+            </span>
+          </div>
+
+          <div>
+
+            <h2>
+              Research &amp; Insights
+            </h2>
+
+            <p>
+              I visited a local GP surgery and spoke with reception staff
+              about how prescriptions are processed and why delays happen.
+            </p>
+
+
+            <ul class="insight-list">
+
+              <li>
+                <strong>01</strong>
+                Patients frequently arrive before prescriptions are prepared.
+              </li>
+
+              <li>
+                <strong>02</strong>
+                Staff spend time repeating the same information
+                (It is not ready yet).
+              </li>
+
+              <li>
+                <strong>03</strong>
+                There is no real-time communication between pharmacy
+                and patient.
+              </li>
+
+              <li>
+                <strong>04</strong>
+                Many patients assume sent to pharmacy means ready to collect.
+              </li>
+
+            </ul>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- COMPETITOR -->
+
+      <article class="case-section">
+
+        <div class="case-section-grid">
+
+          <div>
+            <span class="case-section-label">
+              03 · Competition
+            </span>
+          </div>
+
+          <div>
+
+            <h2>
+              Competitor Analysis
+            </h2>
+
+            <p>
+              I analysed several existing applications to understand what
+              they do well and where they fall short:
+            </p>
+
+
+            <div class="competitor-grid">
+
+              <div class="competitor">
+
+                <h3>NHS App</h3>
+
+                <p>
+                  Shows prescription history and lets users request repeats.
+                  However, there is no real-time status and no indication
+                  of when medication will actually be ready.
+                </p>
+
+              </div>
+
+
+              <div class="competitor">
+
+                <h3>Pharmacy2U</h3>
+
+                <p>
+                  Good repeat prescription management but entirely delivery
+                  focused. It lacks an in-person pickup flow or a time slot system.
+                </p>
+
+              </div>
+
+
+              <div class="competitor">
+
+                <h3>Boots App</h3>
+
+                <p>
+                  Shows order status and offers click-and-collect options.
+                  Unfortunately, status updates are vague (In progress),
+                  and users still often queue.
+                </p>
+
+              </div>
+
+
+              <div class="competitor">
+
+                <h3>Well Pharmacy App</h3>
+
+                <p>
+                  Provides clearer status steps but gives no guaranteed
+                  pickup time and lacks a ready-before-you-arrive promise.
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <div class="gap-box">
+
+              <p class="eyebrow" style="color:white;">
+                Key gaps across competitors
+              </p>
+
+              <ul>
+
+                <li>
+                  No application guarantees a queue-free pickup.
+                </li>
+
+                <li>
+                  Status wording is often unclear or delayed.
+                </li>
+
+                <li>
+                  None show exactly when the prescription will be ready.
+                </li>
+
+                <li>
+                  No application supports a time-slot model for
+                  predictable collection.
+                </li>
+
+              </ul>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- DESIGN APPROACH -->
+
+      <article class="case-section">
+
+        <div class="case-section-grid">
+
+          <div>
+            <span class="case-section-label">
+              04 · Design
+            </span>
+          </div>
+
+          <div>
+
+            <h2>
+              Design Approach
+            </h2>
+
+
+            <h3>
+              User Flow Map
+            </h3>
+
+            <p>
+              Before sketching, I mapped out the core journey to ensure
+              the path from notification to pickup felt seamless.
+            </p>
+
+            <div class="case-image">
+              <img
+                src="assets/images/collectcare-userflow.png"
+                alt="CollectCare User Flow Diagram"
+              >
+            </div>
+
+
+            <div class="image-grid">
+
+              <div>
+
+                <div class="case-image">
+                  <img
+                    src="assets/images/collectcare-lowfi.png"
+                    alt="Low Fidelity Wireframes"
+                  >
+                </div>
+
+                <p class="image-caption">
+                  Low fidelity — focusing on structure, flow,
+                  decision points, and user journey clarity.
+                </p>
+
+              </div>
+
+
+              <div>
+
+                <div class="case-image">
+                  <img
+                    src="assets/images/collectcare-midfi.png"
+                    alt="Mid Fidelity Wireframes"
+                  >
+                </div>
+
+                <p class="image-caption">
+                  Mid fidelity — refining hierarchy, spacing,
+                  copy and interaction logic.
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- TESTING -->
+
+      <article class="case-section">
+
+        <div class="case-section-grid">
+
+          <div>
+            <span class="case-section-label">
+              05 · Testing
+            </span>
+          </div>
+
+          <div>
+
+            <h2>
+              Usability Testing &amp; Key Iterations
+            </h2>
+
+
+            <div class="iteration">
+
+              <h3>
+                1. Wording adjustments for due status
+              </h3>
+
+              <p>
+                Users did not know if prescription due meant ready for
+                collection or needing renewal. I updated this label to:
+                <strong>Prescription to be renewed.</strong>
+              </p>
+
+            </div>
+
+
+            <div class="iteration">
+
+              <h3>
+                2. Pharmacy check-in timing
+              </h3>
+
+              <p>
+                Users questioned why they could check in before choosing
+                a time. I removed the button until a slot is booked or
+                the prescription is ready.
+              </p>
+
+              <div class="small-image">
+                <img
+                  src="assets/images/collectcare-iteration2.png"
+                  alt="Check in button adjustment"
+                >
+              </div>
+
+            </div>
+
+
+            <div class="iteration">
+
+              <h3>
+                3. Waiting time labels
+              </h3>
+
+              <p>
+                Testers noted that displaying a waiting time felt confusing
+                when booking a specific slot. I removed all waiting time
+                labels and replaced the header with:
+                <strong>Your prescription will be ready to collect before
+                your selected time slot.</strong>
+              </p>
+
+            </div>
+
+
+            <div class="iteration">
+
+              <h3>
+                4. Streamlining time slot cards
+              </h3>
+
+              <p>
+                Removing waiting times made the individual slot cards much
+                cleaner and easier to scan quickly.
+              </p>
+
+              <div class="small-image">
+                <img
+                  src="assets/images/collectcare-iteration4.png"
+                  alt="Streamlined slot cards"
+                >
+              </div>
+
+            </div>
+
+
+            <div class="iteration">
+
+              <h3>
+                5. Displaying selected times
+              </h3>
+
+              <p>
+                Several testers wanted to see their chosen slot again to
+                ensure they did not forget. I added a permanent collection
+                time banner at the top of the main page after a slot is selected.
+              </p>
+
+              <div class="small-image">
+                <img
+                  src="assets/images/collectcare-iteration5.png"
+                  alt="Time banner indicator"
+                >
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- FINAL DESIGN -->
+
+      <article class="case-section">
+
+        <div class="case-section-grid">
+
+          <div>
+            <span class="case-section-label">
+              06 · Final
+            </span>
+          </div>
+
+          <div>
+
+            <h2>
+              Final Design
+            </h2>
+
+            <p>
+              The final interface design is calm, clear, and highly predictable.
+            </p>
+
+            <div class="case-image">
+              <img
+                src="assets/images/collectcare-final.png"
+                alt="Final High Fidelity App Presentation"
+              >
+            </div>
+
+
+            <div class="final-points">
+
+              <div class="final-point">
+                Clear prescription status
+              </div>
+
+              <div class="final-point">
+                Predictable pickup slot booking
+              </div>
+
+              <div class="final-point">
+                Guided check-in flow
+              </div>
+
+              <div class="final-point">
+                Simple, user-friendly language
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- REFLECTION -->
+
+      <article class="case-section">
+
+        <div class="case-section-grid">
+
+          <div>
+            <span class="case-section-label">
+              Reflection
+            </span>
+          </div>
+
+          <div>
+
+            <h2>
+              Reflection
+            </h2>
+
+            <p>
+              This project showed me how much clarity and wording matter.
+              Speaking to real staff, analysing existing applications,
+              and testing early helped me design an experience that genuinely
+              reduces uncertainty. Small changes, like removing waiting
+              times or rewriting a label, made the entire app feel far more
+              intuitive and trustworthy.
+            </p>
+
+          </div>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <div class="container footer-inner">
+
+    <p>
+      Miya Richardson
+    </p>
+
+    <div class="footer-links">
+
+      <a href="index.html#work" class="nav-link">
+        All work
+      </a>
+
+      <a href="about.html" class="nav-link">
+        About
+      </a>
+
+    </div>
+
+  </div>
+
+</footer>
+
 </body>
 </html>
