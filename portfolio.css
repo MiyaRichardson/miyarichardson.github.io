@@ -296,8 +296,10 @@ main {
 }
 .project-card:nth-child(2)
 .project-visual img {
-  max-height: 480px;
-  max-width: 98%;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: none;
 }
 .project-body {
   padding: 22px 24px 24px;
