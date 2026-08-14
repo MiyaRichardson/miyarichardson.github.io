@@ -294,14 +294,14 @@ main {
 .project-visual img {
   max-height: 290px;
   width: auto;
-  max-width: 88%;
+  max-width: 95%;
   object-fit: contain;
 }
 
 
 .project-card:nth-child(2)
 .project-visual img {
-  max-height: 400px;
+  max-height: 255px;
   max-width: 90%;
 }
 
