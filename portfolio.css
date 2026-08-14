@@ -301,7 +301,7 @@ main {
 
 .project-card:nth-child(2)
 .project-visual img {
-  max-height: 255px;
+  max-height: 400px;
   max-width: 90%;
 }
 
