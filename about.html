@@ -8,6 +8,14 @@
 
   <title>About Miya | Portfolio</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet"
+  >
+
   <link rel="stylesheet" href="portfolio.css">
 
 </head>
@@ -17,6 +25,8 @@
 
 <div class="site-shell">
 
+
+  <!-- HEADER -->
 
   <header class="topbar">
 
@@ -51,170 +61,175 @@
   </header>
 
 
+  <!-- MAIN -->
+
   <main>
 
 
-    <section class="about-intro">
+    <!-- PAGE INTRO -->
 
-      <p class="eyebrow mono">
-        UX Profile
-      </p>
+    <section class="about-page">
 
-      <h1>
-        About Me
-      </h1>
+      <div class="about-header">
 
-    </section>
-
-
-    <section class="about-grid">
-
-
-      <aside class="about-side">
-
-        <p
-          class="mono"
-          style="color:var(--accent);font-weight:700"
-        >
-          How I work
+        <p class="eyebrow mono">
+          UX Profile
         </p>
 
+        <h1>
+          About Me
+        </h1>
 
-        <div class="skill-list">
-
-          <div>
-            User Research
-          </div>
-
-          <div>
-            Information Architecture
-          </div>
-
-          <div>
-            Interaction Design
-          </div>
-
-        </div>
+      </div>
 
 
-        <div style="margin-top:42px">
+      <!-- CONTENT -->
 
-          <p
-            class="mono"
-            style="color:var(--accent);font-weight:700"
-          >
-            Key details
+      <div class="about-layout">
+
+
+        <!-- SIDEBAR -->
+
+        <aside class="about-sidebar">
+
+          <p class="about-sidebar-title">
+            How I work
           </p>
 
 
-          <div class="skill-list">
+          <div class="about-sidebar-item">
+            User Research
+          </div>
 
-            <div>
+          <div class="about-sidebar-item">
+            Information Architecture
+          </div>
+
+          <div class="about-sidebar-item">
+            Interaction Design
+          </div>
+
+
+          <div style="margin-top:42px">
+
+            <p class="about-sidebar-title">
+              Key details
+            </p>
+
+
+            <div class="about-sidebar-item">
               Based in the UK
             </div>
 
-            <div>
+            <div class="about-sidebar-item">
               MSc in User Experience Design
             </div>
 
-            <div>
+            <div class="about-sidebar-item">
               Front-End Development Literate
             </div>
 
-            <div>
+            <div class="about-sidebar-item">
               User-Centred Design Specialist
             </div>
 
           </div>
 
-        </div>
-
-      </aside>
+        </aside>
 
 
+        <!-- MAIN ABOUT CONTENT -->
 
-      <div class="about-content">
-
-
-        <div class="clean-box">
-
-          <h2>
-            01 Design Approach
-          </h2>
-
-          <p>
-            I build digital products from the ground up, focusing on
-            usability over decoration. By structuring clear navigation
-            systems and mapping journeys to real user mental models,
-            I design interfaces that feel natural and intuitive to navigate.
-          </p>
-
-        </div>
+        <div class="about-content">
 
 
-        <div class="clean-box">
+          <!-- DESIGN APPROACH -->
 
-          <h2>
-            Research &amp; Technical Execution
-          </h2>
+          <section class="about-section">
 
-          <p>
-            My Master’s degree grounds my work in data-driven user research
-            and usability testing. Because I understand HTML, CSS, and
-            development constraints, my wireframes and interactive
-            prototypes hand over seamlessly to engineering teams.
-          </p>
+            <h2>
+              01 Design Approach
+            </h2>
 
-        </div>
+            <p>
+              I build digital products from the ground up, focusing on
+              usability over decoration. By structuring clear navigation
+              systems and mapping journeys to real user mental models,
+              I design interfaces that feel natural and intuitive to navigate.
+            </p>
+
+          </section>
 
 
-        <div class="clean-box">
+          <!-- RESEARCH -->
 
-          <div
-            style="
-              display:grid;
-              grid-template-columns:repeat(2,minmax(0,1fr));
-              gap:30px
-            "
-          >
+          <section class="about-section">
 
-            <div>
+            <h2>
+              Research &amp; Technical Execution
+            </h2>
 
-              <p
-                class="eyebrow mono"
-                style="margin-bottom:8px"
-              >
-                User Research →
-              </p>
+            <p>
+              My Master’s degree grounds my work in data-driven user research
+              and usability testing. Because I understand HTML, CSS, and
+              development constraints, my wireframes and interactive
+              prototypes hand over seamlessly to engineering teams.
+            </p>
 
-              <p>
-                Conducting discovery interviews, field observations,
-                and usability audits to remove friction from user journeys.
-              </p>
+          </section>
+
+
+          <!-- SKILLS -->
+
+          <section class="about-section">
+
+            <div
+              style="
+                display:grid;
+                grid-template-columns:repeat(2,minmax(0,1fr));
+                gap:40px
+              "
+            >
+
+              <div>
+
+                <p
+                  class="eyebrow mono"
+                  style="margin-bottom:12px"
+                >
+                  User Research →
+                </p>
+
+                <p>
+                  Conducting discovery interviews, field observations,
+                  and usability audits to remove friction from user journeys.
+                </p>
+
+              </div>
+
+
+              <div>
+
+                <p
+                  class="eyebrow mono"
+                  style="margin-bottom:12px"
+                >
+                  Wireframing &amp; UI →
+                </p>
+
+                <p>
+                  Creating scalable UI layouts, component systems,
+                  and high-fidelity prototypes that streamline user workflows.
+                </p>
+
+              </div>
 
             </div>
 
+          </section>
 
-            <div>
-
-              <p
-                class="eyebrow mono"
-                style="margin-bottom:8px"
-              >
-                Wireframing &amp; UI →
-              </p>
-
-              <p>
-                Creating scalable UI layouts, component systems,
-                and high-fidelity prototypes that streamline user workflows.
-              </p>
-
-            </div>
-
-          </div>
 
         </div>
-
 
       </div>
 
@@ -222,6 +237,8 @@
 
   </main>
 
+
+  <!-- FOOTER -->
 
   <footer class="footer">
 
@@ -234,6 +251,7 @@
     </span>
 
   </footer>
+
 
 </div>
 
