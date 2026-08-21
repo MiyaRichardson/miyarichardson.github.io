@@ -1985,16 +1985,26 @@ button:focus-visible {
 }
 
 /* =========================================================
-   ABOUT PAGE — LAYOUT FIX
+   ABOUT PAGE
    ========================================================= */
 
-.about-intro {
+
+/* =========================================================
+   ABOUT HERO
+   ========================================================= */
+
+.about-hero {
   padding: 48px 0 55px;
   border-bottom: 1px solid var(--line);
 }
 
-.about-intro h1 {
+.about-hero-inner {
+  width: 100%;
+}
+
+.about-hero h1 {
   margin: 8px 0 0;
+
   font-family: 'Manrope', sans-serif;
   font-size: clamp(3rem, 6vw, 5.2rem);
   line-height: .95;
@@ -2003,78 +2013,136 @@ button:focus-visible {
 }
 
 
-/* Main two-column layout */
+/* =========================================================
+   MAIN ABOUT LAYOUT
+   ========================================================= */
 
-.about-grid {
+.about-layout {
   display: grid;
-  grid-template-columns: minmax(220px, 0.7fr) minmax(0, 2fr);
+
+  grid-template-columns:
+    minmax(220px, 0.7fr)
+    minmax(0, 2fr);
+
   gap: 80px;
+
   align-items: start;
 
   padding-top: 55px;
 }
 
 
-/* Left column */
+/* =========================================================
+   LEFT SIDEBAR
+   ========================================================= */
 
-.about-side {
+.about-sidebar {
   min-width: 0;
-}
-
-.about-side > p {
-  margin: 0 0 20px;
-}
-
-.skill-list {
   width: 100%;
 }
 
-.skill-list > div {
+.about-sidebar-block {
+  width: 100%;
+}
+
+.about-sidebar-block + .about-sidebar-block {
+  margin-top: 42px;
+}
+
+
+/* Sidebar labels */
+
+.about-label {
+  margin: 0 0 20px;
+
+  font-family: 'Manrope', sans-serif;
+}
+
+
+/* How I work */
+
+.about-skills {
+  width: 100%;
+}
+
+.about-skills span {
+  display: block;
+
   padding: 13px 0;
+
   border-bottom: 1px solid var(--line);
 
   font-family: 'Manrope', sans-serif;
   font-size: 1rem;
   line-height: 1.4;
+
   color: var(--muted);
 }
 
-.skill-list > div:first-child {
+.about-skills span:first-child {
   border-top: 1px solid var(--line);
 }
 
 
-/* Right column */
+/* Key details */
 
-.about-content {
+.about-details {
+  width: 100%;
+}
+
+.about-details div {
+  font-family: 'Manrope', sans-serif;
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+
+/* =========================================================
+   RIGHT CONTENT
+   ========================================================= */
+
+.about-main {
   min-width: 0;
   width: 100%;
 }
 
 
-/* Individual sections */
+/* =========================================================
+   ABOUT SECTIONS
+   ========================================================= */
 
-.about-content .clean-box {
+.about-section {
+  display: grid;
+
+  grid-template-columns:
+    70px
+    minmax(0, 1fr);
+
+  gap: 30px;
+
   width: 100%;
   min-width: 0;
 
   padding: 0 0 55px;
   margin: 0 0 55px;
 
-  border: 0;
   border-bottom: 1px solid var(--line);
-  box-shadow: none;
-  background: transparent;
 }
 
-.about-content .clean-box:last-child {
-  margin-bottom: 0;
+.about-section-number {
+  padding-top: 5px;
+}
+
+.about-section-content {
+  min-width: 0;
+  width: 100%;
 }
 
 
 /* Section headings */
 
-.about-content .clean-box h2 {
+.about-section-content h2 {
   margin: 0 0 24px;
 
   font-family: 'Manrope', sans-serif;
@@ -2082,51 +2150,58 @@ button:focus-visible {
   line-height: 1;
   letter-spacing: -.05em;
   font-weight: 500;
+
   color: var(--ink);
 }
 
 
 /* Section paragraphs */
 
-.about-content .clean-box > p {
+.about-section-content > p {
   max-width: 850px;
+
   margin: 0;
 
   font-family: 'Manrope', sans-serif;
   font-size: clamp(1.05rem, 1.5vw, 1.3rem);
   line-height: 1.65;
+
   color: var(--muted);
 }
 
 
-/* The final two-column skills */
+/* =========================================================
+   CAPABILITIES
+   ========================================================= */
 
-.about-content .clean-box:last-child > div {
-  display: grid !important;
-  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  gap: 55px !important;
-}
+.about-capabilities {
+  display: grid;
 
-.about-content .clean-box:last-child > div > div {
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 55px;
+
+  width: 100%;
   min-width: 0;
 }
 
-.about-content .clean-box:last-child p {
-  margin-top: 0;
+.about-capability {
+  min-width: 0;
 }
 
-.about-content .clean-box:last-child p:not(.eyebrow) {
+.about-capability .eyebrow {
+  margin: 0 0 8px;
+}
+
+.about-capability > p:not(.eyebrow) {
+  margin: 0;
+
   font-family: 'Manrope', sans-serif;
   font-size: 1rem;
   line-height: 1.6;
+
   color: var(--muted);
-}
-
-
-/* Key details spacing */
-
-.about-side > div[style*="margin-top"] {
-  margin-top: 42px !important;
 }
 
 
@@ -2136,16 +2211,16 @@ button:focus-visible {
 
 @media (max-width: 900px) {
 
-  .about-grid {
+  .about-layout {
     grid-template-columns: 1fr;
     gap: 55px;
   }
 
-  .about-side {
+  .about-sidebar {
     max-width: 600px;
   }
 
-  .about-content .clean-box h2 {
+  .about-section-content h2 {
     font-size: clamp(2rem, 7vw, 3rem);
   }
 
@@ -2154,27 +2229,34 @@ button:focus-visible {
 
 @media (max-width: 600px) {
 
-  .about-intro {
+  .about-hero {
     padding: 35px 0 40px;
   }
 
-  .about-intro h1 {
+  .about-hero h1 {
     font-size: 3rem;
   }
 
-  .about-grid {
+  .about-layout {
     padding-top: 40px;
     gap: 45px;
   }
 
-  .about-content .clean-box {
+  .about-section {
+    grid-template-columns: 1fr;
+    gap: 15px;
+
     padding-bottom: 40px;
     margin-bottom: 40px;
   }
 
-  .about-content .clean-box:last-child > div {
-    grid-template-columns: 1fr !important;
-    gap: 30px !important;
+  .about-section-number {
+    padding-top: 0;
+  }
+
+  .about-capabilities {
+    grid-template-columns: 1fr;
+    gap: 30px;
   }
 
 }
