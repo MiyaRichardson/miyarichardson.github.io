@@ -1983,3 +1983,198 @@ button:focus-visible {
   }
 
 }
+
+/* =========================================================
+   ABOUT PAGE — LAYOUT FIX
+   ========================================================= */
+
+.about-intro {
+  padding: 48px 0 55px;
+  border-bottom: 1px solid var(--line);
+}
+
+.about-intro h1 {
+  margin: 8px 0 0;
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(3rem, 6vw, 5.2rem);
+  line-height: .95;
+  letter-spacing: -.055em;
+  font-weight: 600;
+}
+
+
+/* Main two-column layout */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.7fr) minmax(0, 2fr);
+  gap: 80px;
+  align-items: start;
+
+  padding-top: 55px;
+}
+
+
+/* Left column */
+
+.about-side {
+  min-width: 0;
+}
+
+.about-side > p {
+  margin: 0 0 20px;
+}
+
+.skill-list {
+  width: 100%;
+}
+
+.skill-list > div {
+  padding: 13px 0;
+  border-bottom: 1px solid var(--line);
+
+  font-family: 'Manrope', sans-serif;
+  font-size: 1rem;
+  line-height: 1.4;
+  color: var(--muted);
+}
+
+.skill-list > div:first-child {
+  border-top: 1px solid var(--line);
+}
+
+
+/* Right column */
+
+.about-content {
+  min-width: 0;
+  width: 100%;
+}
+
+
+/* Individual sections */
+
+.about-content .clean-box {
+  width: 100%;
+  min-width: 0;
+
+  padding: 0 0 55px;
+  margin: 0 0 55px;
+
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  box-shadow: none;
+  background: transparent;
+}
+
+.about-content .clean-box:last-child {
+  margin-bottom: 0;
+}
+
+
+/* Section headings */
+
+.about-content .clean-box h2 {
+  margin: 0 0 24px;
+
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(2rem, 3.2vw, 3.25rem);
+  line-height: 1;
+  letter-spacing: -.05em;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+
+/* Section paragraphs */
+
+.about-content .clean-box > p {
+  max-width: 850px;
+  margin: 0;
+
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(1.05rem, 1.5vw, 1.3rem);
+  line-height: 1.65;
+  color: var(--muted);
+}
+
+
+/* The final two-column skills */
+
+.about-content .clean-box:last-child > div {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 55px !important;
+}
+
+.about-content .clean-box:last-child > div > div {
+  min-width: 0;
+}
+
+.about-content .clean-box:last-child p {
+  margin-top: 0;
+}
+
+.about-content .clean-box:last-child p:not(.eyebrow) {
+  font-family: 'Manrope', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+
+/* Key details spacing */
+
+.about-side > div[style*="margin-top"] {
+  margin-top: 42px !important;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 55px;
+  }
+
+  .about-side {
+    max-width: 600px;
+  }
+
+  .about-content .clean-box h2 {
+    font-size: clamp(2rem, 7vw, 3rem);
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .about-intro {
+    padding: 35px 0 40px;
+  }
+
+  .about-intro h1 {
+    font-size: 3rem;
+  }
+
+  .about-grid {
+    padding-top: 40px;
+    gap: 45px;
+  }
+
+  .about-content .clean-box {
+    padding-bottom: 40px;
+    margin-bottom: 40px;
+  }
+
+  .about-content .clean-box:last-child > div {
+    grid-template-columns: 1fr !important;
+    gap: 30px !important;
+  }
+
+}
