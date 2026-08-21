@@ -1,1116 +1,1347 @@
-<!DOCTYPE html>
-<html lang="en-GB">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+/* =========================================================
+   MIYA RICHARDSON — PORTFOLIO
+   Clean / Modern / UX-focused
+========================================================= */
 
-  <title>Miya Richardson | UX Designer</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+/* =========================================================
+   RESET
+========================================================= */
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
-    rel="stylesheet"
-  >
+* {
+  box-sizing: border-box;
+}
 
-  <style>
+html {
+  scroll-behavior: smooth;
+}
 
-    /* =====================================================
-       RESET
-    ===================================================== */
+body {
+  margin: 0;
+  padding: 0;
 
-    * {
-      box-sizing: border-box;
-    }
+  background: #f7f7f5;
+  color: #171717;
 
-    html {
-      scroll-behavior: smooth;
-    }
+  font-family: 'Manrope', sans-serif;
 
-    body {
-      margin: 0;
-      background: #f7f7f5;
-      color: #171717;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
 
-      font-family: 'Manrope', sans-serif;
+img {
+  max-width: 100%;
+  display: block;
+}
 
-      -webkit-font-smoothing: antialiased;
-    }
+a {
+  color: inherit;
+  text-decoration: none;
+}
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
 
 
-    /* =====================================================
-       PAGE
-    ===================================================== */
+/* =========================================================
+   GLOBAL CONTAINER
+========================================================= */
 
-    .site-shell {
-      width: min(1380px, calc(100% - 80px));
-      margin: 0 auto;
-    }
+.site-shell {
+  width: min(1380px, calc(100% - 80px));
+  margin: 0 auto;
+}
 
 
-    /* =====================================================
-       TYPE
-    ===================================================== */
+/* =========================================================
+   TYPOGRAPHY
+========================================================= */
 
-    .mono {
-      font-family: 'Space Mono', monospace;
-    }
+.mono {
+  font-family: 'Space Mono', monospace;
+}
 
-    .eyebrow {
-      margin: 0;
+.eyebrow {
+  margin: 0;
 
-      font-family: 'Space Mono', monospace;
-      font-size: 0.72rem;
-      font-weight: 700;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
 
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
+  line-height: 1.4;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 
-      color: #4d46ff;
-    }
+  color: #4d46ff;
+}
 
+h1,
+h2,
+h3,
+h4,
+p {
+  margin-top: 0;
+}
 
-    /* =====================================================
-       HEADER
-    ===================================================== */
 
-    .topbar {
-      height: 92px;
+/* =========================================================
+   HEADER
+========================================================= */
 
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+.topbar {
+  height: 92px;
 
-      border-bottom: 1px solid #dededb;
-    }
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-    .brand {
-      font-size: 1.25rem;
-      font-weight: 700;
-      letter-spacing: -0.04em;
-    }
+  border-bottom: 1px solid #dededb;
+}
 
-    .brand span {
-      color: #4d46ff;
-    }
+.brand {
+  font-size: 1.25rem;
+  font-weight: 700;
 
-    .nav {
-      display: flex;
-      align-items: center;
-      gap: 32px;
-    }
+  letter-spacing: -0.04em;
+}
 
-    .nav a {
-      position: relative;
+.brand span {
+  color: #4d46ff;
+}
 
-      font-size: 0.9rem;
-      font-weight: 500;
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
 
-      color: #666663;
+.nav a {
+  position: relative;
 
-      transition: color 0.2s ease;
-    }
+  color: #696965;
 
-    .nav a:hover,
-    .nav a.active {
-      color: #171717;
-    }
+  font-size: 0.9rem;
+  font-weight: 500;
 
-    .nav a.active::after {
-      content: "";
+  transition: color 0.2s ease;
+}
 
-      position: absolute;
+.nav a:hover {
+  color: #171717;
+}
 
-      left: 0;
-      right: 0;
-      bottom: -8px;
+.nav a.active {
+  color: #171717;
+}
 
-      height: 1px;
+.nav a.active::after {
+  content: "";
 
-      background: #4d46ff;
-    }
+  position: absolute;
 
+  left: 0;
+  right: 0;
+  bottom: -9px;
 
-    /* =====================================================
-       HERO
-    ===================================================== */
+  height: 1px;
 
-    .hero {
-      min-height: 660px;
+  background: #4d46ff;
+}
 
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
 
-      position: relative;
+/* =========================================================
+   HERO
+========================================================= */
 
-      padding: 75px 0 110px;
-    }
+.hero {
+  min-height: 660px;
 
-    .hero-content {
-      max-width: 920px;
-    }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
-    .hero h1 {
-      margin: 22px 0 30px;
+  position: relative;
 
-      max-width: 900px;
+  padding: 75px 0 110px;
+}
 
-      font-size: clamp(3rem, 6vw, 5.6rem);
+.hero-content {
+  max-width: 920px;
+}
 
-      font-weight: 500;
+.hero h1 {
+  max-width: 900px;
 
-      line-height: 0.98;
+  margin: 22px 0 30px;
 
-      letter-spacing: -0.065em;
-    }
+  font-size: clamp(3rem, 6vw, 5.6rem);
 
-    .hero h1 em {
-      font-style: normal;
-      color: #4d46ff;
-    }
+  font-weight: 500;
 
-    .hero-copy {
-      max-width: 690px;
+  line-height: 0.98;
 
-      margin: 0;
+  letter-spacing: -0.065em;
+}
 
-      color: #686864;
+.hero h1 em {
+  font-style: normal;
+  color: #4d46ff;
+}
 
-      font-size: 1.08rem;
+.hero-copy {
+  max-width: 690px;
 
-      line-height: 1.75;
-    }
+  margin: 0;
 
+  color: #686864;
 
-    /* =====================================================
-       HERO BUTTONS
-    ===================================================== */
+  font-size: 1.08rem;
 
-    .hero-actions {
-      display: flex;
-      align-items: center;
+  line-height: 1.75;
+}
 
-      gap: 12px;
 
-      margin-top: 38px;
-    }
+/* =========================================================
+   HERO BUTTONS
+========================================================= */
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
+.hero-actions {
+  display: flex;
+  align-items: center;
 
-      min-height: 48px;
+  gap: 12px;
 
-      padding: 0 22px;
+  margin-top: 38px;
+}
 
-      font-size: 0.82rem;
-      font-weight: 600;
+.btn {
+  min-height: 48px;
 
-      border: 1px solid #171717;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
-      transition:
-        background 0.25s ease,
-        color 0.25s ease,
-        transform 0.25s ease;
-    }
+  padding: 0 22px;
 
-    .btn:hover {
-      transform: translateY(-2px);
-    }
+  border: 1px solid #171717;
 
-    .btn.primary {
-      background: #171717;
-      color: white;
-    }
+  font-size: 0.82rem;
+  font-weight: 600;
 
-    .btn.primary:hover {
-      background: #4d46ff;
-      border-color: #4d46ff;
-    }
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
 
-    .btn.secondary {
-      background: transparent;
-    }
+.btn:hover {
+  transform: translateY(-2px);
+}
 
-    .btn.secondary:hover {
-      background: white;
-    }
+.btn.primary {
+  background: #171717;
+  color: #ffffff;
+}
 
+.btn.primary:hover {
+  background: #4d46ff;
+  border-color: #4d46ff;
+}
 
-    /* =====================================================
-       SMALL SCROLL INDICATOR
-    ===================================================== */
+.btn.secondary {
+  background: transparent;
+}
 
-    .scroll-cue {
-      position: absolute;
+.btn.secondary:hover {
+  background: #ffffff;
+}
 
-      left: 0;
-      bottom: 30px;
 
-      display: flex;
-      align-items: center;
-      gap: 12px;
+/* =========================================================
+   SCROLL CUE
+========================================================= */
 
-      color: #777773;
+.scroll-cue {
+  position: absolute;
 
-      font-size: 0.68rem;
+  left: 0;
+  bottom: 30px;
 
-      transition:
-        color 0.2s ease,
-        transform 0.2s ease;
-    }
+  display: flex;
+  align-items: center;
+  gap: 12px;
 
-    .scroll-cue:hover {
-      color: #171717;
-      transform: translateY(3px);
-    }
+  color: #777773;
 
-    .scroll-line {
-      width: 38px;
-      height: 1px;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.68rem;
 
-      background: currentColor;
-    }
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
 
+.scroll-cue:hover {
+  color: #171717;
+  transform: translateY(3px);
+}
 
-    /* =====================================================
-       SECTIONS
-    ===================================================== */
+.scroll-line {
+  width: 38px;
+  height: 1px;
 
-    .section {
-      padding: 95px 0;
-    }
+  background: currentColor;
+}
 
-    .projects-section {
-      border-top: 1px solid #dededb;
-    }
 
-    .section-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
+/* =========================================================
+   SECTIONS
+========================================================= */
 
-      gap: 40px;
+.section {
+  padding: 95px 0;
+}
 
-      margin-bottom: 50px;
-    }
+.projects-section {
+  border-top: 1px solid #dededb;
+}
 
-    .section-title {
-      margin: 8px 0 0;
+.section-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
 
-      font-size: clamp(2.3rem, 4vw, 3.5rem);
+  gap: 40px;
 
-      font-weight: 500;
+  margin-bottom: 50px;
+}
 
-      letter-spacing: -0.055em;
-    }
+.section-title {
+  margin: 8px 0 0;
 
-    .section-note {
-      max-width: 330px;
+  font-size: clamp(2.3rem, 4vw, 3.5rem);
 
-      margin: 0;
+  font-weight: 500;
 
-      color: #777773;
+  line-height: 1;
 
-      font-size: 0.9rem;
-      line-height: 1.6;
-    }
+  letter-spacing: -0.055em;
+}
 
+.section-note {
+  max-width: 330px;
 
-    /* =====================================================
-       PROJECT LIST
-    ===================================================== */
+  margin: 0;
 
-    .project-list {
-      display: grid;
+  color: #777773;
 
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+  font-size: 0.9rem;
 
-      gap: 28px;
-    }
+  line-height: 1.6;
+}
 
 
-    /* =====================================================
-       PROJECT CARD
-    ===================================================== */
+/* =========================================================
+   PROJECT GRID
+========================================================= */
 
-    .project-card {
-      background: #ffffff;
+.project-list {
+  display: grid;
 
-      border: 1px solid #dededb;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 
-      overflow: hidden;
+  gap: 28px;
+}
 
-      transition:
-        transform 0.35s cubic-bezier(.22,1,.36,1),
-        border-color 0.35s ease;
-    }
 
-    .project-card:hover {
-      transform: translateY(-6px);
+/* =========================================================
+   PROJECT CARD
+========================================================= */
 
-      border-color: #c7c7c3;
-    }
+.project-card {
+  overflow: hidden;
 
-    .project-card-link {
-      display: block;
-    }
+  background: #ffffff;
 
+  border: 1px solid #dededb;
 
-    /* =====================================================
-       PROJECT IMAGE
+  transition:
+    transform 0.35s cubic-bezier(.22, 1, .36, 1),
+    border-color 0.35s ease;
+}
 
-       IMPORTANT:
-       This deliberately gives the image area
-       a restrained height instead of allowing
-       huge images to dominate the page.
-    ===================================================== */
+.project-card:hover {
+  transform: translateY(-6px);
 
-    .project-visual {
-      height: 330px;
+  border-color: #c8c8c4;
+}
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+.project-card-link {
+  display: block;
+}
 
-      overflow: hidden;
 
-      background: #f2f2ef;
-    }
+/* =========================================================
+   PROJECT IMAGE AREA
+========================================================= */
 
-    .project-visual img {
-      display: block;
+.project-visual {
+  height: 330px;
 
-      width: 100%;
-      height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-      object-fit: contain;
+  overflow: hidden;
 
-      padding: 35px;
+  background: #f2f2ef;
+}
 
-      transition:
-        transform 0.6s cubic-bezier(.22,1,.36,1);
-    }
+.project-visual img {
+  width: 100%;
+  height: 100%;
 
-    .project-card:hover .project-visual img {
-      transform: scale(1.035);
-    }
+  display: block;
 
+  object-fit: contain;
 
-    /* =====================================================
-       PROJECT TEXT
-    ===================================================== */
+  padding: 35px;
 
-    .project-body {
-      padding: 30px 30px 34px;
-    }
+  transition:
+    transform 0.6s cubic-bezier(.22, 1, .36, 1);
+}
 
-    .project-meta {
-      margin: 0 0 12px;
+.project-card:hover .project-visual img {
+  transform: scale(1.035);
+}
 
-      color: #4d46ff;
 
-      font-size: 0.68rem;
+/* =========================================================
+   PROJECT BODY
+========================================================= */
 
-      letter-spacing: 0.1em;
+.project-body {
+  padding: 30px 30px 34px;
+}
 
-      text-transform: uppercase;
-    }
+.project-meta {
+  margin: 0 0 12px;
 
-    .project-body h3 {
-      margin: 0 0 15px;
+  color: #4d46ff;
 
-      font-size: clamp(1.65rem, 3vw, 2.2rem);
+  font-family: 'Space Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
 
-      font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
 
-      letter-spacing: -0.045em;
+.project-body h3 {
+  margin: 0 0 15px;
 
-      line-height: 1.1;
-    }
+  font-size: clamp(1.65rem, 3vw, 2.2rem);
 
-    .project-body p:not(.project-meta) {
-      max-width: 620px;
+  font-weight: 500;
 
-      margin: 0;
+  line-height: 1.1;
 
-      color: #696965;
+  letter-spacing: -0.045em;
+}
 
-      font-size: 0.95rem;
+.project-body p:not(.project-meta) {
+  max-width: 620px;
 
-      line-height: 1.7;
-    }
+  margin: 0;
 
-    .project-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
+  color: #696965;
 
-      margin-top: 25px;
+  font-size: 0.95rem;
 
-      font-size: 0.85rem;
+  line-height: 1.7;
+}
 
-      font-weight: 600;
-    }
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 
-    .arrow {
-      transition: transform 0.25s ease;
-    }
+  margin-top: 25px;
 
-    .project-card:hover .arrow {
-      transform: translateX(4px);
-    }
+  font-size: 0.85rem;
+  font-weight: 600;
+}
 
+.arrow {
+  transition: transform 0.25s ease;
+}
 
-    /* =====================================================
-       WHAT I BRING
-    ===================================================== */
+.project-card:hover .arrow {
+  transform: translateX(4px);
+}
 
-    .what-i-bring {
-      padding-top: 40px;
-      padding-bottom: 110px;
-    }
 
-    .clean-box {
-      border-top: 1px solid #dededb;
+/* =========================================================
+   WHAT I BRING
+========================================================= */
 
-      padding-top: 35px;
-    }
+.what-i-bring {
+  padding-top: 40px;
+  padding-bottom: 110px;
+}
 
-    .statement {
-      max-width: 850px;
+.clean-box {
+  padding-top: 35px;
 
-      margin: 20px 0 0;
+  border-top: 1px solid #dededb;
+}
 
-      font-size: clamp(1.7rem, 3vw, 2.7rem);
+.statement {
+  max-width: 850px;
 
-      line-height: 1.2;
+  margin: 20px 0 0;
 
-      letter-spacing: -0.05em;
-    }
+  font-size: clamp(1.7rem, 3vw, 2.7rem);
 
+  line-height: 1.2;
 
-    /* =====================================================
-       FOOTER
-    ===================================================== */
+  letter-spacing: -0.05em;
+}
 
-    .footer {
-      display: flex;
-      justify-content: space-between;
 
-      padding: 25px 0;
+/* =========================================================
+   FOOTER
+========================================================= */
 
-      border-top: 1px solid #dededb;
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-      color: #777773;
+  padding: 25px 0;
 
-      font-family: 'Space Mono', monospace;
+  border-top: 1px solid #dededb;
 
-      font-size: 0.65rem;
+  color: #777773;
 
-      text-transform: uppercase;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
 
-      letter-spacing: 0.08em;
-    }
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
 
 
-    /* =====================================================
-       SCROLL ANIMATION
+/* =========================================================
+   CASE STUDY PAGES
+========================================================= */
 
-       THESE are intentionally strong enough to
-       actually notice.
-    ===================================================== */
+.case-study {
+  padding: 80px 0 120px;
+}
 
-    .reveal {
-      opacity: 0;
+.case-study-header {
+  max-width: 900px;
 
-      transition:
-        opacity 0.9s ease,
-        transform 1s cubic-bezier(.16,1,.3,1);
-    }
+  margin-bottom: 70px;
+}
 
-    .reveal-left {
-      transform: translateX(-120px);
-    }
+.case-study-header h1 {
+  max-width: 900px;
 
-    .reveal-right {
-      transform: translateX(120px);
-    }
+  margin: 16px 0 22px;
 
-    .reveal-up {
-      transform: translateY(50px);
-    }
+  font-size: clamp(3rem, 6vw, 5rem);
 
-    .reveal.visible {
-      opacity: 1;
+  font-weight: 500;
 
-      transform: translate3d(0,0,0);
-    }
+  line-height: 1;
 
+  letter-spacing: -0.065em;
+}
 
-    /* =====================================================
-       HERO LOAD ANIMATION
-    ===================================================== */
+.case-study-intro {
+  max-width: 720px;
 
-    .hero-animate {
-      opacity: 0;
+  margin: 0;
 
-      transform: translateY(25px);
+  color: #696965;
 
-      animation:
-        heroEnter 0.8s cubic-bezier(.16,1,.3,1)
-        forwards;
-    }
+  font-size: 1.1rem;
 
-    .hero-animate:nth-child(1) {
-      animation-delay: 0.05s;
-    }
+  line-height: 1.75;
+}
 
-    .hero-animate:nth-child(2) {
-      animation-delay: 0.15s;
-    }
 
-    .hero-animate:nth-child(3) {
-      animation-delay: 0.25s;
-    }
+/* =========================================================
+   CASE STUDY HERO IMAGE
 
-    .hero-animate:nth-child(4) {
-      animation-delay: 0.35s;
-    }
+   Keeps imagery restrained rather than huge.
+========================================================= */
 
-    @keyframes heroEnter {
+.case-study-hero {
+  width: 100%;
 
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    }
+  margin: 0 0 80px;
 
+  background: #f2f2ef;
 
-    /* =====================================================
-       KEYBOARD ACCESSIBILITY
-    ===================================================== */
+  overflow: hidden;
+}
 
-    a:focus-visible {
-      outline: 2px solid #4d46ff;
-      outline-offset: 5px;
-    }
+.case-study-hero img {
+  width: auto;
+  max-width: 100%;
 
+  max-height: 580px;
 
-    /* =====================================================
-       MOBILE
-    ===================================================== */
+  object-fit: contain;
 
-    @media (max-width: 800px) {
+  padding: 45px;
+}
 
-      .site-shell {
-        width: min(100% - 40px, 600px);
-      }
 
-      .topbar {
-        height: 75px;
-      }
+/* =========================================================
+   CASE STUDY CONTENT
+========================================================= */
 
-      .nav {
-        gap: 16px;
-      }
+.case-study-layout {
+  display: grid;
 
-      .nav a {
-        font-size: 0.75rem;
-      }
+  grid-template-columns: 230px minmax(0, 760px);
 
-      .nav a:last-child {
-        display: none;
-      }
+  justify-content: space-between;
 
-      .hero {
-        min-height: 590px;
+  gap: 70px;
+}
 
-        padding-top: 65px;
-      }
+.case-study-sidebar {
+  position: sticky;
 
-      .hero h1 {
-        font-size: clamp(2.8rem, 12vw, 4.5rem);
-      }
+  top: 35px;
 
-      .hero-copy {
-        font-size: 1rem;
-      }
+  align-self: start;
+}
 
-      .hero-actions {
-        align-items: stretch;
-        flex-direction: column;
+.case-study-sidebar p {
+  margin: 0 0 15px;
 
-        width: 100%;
-      }
+  color: #4d46ff;
 
-      .btn {
-        width: 100%;
-      }
+  font-family: 'Space Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
 
-      .section-head {
-        display: block;
-      }
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
 
-      .section-note {
-        margin-top: 18px;
-      }
+.case-study-sidebar a {
+  display: block;
 
-      .project-list {
-        grid-template-columns: 1fr;
+  padding: 10px 0;
 
-        gap: 22px;
-      }
+  border-bottom: 1px solid #dededb;
 
-      .project-visual {
-        height: 280px;
-      }
+  color: #696965;
 
-      .project-body {
-        padding: 25px;
-      }
+  font-size: 0.85rem;
 
-      .footer {
-        gap: 20px;
-        flex-direction: column;
-      }
+  transition: color 0.2s ease;
+}
 
-      /*
-        On mobile, side-to-side movement becomes
-        a smaller vertical movement.
-      */
+.case-study-sidebar a:hover {
+  color: #4d46ff;
+}
 
-      .reveal-left,
-      .reveal-right {
-        transform: translateY(45px);
-      }
+.case-study-content h2 {
+  margin: 0 0 22px;
 
-    }
+  padding-top: 5px;
 
+  font-size: clamp(2rem, 3.5vw, 3rem);
 
-    /* =====================================================
-       REDUCED MOTION
-    ===================================================== */
+  font-weight: 500;
 
-    @media (prefers-reduced-motion: reduce) {
+  line-height: 1.05;
 
-      html {
-        scroll-behavior: auto;
-      }
+  letter-spacing: -0.05em;
+}
 
-      *,
-      *::before,
-      *::after {
-        animation: none !important;
-        transition: none !important;
-      }
+.case-study-content h3 {
+  margin: 55px 0 15px;
 
-      .hero-animate,
-      .reveal,
-      .reveal-left,
-      .reveal-right,
-      .reveal-up {
-        opacity: 1;
-        transform: none;
-      }
+  font-size: 1.35rem;
 
-    }
+  font-weight: 600;
 
-  </style>
+  letter-spacing: -0.025em;
+}
 
-</head>
+.case-study-content p {
+  max-width: 720px;
 
+  margin-bottom: 24px;
 
-<body>
+  color: #696965;
 
+  font-size: 1rem;
 
-<div class="site-shell">
+  line-height: 1.8;
+}
 
+.case-study-content ul {
+  margin: 0 0 30px;
 
-  <!-- ===================================================
-       HEADER
-  ==================================================== -->
+  padding-left: 20px;
 
-  <header class="topbar">
+  color: #696965;
 
-    <a class="brand" href="index.html">
-      Miya<span>.</span>
-    </a>
+  line-height: 1.8;
+}
 
-    <nav class="nav" aria-label="Main navigation">
+.case-study-content li {
+  margin-bottom: 8px;
+}
 
-      <a class="active" href="index.html">
-        Home
-      </a>
 
-      <a href="#projects">
-        Work
-      </a>
+/* =========================================================
+   CASE STUDY IMAGE / MEDIA
 
-      <a href="about.html">
-        About
-      </a>
+   Smaller than before so pages don't become
+   enormous walls of imagery.
+========================================================= */
 
-      <a
-        href="https://github.com"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        GitHub ↗
-      </a>
+.case-study-image {
+  width: 100%;
 
-    </nav>
+  margin: 45px 0;
 
-  </header>
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
+  background: transparent;
 
-  <main>
+  overflow: hidden;
+}
 
+.case-study-image img {
+  width: auto;
+  max-width: 90%;
 
-    <!-- =================================================
-         HERO
-    ================================================== -->
+  max-height: 650px;
 
-    <section class="hero">
+  object-fit: contain;
 
-      <div class="hero-content">
+  border-radius: 0;
 
-        <p class="eyebrow mono hero-animate">
-          UX Designer · 2026 Portfolio
-        </p>
+  box-shadow: none;
+}
 
 
-        <h1 class="hero-animate">
-          I design digital experiences that are
-          <em>clear, useful and human.</em>
-        </h1>
+/* =========================================================
+   PHONE / DEVICE IMAGES
 
+   Use this class when an image is specifically
+   a phone mockup and shouldn't become enormous.
+========================================================= */
 
-        <p class="hero-copy hero-animate">
-          I’m Miya, a UX Designer interested in the space between research,
-          interaction, interface and product design. I turn complex problems
-          into simple, thoughtful experiences.
-        </p>
+.phone-image {
+  max-width: 340px !important;
+  max-height: 620px !important;
 
+  margin-left: auto;
+  margin-right: auto;
+}
 
-        <div class="hero-actions hero-animate">
 
-          <a
-            class="btn primary"
-            href="#projects"
-          >
-            View selected work
-            <span aria-hidden="true">&nbsp;↓</span>
-          </a>
+/* =========================================================
+   SIGN LANGUAGE IMAGE
 
-          <a
-            class="btn secondary"
-            href="about.html"
-          >
-            About me
-          </a>
+   Your renamed image should use:
+   signlanguage.png
 
-        </div>
+   This prevents it from taking over the page.
+========================================================= */
 
-      </div>
+.signlanguage-image {
+  width: 100%;
 
+  max-width: 720px;
 
-      <a
-        class="scroll-cue mono"
-        href="#projects"
-        aria-label="Scroll to selected work"
-      >
+  max-height: 500px;
 
-        <span class="scroll-line"></span>
+  margin-left: auto;
+  margin-right: auto;
 
-        Selected work ↓
+  object-fit: contain;
+}
 
-      </a>
 
-    </section>
+/* =========================================================
+   TWO IMAGE ROW
+========================================================= */
 
+.image-row {
+  display: grid;
 
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 
-    <!-- =================================================
-         PROJECTS
-    ================================================== -->
+  gap: 25px;
 
-    <section
-      id="projects"
-      class="section projects-section"
-    >
+  margin: 50px 0;
+}
 
-      <div class="section-head">
+.image-row img {
+  width: 100%;
+  height: 420px;
 
-        <div>
+  object-fit: contain;
 
-          <p class="eyebrow mono">
-            Selected work
-          </p>
+  background: #f2f2ef;
+}
 
-          <h2 class="section-title">
-            Projects
-          </h2>
 
-        </div>
+/* =========================================================
+   ABOUT PAGE
+========================================================= */
 
+.about-page {
+  padding: 75px 0 120px;
+}
 
-        <p class="section-note">
-          Two case studies exploring UX, UI and accessibility.
-        </p>
+.about-header {
+  margin-bottom: 70px;
+}
 
-      </div>
+.about-header h1 {
+  margin: 15px 0 0;
 
+  font-size: clamp(3rem, 6vw, 5rem);
 
-      <div class="project-list">
+  font-weight: 500;
 
+  line-height: 1;
 
-        <!-- COLLECTCARE -->
+  letter-spacing: -0.065em;
+}
 
-        <article
-          class="project-card reveal reveal-left"
-        >
+.about-layout {
+  display: grid;
 
-          <a
-            href="case-study-collectcare.html"
-            class="project-card-link"
-          >
+  grid-template-columns: 230px minmax(0, 760px);
 
-            <div class="project-visual">
+  justify-content: space-between;
 
-              <img
-                src="assets/images/collectcare-splash.png"
-                alt="CollectCare mobile interface"
-                loading="lazy"
-              >
+  gap: 70px;
+}
 
-            </div>
+.about-sidebar {
+  align-self: start;
+}
 
+.about-sidebar-title {
+  margin: 0 0 18px;
 
-            <div class="project-body">
+  color: #4d46ff;
 
-              <p class="project-meta mono">
-                Mobile UX · Systems Design
-              </p>
+  font-family: 'Space Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
 
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
 
-              <h3>
-                CollectCare Application
-              </h3>
+.about-sidebar-item {
+  padding: 14px 0;
 
+  border-top: 1px solid #dededb;
 
-              <p>
-                Redesigning pharmacy collection journeys to establish
-                predictable, queue-free pickups through straightforward
-                messaging and slot booking systems.
-              </p>
+  color: #696965;
 
+  font-size: 0.9rem;
+}
 
-              <span class="project-link">
+.about-sidebar-item:last-child {
+  border-bottom: 1px solid #dededb;
+}
 
-                View case study
+.about-content {
+  margin-top: 0;
+}
 
-                <span
-                  class="arrow"
-                  aria-hidden="true"
-                >
-                  →
-                </span>
+.about-section {
+  padding-top: 0;
+  margin-bottom: 70px;
+}
 
-              </span>
+.about-section + .about-section {
+  padding-top: 55px;
 
-            </div>
+  border-top: 1px solid #dededb;
+}
 
-          </a>
+.about-section h2 {
+  margin: 0 0 25px;
 
-        </article>
+  font-size: clamp(2rem, 3.5vw, 3rem);
 
+  font-weight: 500;
 
+  line-height: 1.05;
 
-        <!-- ACCESSIBILITY -->
+  letter-spacing: -0.05em;
+}
 
-        <article
-          class="project-card reveal reveal-right"
-        >
+.about-section p {
+  max-width: 760px;
 
-          <a
-            href="case-study-accessibility.html"
-            class="project-card-link"
-          >
+  margin-bottom: 22px;
 
-            <div class="project-visual">
+  color: #696965;
 
-              <img
-                src="assets/images/splash.png"
-                alt="Accessible health and nutrition interface"
-                loading="lazy"
-              >
+  font-size: 1rem;
 
-            </div>
+  line-height: 1.8;
+}
 
 
-            <div class="project-body">
+/* =========================================================
+   CONTACT / CTA
+========================================================= */
 
-              <p class="project-meta mono">
-                UI · Accessibility
-              </p>
+.contact-block {
+  padding: 60px 0;
 
+  border-top: 1px solid #dededb;
+}
 
-              <h3>
-                Accessible Health Platform
-              </h3>
+.contact-block h2 {
+  max-width: 700px;
 
+  margin: 15px 0 30px;
 
-              <p>
-                Developing digital frameworks to help visually,
-                cognitively, and physically impaired home cooks navigate
-                intricate preparation guides independently.
-              </p>
+  font-size: clamp(2.2rem, 4vw, 3.7rem);
 
+  font-weight: 500;
 
-              <span class="project-link">
+  line-height: 1;
 
-                View case study
+  letter-spacing: -0.055em;
+}
 
-                <span
-                  class="arrow"
-                  aria-hidden="true"
-                >
-                  →
-                </span>
 
-              </span>
+/* =========================================================
+   SCROLL REVEALS
+========================================================= */
 
-            </div>
+.reveal {
+  opacity: 0;
 
-          </a>
+  transition:
+    opacity 0.9s ease,
+    transform 1s cubic-bezier(.16, 1, .3, 1);
+}
 
-        </article>
+.reveal-left {
+  transform: translateX(-120px);
+}
 
+.reveal-right {
+  transform: translateX(120px);
+}
 
-      </div>
+.reveal-up {
+  transform: translateY(50px);
+}
 
-    </section>
+.reveal.visible {
+  opacity: 1;
 
+  transform: translate3d(0, 0, 0);
+}
 
 
-    <!-- =================================================
-         WHAT I BRING
-    ================================================== -->
+/* =========================================================
+   HERO LOAD
+========================================================= */
 
-    <section class="section what-i-bring">
+.hero-animate {
+  opacity: 0;
 
-      <div class="clean-box reveal reveal-up">
+  transform: translateY(25px);
 
-        <p class="eyebrow mono">
-          What I bring
-        </p>
+  animation:
+    heroEnter 0.8s cubic-bezier(.16, 1, .3, 1)
+    forwards;
+}
 
+.hero-animate:nth-child(1) {
+  animation-delay: 0.05s;
+}
 
-        <p class="statement">
-          Research-led thinking, strong interface design, and enough
-          technical understanding to make ideas work in the real world.
-        </p>
+.hero-animate:nth-child(2) {
+  animation-delay: 0.15s;
+}
 
-      </div>
+.hero-animate:nth-child(3) {
+  animation-delay: 0.25s;
+}
 
-    </section>
+.hero-animate:nth-child(4) {
+  animation-delay: 0.35s;
+}
 
+@keyframes heroEnter {
 
-  </main>
+  to {
+    opacity: 1;
 
+    transform: translateY(0);
+  }
 
+}
 
-  <!-- ===================================================
-       FOOTER
-  ==================================================== -->
 
-  <footer class="footer">
+/* =========================================================
+   HOVER LINK
+========================================================= */
 
-    <span>
-      Miya Richardson
-    </span>
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
 
-    <span>
-      UX / UI / Product Design
-    </span>
+  color: #171717;
 
-  </footer>
+  font-size: 0.85rem;
+  font-weight: 600;
 
+  transition: color 0.2s ease;
+}
 
-</div>
+.text-link span {
+  transition: transform 0.2s ease;
+}
 
+.text-link:hover {
+  color: #4d46ff;
+}
 
+.text-link:hover span {
+  transform: translateX(4px);
+}
 
-<!-- =====================================================
-     SCROLL REVEAL JAVASCRIPT
-====================================================== -->
 
-<script>
+/* =========================================================
+   FOCUS STATES
+========================================================= */
 
-  document.addEventListener("DOMContentLoaded", function () {
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #4d46ff;
+  outline-offset: 5px;
+}
 
-    const elements = document.querySelectorAll(".reveal");
 
+/* =========================================================
+   MOBILE
+========================================================= */
 
-    /*
-      Watch elements as they enter the viewport.
-    */
+@media (max-width: 900px) {
 
-    const observer = new IntersectionObserver(
-      function (entries) {
+  .site-shell {
+    width: min(100% - 40px, 650px);
+  }
 
-        entries.forEach(function (entry) {
 
-          if (entry.isIntersecting) {
+  /* Header */
 
-            entry.target.classList.add("visible");
+  .topbar {
+    height: 75px;
+  }
 
-            /*
-              Stop watching after the first reveal.
-              This prevents the animation from
-              repeatedly playing as you scroll up/down.
-            */
+  .nav {
+    gap: 18px;
+  }
 
-            observer.unobserve(entry.target);
+  .nav a {
+    font-size: 0.76rem;
+  }
 
-          }
+  .nav a:last-child {
+    display: none;
+  }
 
-        });
 
-      },
-      {
-        threshold: 0.15,
+  /* Hero */
 
-        /*
-          Start the animation slightly before
-          the element reaches the centre of screen.
-        */
+  .hero {
+    min-height: 590px;
 
-        rootMargin: "0px 0px -80px 0px"
-      }
-    );
+    padding: 65px 0 100px;
+  }
 
+  .hero h1 {
+    font-size: clamp(2.8rem, 12vw, 4.5rem);
+  }
 
-    elements.forEach(function (element) {
+  .hero-copy {
+    font-size: 1rem;
+  }
 
-      observer.observe(element);
 
-    });
+  /* Buttons */
 
-  });
+  .hero-actions {
+    flex-direction: column;
 
-</script>
+    align-items: stretch;
 
+    width: 100%;
+  }
 
-</body>
-</html>
+  .btn {
+    width: 100%;
+  }
+
+
+  /* Sections */
+
+  .section {
+    padding: 70px 0;
+  }
+
+  .section-head {
+    display: block;
+
+    margin-bottom: 35px;
+  }
+
+  .section-note {
+    margin-top: 18px;
+  }
+
+
+  /* Projects */
+
+  .project-list {
+    grid-template-columns: 1fr;
+
+    gap: 22px;
+  }
+
+  .project-visual {
+    height: 280px;
+  }
+
+  .project-body {
+    padding: 25px;
+  }
+
+
+  /* Case studies */
+
+  .case-study {
+    padding: 55px 0 80px;
+  }
+
+  .case-study-header {
+    margin-bottom: 45px;
+  }
+
+  .case-study-header h1 {
+    font-size: clamp(2.8rem, 12vw, 4.3rem);
+  }
+
+  .case-study-hero {
+    margin-bottom: 50px;
+  }
+
+  .case-study-hero img {
+    max-height: 450px;
+
+    padding: 25px;
+  }
+
+  .case-study-layout {
+    grid-template-columns: 1fr;
+
+    gap: 45px;
+  }
+
+  .case-study-sidebar {
+    position: static;
+  }
+
+  .case-study-content h2 {
+    font-size: 2rem;
+  }
+
+  .case-study-image img {
+    max-width: 100%;
+    max-height: 500px;
+  }
+
+  .phone-image {
+    max-width: 300px !important;
+  }
+
+  .image-row {
+    grid-template-columns: 1fr;
+
+    gap: 20px;
+  }
+
+  .image-row img {
+    height: 320px;
+  }
+
+
+  /* About */
+
+  .about-page {
+    padding: 55px 0 80px;
+  }
+
+  .about-header {
+    margin-bottom: 45px;
+  }
+
+  .about-header h1 {
+    font-size: clamp(2.8rem, 12vw, 4.3rem);
+  }
+
+  .about-layout {
+    grid-template-columns: 1fr;
+
+    gap: 45px;
+  }
+
+  .about-content {
+    margin-top: 0;
+  }
+
+  .about-section {
+    margin-bottom: 55px;
+  }
+
+  .about-section + .about-section {
+    padding-top: 40px;
+  }
+
+
+  /* Footer */
+
+  .footer {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 15px;
+  }
+
+
+  /*
+    On mobile, side movement becomes vertical
+    because horizontal motion can feel cramped.
+  */
+
+  .reveal-left,
+  .reveal-right {
+    transform: translateY(45px);
+  }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 500px) {
+
+  .site-shell {
+    width: calc(100% - 30px);
+  }
+
+  .brand {
+    font-size: 1.1rem;
+  }
+
+  .nav {
+    gap: 13px;
+  }
+
+  .nav a {
+    font-size: 0.7rem;
+  }
+
+  .hero {
+    min-height: 560px;
+  }
+
+  .hero h1 {
+    font-size: 2.9rem;
+
+    letter-spacing: -0.06em;
+  }
+
+  .project-visual {
+    height: 245px;
+  }
+
+  .project-visual img {
+    padding: 25px;
+  }
+
+  .project-body h3 {
+    font-size: 1.65rem;
+  }
+
+  .statement {
+    font-size: 1.8rem;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .hero-animate,
+  .reveal,
+  .reveal-left,
+  .reveal-right,
+  .reveal-up {
+    opacity: 1;
+
+    transform: none;
+  }
+
+}
