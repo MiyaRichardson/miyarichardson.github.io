@@ -804,3 +804,352 @@ main {
   }
 
 }
+
+/* =========================================================
+   HOMEPAGE UX / MOTION
+   ========================================================= */
+
+
+/* -------------------------
+   HERO
+-------------------------- */
+
+.hero {
+  position: relative;
+  min-height: 72vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding-top: 60px;
+  padding-bottom: 70px;
+}
+
+.hero-content {
+  max-width: 900px;
+}
+
+.hero-title {
+  max-width: 850px;
+}
+
+
+/*
+  Individual hero elements begin slightly lower
+  and transparent.
+*/
+
+.hero-item {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hero-item.hero-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* -------------------------
+   SCROLL CUE
+-------------------------- */
+
+.scroll-cue {
+  position: absolute;
+
+  left: 0;
+  bottom: 18px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+
+  text-decoration: none;
+  color: inherit;
+
+  opacity: 0.6;
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.scroll-cue:hover {
+  opacity: 1;
+  transform: translateY(3px);
+}
+
+.scroll-line {
+  width: 42px;
+  height: 1px;
+
+  background: currentColor;
+}
+
+
+/* -------------------------
+   PROJECT SECTION
+-------------------------- */
+
+.projects-section {
+  scroll-margin-top: 80px;
+}
+
+.section-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 40px;
+}
+
+
+/* -------------------------
+   PROJECT CARDS
+-------------------------- */
+
+.project-card {
+  position: relative;
+  overflow: hidden;
+
+  /*
+    This keeps the card feeling like part of
+    the page rather than a floating UI component.
+  */
+
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+
+/*
+  Keep the image restrained.
+
+  The image itself should feel like part of
+  the project rather than a giant screenshot.
+*/
+
+.project-visual {
+  overflow: hidden;
+}
+
+.project-visual img {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  transform: scale(1);
+
+  transition:
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.project-card:hover .project-visual img {
+  transform: scale(1.025);
+}
+
+
+/* -------------------------
+   PROJECT LINK
+-------------------------- */
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  transition:
+    gap 0.3s ease,
+    color 0.3s ease;
+}
+
+.project-card:hover .project-link {
+  gap: 12px;
+}
+
+.project-card:hover .arrow {
+  transform: translateX(2px);
+}
+
+.arrow {
+  display: inline-block;
+
+  transition:
+    transform 0.3s ease;
+}
+
+
+/* -------------------------
+   SCROLL REVEAL
+-------------------------- */
+
+.reveal {
+
+  opacity: 0;
+
+  transform: translateY(35px);
+
+  transition:
+    opacity 0.8s ease,
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+
+}
+
+
+/*
+  CollectCare enters from the left.
+*/
+
+.reveal-left {
+  transform: translateX(-70px);
+}
+
+
+/*
+  Accessibility project enters from the right.
+*/
+
+.reveal-right {
+  transform: translateX(70px);
+}
+
+
+/*
+  Once visible, everything returns
+  to its normal position.
+*/
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+
+/*
+  Small stagger between the two project cards.
+*/
+
+.project-card:nth-child(2) {
+  transition-delay: 120ms;
+}
+
+
+/* -------------------------
+   WHAT I BRING
+-------------------------- */
+
+.what-i-bring {
+  padding-top: 25px;
+  padding-bottom: 80px;
+}
+
+.statement {
+  font-family: 'Manrope', sans-serif;
+
+  font-size: clamp(1.7rem, 3vw, 2.5rem);
+
+  line-height: 1.15;
+  letter-spacing: -0.04em;
+
+  max-width: 800px;
+
+  margin: 0;
+}
+
+
+/* -------------------------
+   ACCESSIBILITY
+-------------------------- */
+
+
+/*
+  Clear keyboard focus.
+*/
+
+a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 5px;
+}
+
+
+/*
+  Don't force animation on users
+  who have requested reduced motion.
+*/
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .hero-item,
+  .reveal,
+  .reveal-left,
+  .reveal-right {
+    opacity: 1;
+    transform: none;
+  }
+
+}
+
+
+/* -------------------------
+   MOBILE
+-------------------------- */
+
+@media (max-width: 700px) {
+
+  .hero {
+    min-height: auto;
+
+    padding-top: 50px;
+    padding-bottom: 90px;
+  }
+
+  .section-head {
+    display: block;
+  }
+
+  .section-note {
+    margin-top: 20px;
+  }
+
+  /*
+    On smaller screens the sideways
+    animation becomes vertical so it
+    doesn't feel like the page is moving
+    horizontally.
+  */
+
+  .reveal-left,
+  .reveal-right {
+    transform: translateY(30px);
+  }
+
+  .reveal.is-visible {
+    transform: translateY(0);
+  }
+
+  .scroll-cue {
+    bottom: 25px;
+  }
+
+}
