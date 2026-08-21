@@ -1,1155 +1,1116 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap');
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <title>Miya Richardson | UX Designer</title>
 
-:root {
-  --bg: #f5f5f2;
-  --surface: #ffffff;
-  --ink: #171717;
-  --muted: #686862;
-  --accent: #4f46e5;
-  --line: #deded8;
-  --soft: #eeeee9;
-}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet"
+  >
 
-* {
-  box-sizing: border-box;
-}
+  <style>
 
+    /* =====================================================
+       RESET
+    ===================================================== */
 
-html {
-  scroll-behavior: smooth;
-}
+    * {
+      box-sizing: border-box;
+    }
 
+    html {
+      scroll-behavior: smooth;
+    }
 
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--ink);
-  font-family: 'DM Sans', system-ui, sans-serif;
-  font-size: 16px;
-  line-height: 1.6;
-}
+    body {
+      margin: 0;
+      background: #f7f7f5;
+      color: #171717;
 
+      font-family: 'Manrope', sans-serif;
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+      -webkit-font-smoothing: antialiased;
+    }
 
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-img {
-  display: block;
-  max-width: 100%;
-}
 
+    /* =====================================================
+       PAGE
+    ===================================================== */
 
-.ui-sans,
-p,
-li {
-  font-family: 'DM Sans', system-ui, sans-serif;
-}
+    .site-shell {
+      width: min(1380px, calc(100% - 80px));
+      margin: 0 auto;
+    }
 
 
-.mono {
-  font-family: 'Manrope', system-ui, sans-serif;
-  font-size: .72rem !important;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-}
+    /* =====================================================
+       TYPE
+    ===================================================== */
 
+    .mono {
+      font-family: 'Space Mono', monospace;
+    }
 
-.sketchbook-container {
-  background: var(--bg) !important;
-  background-image: none !important;
-  min-height: 100vh;
-}
+    .eyebrow {
+      margin: 0;
 
+      font-family: 'Space Mono', monospace;
+      font-size: 0.72rem;
+      font-weight: 700;
 
-.paper-sheet {
-  background: transparent !important;
-  box-shadow: none !important;
-  border: 0 !important;
-  border-radius: 0 !important;
-  transform: none !important;
-  min-height: 0 !important;
-  transition: none !important;
-  margin: 0 !important;
-  overflow: visible !important;
-}
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
 
+      color: #4d46ff;
+    }
 
-.page-turn-enter-forward,
-.page-turn-exit-forward,
-.page-turn-exit-backwards {
-  transform: none !important;
-  opacity: 1 !important;
-}
 
+    /* =====================================================
+       HEADER
+    ===================================================== */
 
-/* ------------------------------
-   SITE
------------------------------- */
+    .topbar {
+      height: 92px;
 
-.site-shell {
-  width: min(1160px, calc(100% - 40px));
-  margin: 0 auto;
-}
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
 
+      border-bottom: 1px solid #dededb;
+    }
 
-.topbar {
-  height: 82px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid var(--line);
-}
+    .brand {
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+    }
 
+    .brand span {
+      color: #4d46ff;
+    }
 
-.brand {
-  font-weight: 700;
-  letter-spacing: -.03em;
-}
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
 
+    .nav a {
+      position: relative;
 
-.brand span {
-  color: var(--accent);
-}
+      font-size: 0.9rem;
+      font-weight: 500;
 
+      color: #666663;
 
-.nav {
-  display: flex;
-  gap: 28px;
-  align-items: center;
-  font-size: .9rem;
-}
+      transition: color 0.2s ease;
+    }
 
+    .nav a:hover,
+    .nav a.active {
+      color: #171717;
+    }
 
-.nav a {
-  color: var(--muted);
-  transition: color .2s;
-}
+    .nav a.active::after {
+      content: "";
 
+      position: absolute;
 
-.nav a:hover,
-.nav a.active {
-  color: var(--ink);
-}
+      left: 0;
+      right: 0;
+      bottom: -8px;
 
+      height: 1px;
 
-/* ------------------------------
-   HOMEPAGE
------------------------------- */
+      background: #4d46ff;
+    }
 
-main {
-  padding: 0;
-}
 
+    /* =====================================================
+       HERO
+    ===================================================== */
 
-.eyebrow {
-  color: var(--accent);
-  font-weight: 700;
-  margin: 0 0 16px;
-}
+    .hero {
+      min-height: 660px;
 
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
 
-.hero {
-  padding: 54px 0 42px;
-}
+      position: relative;
 
+      padding: 75px 0 110px;
+    }
 
-.hero h1 {
-  font-family: 'Manrope', sans-serif;
-  font-weight: 600;
-  letter-spacing: -.055em;
-  font-size: clamp(2.35rem, 5.2vw, 4.25rem);
-  line-height: 1.02;
-  max-width: 920px;
-  margin: 0;
-}
+    .hero-content {
+      max-width: 920px;
+    }
 
+    .hero h1 {
+      margin: 22px 0 30px;
 
-.hero h1 em {
-  font-style: normal;
-  color: var(--accent);
-}
+      max-width: 900px;
 
+      font-size: clamp(3rem, 6vw, 5.6rem);
 
-.hero-copy {
-  max-width: 650px;
-  color: var(--muted);
-  font-size: 1.1rem;
-  margin: 24px 0 0;
-}
+      font-weight: 500;
 
+      line-height: 0.98;
 
-.hero-actions {
-  display: flex;
-  gap: 12px;
-  margin-top: 28px;
-  flex-wrap: wrap;
-}
+      letter-spacing: -0.065em;
+    }
 
+    .hero h1 em {
+      font-style: normal;
+      color: #4d46ff;
+    }
 
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 12px 18px;
-  border-radius: 999px;
-  font-size: .88rem;
-  font-weight: 600;
-  border: 1px solid var(--ink);
-  transition: transform .2s, background .2s;
-}
-
-
-.btn:hover {
-  transform: translateY(-2px);
-}
-
-
-.btn.primary {
-  background: var(--ink);
-  color: white;
-}
-
-
-.btn.secondary {
-  background: transparent;
-}
-
-
-.section {
-  padding: 48px 0;
-}
-
-
-.section-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: end;
-  gap: 24px;
-  margin-bottom: 22px;
-}
-
-
-.section-title {
-  font-family: 'Manrope', sans-serif;
-  font-size: 1.7rem;
-  letter-spacing: -.035em;
-  margin: 0;
-  font-weight: 600;
-}
-
-
-.section-note {
-  color: var(--muted);
-  font-size: .9rem;
-  margin: 0;
-}
-
-
-/* ------------------------------
-   PROJECT CARDS
------------------------------- */
-
-.project-list {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 28px;
-}
-
-.project-card {
-  display: flex;
-  flex-direction: column;
-  border-radius: 20px;
-  overflow: hidden;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
-}
-
-.project-card:hover {
-  transform: translateY(-4px);
-  border-color: #c9c9c2;
-  box-shadow: 0 20px 40px rgba(0,0,0,.08);
-}
-
-.project-visual {
-  aspect-ratio: 4 / 3;
-  background: linear-gradient(180deg, var(--soft), #e4e4de);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 30px;
-  overflow: hidden;
-}
-
-.project-visual img {
-  max-height: 100%;
-  max-width: 100%;
-  width: auto;
-  object-fit: contain;
-  transition: transform .4s ease;
-}
-
-.project-card:hover .project-visual img {
-  transform: scale(1.04);
-}
-
-.project-body {
-  padding: 24px 26px 26px;
-  border-top: 1px solid var(--line);
-  position: relative;
-}
-
-.project-index {
-  position: absolute;
-  top: -14px;
-  right: 26px;
-  background: var(--ink);
-  color: #fff;
-  font-family: 'Manrope', sans-serif;
-  font-size: .72rem;
-  font-weight: 700;
-  padding: 4px 10px;
-  border-radius: 999px;
-  letter-spacing: .04em;
-}
-
-.project-meta {
-  display: inline-block;
-  color: var(--accent);
-  background: rgba(79,70,229,.08);
-  padding: 4px 10px;
-  border-radius: 999px;
-  margin: 0 0 12px;
-}
-
-.project-body h3 {
-  font-family: 'Manrope', sans-serif;
-  font-size: 1.45rem;
-  line-height: 1.2;
-  letter-spacing: -.03em;
-  margin: 0 0 10px;
-}
-
-.project-body p {
-  color: var(--muted);
-  margin: 0;
-  max-width: 52ch;
-}
-
-.project-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  margin-top: 18px;
-  font-weight: 600;
-  font-size: .9rem;
-  transition: gap .2s;
-}
-
-.project-card:hover .project-link {
-  gap: 8px;
-}
-
-.project-link span {
-  color: var(--accent);
-}
-
-/* ------------------------------
-   ABOUT
------------------------------- */
-
-.about-intro {
-  padding: 52px 0 10px;
-}
-
-
-.about-intro h1,
-.case-hero h1 {
-  font-family: 'Manrope', sans-serif;
-  font-weight: 600;
-  letter-spacing: -.05em;
-  line-height: 1.04;
-  margin: 0;
-  font-size: clamp(2.35rem, 5vw, 4rem);
-  max-width: 800px;
-}
-
-
-.about-grid {
-  display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 64px;
-  padding: 10px 0 70px;
-}
-
-
-.about-side {
-  color: var(--muted);
-}
-
-
-.about-side .skill-list {
-  border-top: 1px solid var(--line);
-  margin-top: 20px;
-}
-
-
-.skill-list div {
-  padding: 11px 0;
-  border-bottom: 1px solid var(--line);
-  font-size: .9rem;
-}
-
-
-.about-content {
-  max-width: 760px;
-}
-
-
-.about-content h2 {
-  font-family: 'Manrope', sans-serif;
-  font-size: 1.65rem;
-  letter-spacing: -.035em;
-  margin: 0 0 12px;
-}
-
-
-.about-content p {
-  color: var(--muted);
-  font-size: 1.03rem;
-  margin: 0 0 30px;
-}
-
-
-.clean-box {
-  padding: 24px 0;
-  border-top: 1px solid var(--line);
-}
+    .hero-copy {
+      max-width: 690px;
 
-
-/* ------------------------------
-   CASE STUDIES
------------------------------- */
-
-.case-wrap {
-  padding: 0 0 90px;
-}
-
-
-.case-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 24px 0;
-  border-bottom: 1px solid var(--line);
-}
-
-
-.back {
-  color: var(--muted);
-  font-size: .9rem;
-}
+      margin: 0;
 
-
-.back:hover {
-  color: var(--ink);
-}
-
+      color: #686864;
 
-.case-hero {
-  padding: 44px 0 32px;
-  border-bottom: 1px solid var(--line);
-}
+      font-size: 1.08rem;
 
+      line-height: 1.75;
+    }
 
-.case-hero h1 {
-  max-width: 850px;
-}
 
+    /* =====================================================
+       HERO BUTTONS
+    ===================================================== */
 
-.case-hero .eyebrow {
-  margin-bottom: 12px;
-}
+    .hero-actions {
+      display: flex;
+      align-items: center;
 
+      gap: 12px;
 
-.case-facts {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: var(--line);
-  margin-top: 28px;
-  border: 1px solid var(--line);
-}
+      margin-top: 38px;
+    }
 
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
 
-.case-facts > div {
-  background: var(--bg);
-  padding: 16px;
-}
+      min-height: 48px;
 
+      padding: 0 22px;
 
-.case-facts strong {
-  display: block;
-  font-size: .72rem;
-  color: var(--accent);
-  text-transform: uppercase;
-  letter-spacing: .1em;
-  margin-bottom: 4px;
-}
+      font-size: 0.82rem;
+      font-weight: 600;
 
+      border: 1px solid #171717;
 
-.case-content {
-  max-width: 820px;
-  margin: 0 auto;
-  padding-top: 38px;
-}
+      transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+    }
 
+    .btn:hover {
+      transform: translateY(-2px);
+    }
 
-.case-content section {
-  margin: 0 0 46px;
-}
+    .btn.primary {
+      background: #171717;
+      color: white;
+    }
 
+    .btn.primary:hover {
+      background: #4d46ff;
+      border-color: #4d46ff;
+    }
 
-.case-content h2 {
-  font-family: 'Manrope', sans-serif;
-  font-size: 1.7rem;
-  letter-spacing: -.035em;
-  margin: 0 0 14px;
-}
+    .btn.secondary {
+      background: transparent;
+    }
 
+    .btn.secondary:hover {
+      background: white;
+    }
 
-.case-content h3 {
-  font-family: 'Manrope', sans-serif;
-  font-size: 1.1rem;
-  margin: 0 0 8px;
-}
 
+    /* =====================================================
+       SMALL SCROLL INDICATOR
+    ===================================================== */
 
-.case-content p,
-.case-content li {
-  color: var(--muted);
-  font-size: 1rem;
-  line-height: 1.75;
-}
+    .scroll-cue {
+      position: absolute;
 
+      left: 0;
+      bottom: 30px;
 
-.case-content ul {
-  padding-left: 20px;
-}
+      display: flex;
+      align-items: center;
+      gap: 12px;
 
+      color: #777773;
 
-.case-content .design-box {
-  background: transparent !important;
-  border: 0 !important;
-  box-shadow: none !important;
-  padding: 24px 0 !important;
-  border-top: 1px solid var(--line) !important;
-  border-radius: 0 !important;
-}
+      font-size: 0.68rem;
 
+      transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+    }
 
-.case-content img {
-  border: 0 !important;
-  box-shadow: none !important;
-  background: transparent !important;
-}
+    .scroll-cue:hover {
+      color: #171717;
+      transform: translateY(3px);
+    }
 
+    .scroll-line {
+      width: 38px;
+      height: 1px;
 
-.case-content [class*="bg-warmbg"] {
-  background: transparent !important;
-}
+      background: currentColor;
+    }
 
 
-.case-content [class*="border-black"] {
-  border-color: var(--line) !important;
-}
+    /* =====================================================
+       SECTIONS
+    ===================================================== */
 
+    .section {
+      padding: 95px 0;
+    }
 
-.case-content .case-image {
-  margin: 22px auto;
-  max-width: 460px;
-}
+    .projects-section {
+      border-top: 1px solid #dededb;
+    }
 
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
 
-.case-content .case-image img {
-  max-height: 440px;
-  width: auto;
-  margin: auto;
-  object-fit: contain;
-}
+      gap: 40px;
 
+      margin-bottom: 50px;
+    }
 
-.case-content .case-image.wide {
-  max-width: 680px;
-}
+    .section-title {
+      margin: 8px 0 0;
 
+      font-size: clamp(2.3rem, 4vw, 3.5rem);
 
-.case-content .case-image.wide img {
-  width: 100%;
-  max-height: none;
-}
+      font-weight: 500;
 
+      letter-spacing: -0.055em;
+    }
 
-.case-content .grid {
-  gap: 24px;
-}
+    .section-note {
+      max-width: 330px;
 
+      margin: 0;
 
-.case-content [class*="text-xl"] {
-  font-size: 1rem !important;
-}
+      color: #777773;
 
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
 
-.case-content [class*="text-2xl"] {
-  font-size: 1.7rem !important;
-}
 
+    /* =====================================================
+       PROJECT LIST
+    ===================================================== */
 
-.case-content [class*="text-3xl"] {
-  font-size: 1.1rem !important;
-}
+    .project-list {
+      display: grid;
 
+      grid-template-columns: repeat(2, minmax(0, 1fr));
 
-.case-content [class*="text-4xl"],
-.case-content [class*="text-5xl"] {
-  font-size: clamp(2.35rem, 5vw, 4rem) !important;
-}
+      gap: 28px;
+    }
 
 
-.case-content [class*="space-y-12"] > * + * {
-  margin-top: 34px !important;
-}
+    /* =====================================================
+       PROJECT CARD
+    ===================================================== */
 
+    .project-card {
+      background: #ffffff;
 
-.case-content [class*="space-y-8"] > * + * {
-  margin-top: 28px !important;
-}
+      border: 1px solid #dededb;
 
+      overflow: hidden;
 
-.case-content [class*="space-y-6"] > * + * {
-  margin-top: 22px !important;
-}
+      transition:
+        transform 0.35s cubic-bezier(.22,1,.36,1),
+        border-color 0.35s ease;
+    }
 
+    .project-card:hover {
+      transform: translateY(-6px);
 
-.case-content [class*="p-6"] {
-  padding: 20px !important;
-}
+      border-color: #c7c7c3;
+    }
 
+    .project-card-link {
+      display: block;
+    }
 
-.case-content [class*="p-5"] {
-  padding: 18px !important;
-}
 
+    /* =====================================================
+       PROJECT IMAGE
 
-.case-content [class*="p-4"] {
-  padding: 16px !important;
-}
+       IMPORTANT:
+       This deliberately gives the image area
+       a restrained height instead of allowing
+       huge images to dominate the page.
+    ===================================================== */
 
+    .project-visual {
+      height: 330px;
 
-.case-content [class*="max-w-md"] {
-  max-width: 430px !important;
-}
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
+      overflow: hidden;
 
-/* ------------------------------
-   FINAL IMAGE REFINEMENTS
------------------------------- */
+      background: #f2f2ef;
+    }
 
-.project-card .project-visual {
-  border-bottom: 1px solid var(--line);
-}
+    .project-visual img {
+      display: block;
 
+      width: 100%;
+      height: 100%;
 
-.about-content .clean-box:first-child {
-  padding-top: 14px;
-}
+      object-fit: contain;
 
+      padding: 35px;
 
-.signlanguage-wrap {
-  max-width: 500px !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
+      transition:
+        transform 0.6s cubic-bezier(.22,1,.36,1);
+    }
 
+    .project-card:hover .project-visual img {
+      transform: scale(1.035);
+    }
 
-.signlanguage-wrap img {
-  max-height: 360px !important;
-  width: auto !important;
-  max-width: 100% !important;
-  margin: auto !important;
-}
 
+    /* =====================================================
+       PROJECT TEXT
+    ===================================================== */
 
-.case-content .design-box > img,
-.case-content .design-box > div > img {
-  max-height: 420px;
-  width: auto;
-  max-width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  object-fit: contain;
-}
+    .project-body {
+      padding: 30px 30px 34px;
+    }
 
+    .project-meta {
+      margin: 0 0 12px;
 
-.case-content .design-box img[alt*='Final High Fidelity'],
-.case-content .design-box img[alt*='Final High-Fidelity'] {
-  max-height: none;
-  width: 100%;
-}
+      color: #4d46ff;
 
+      font-size: 0.68rem;
 
-/* ------------------------------
-   MOBILE
------------------------------- */
+      letter-spacing: 0.1em;
 
-@media (max-width:760px) {
+      text-transform: uppercase;
+    }
 
-  .site-shell {
-    width: min(100% - 28px, 1160px);
-  }
+    .project-body h3 {
+      margin: 0 0 15px;
 
+      font-size: clamp(1.65rem, 3vw, 2.2rem);
 
-  .topbar {
-    height: 70px;
-  }
+      font-weight: 500;
 
+      letter-spacing: -0.045em;
 
-  .nav {
-    gap: 16px;
-    font-size: .82rem;
-  }
+      line-height: 1.1;
+    }
 
+    .project-body p:not(.project-meta) {
+      max-width: 620px;
 
-  .hero {
-    padding: 52px 0 42px;
-  }
+      margin: 0;
 
+      color: #696965;
 
-  .hero h1 {
-    font-size: clamp(2.4rem, 12vw, 3.7rem);
-  }
+      font-size: 0.95rem;
 
+      line-height: 1.7;
+    }
 
-  .project-list {
-    grid-template-columns: 1fr;
-  }
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
 
+      margin-top: 25px;
 
-  .project-visual {
-    height: 260px;
-  }
+      font-size: 0.85rem;
 
+      font-weight: 600;
+    }
 
-  .project-visual img {
-    max-height: 225px;
-  }
+    .arrow {
+      transition: transform 0.25s ease;
+    }
 
+    .project-card:hover .arrow {
+      transform: translateX(4px);
+    }
 
-  .project-card:nth-child(2)
-  .project-visual img {
-    max-height: 210px;
-  }
 
+    /* =====================================================
+       WHAT I BRING
+    ===================================================== */
 
-  .about-intro {
-    padding-top: 42px;
-  }
+    .what-i-bring {
+      padding-top: 40px;
+      padding-bottom: 110px;
+    }
 
+    .clean-box {
+      border-top: 1px solid #dededb;
 
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: 30px;
-    padding-top: 4px;
-  }
+      padding-top: 35px;
+    }
 
+    .statement {
+      max-width: 850px;
 
-  .about-side {
-    max-width: 430px;
-  }
+      margin: 20px 0 0;
 
+      font-size: clamp(1.7rem, 3vw, 2.7rem);
 
-  .case-top {
-    padding: 18px 0;
-  }
+      line-height: 1.2;
 
+      letter-spacing: -0.05em;
+    }
 
-  .case-hero {
-    padding: 42px 0 30px;
-  }
 
+    /* =====================================================
+       FOOTER
+    ===================================================== */
 
-  .case-facts {
-    grid-template-columns: 1fr;
-  }
+    .footer {
+      display: flex;
+      justify-content: space-between;
 
+      padding: 25px 0;
 
-  .case-content {
-    padding-top: 34px;
-  }
+      border-top: 1px solid #dededb;
 
+      color: #777773;
 
-  .case-content section {
-    margin-bottom: 44px;
-  }
+      font-family: 'Space Mono', monospace;
 
+      font-size: 0.65rem;
 
-  .footer {
-    gap: 15px;
-    flex-direction: column;
-  }
+      text-transform: uppercase;
 
-}
+      letter-spacing: 0.08em;
+    }
 
-/* =========================================================
-   HOMEPAGE UX / MOTION
-   ========================================================= */
 
+    /* =====================================================
+       SCROLL ANIMATION
 
-/* -------------------------
-   HERO
--------------------------- */
+       THESE are intentionally strong enough to
+       actually notice.
+    ===================================================== */
 
-.hero {
-  position: relative;
-  min-height: 72vh;
+    .reveal {
+      opacity: 0;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+      transition:
+        opacity 0.9s ease,
+        transform 1s cubic-bezier(.16,1,.3,1);
+    }
 
-  padding-top: 60px;
-  padding-bottom: 70px;
-}
+    .reveal-left {
+      transform: translateX(-120px);
+    }
 
-.hero-content {
-  max-width: 900px;
-}
+    .reveal-right {
+      transform: translateX(120px);
+    }
 
-.hero-title {
-  max-width: 850px;
-}
+    .reveal-up {
+      transform: translateY(50px);
+    }
 
+    .reveal.visible {
+      opacity: 1;
 
-/*
-  Individual hero elements begin slightly lower
-  and transparent.
-*/
+      transform: translate3d(0,0,0);
+    }
 
-.hero-item {
-  opacity: 0;
-  transform: translateY(18px);
-  transition:
-    opacity 0.7s ease,
-    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-}
 
-.hero-item.hero-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+    /* =====================================================
+       HERO LOAD ANIMATION
+    ===================================================== */
 
+    .hero-animate {
+      opacity: 0;
 
-/* -------------------------
-   SCROLL CUE
--------------------------- */
+      transform: translateY(25px);
 
-.scroll-cue {
-  position: absolute;
+      animation:
+        heroEnter 0.8s cubic-bezier(.16,1,.3,1)
+        forwards;
+    }
 
-  left: 0;
-  bottom: 18px;
+    .hero-animate:nth-child(1) {
+      animation-delay: 0.05s;
+    }
 
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
+    .hero-animate:nth-child(2) {
+      animation-delay: 0.15s;
+    }
 
-  text-decoration: none;
-  color: inherit;
+    .hero-animate:nth-child(3) {
+      animation-delay: 0.25s;
+    }
 
-  opacity: 0.6;
+    .hero-animate:nth-child(4) {
+      animation-delay: 0.35s;
+    }
 
-  transition:
-    opacity 0.25s ease,
-    transform 0.25s ease;
-}
+    @keyframes heroEnter {
 
-.scroll-cue:hover {
-  opacity: 1;
-  transform: translateY(3px);
-}
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
 
-.scroll-line {
-  width: 42px;
-  height: 1px;
+    }
 
-  background: currentColor;
-}
 
+    /* =====================================================
+       KEYBOARD ACCESSIBILITY
+    ===================================================== */
 
-/* -------------------------
-   PROJECT SECTION
--------------------------- */
+    a:focus-visible {
+      outline: 2px solid #4d46ff;
+      outline-offset: 5px;
+    }
 
-.projects-section {
-  scroll-margin-top: 80px;
-}
 
-.section-head {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
+    /* =====================================================
+       MOBILE
+    ===================================================== */
 
-  gap: 40px;
-}
+    @media (max-width: 800px) {
 
+      .site-shell {
+        width: min(100% - 40px, 600px);
+      }
 
-/* -------------------------
-   PROJECT CARDS
--------------------------- */
+      .topbar {
+        height: 75px;
+      }
 
-.project-card {
-  position: relative;
-  overflow: hidden;
+      .nav {
+        gap: 16px;
+      }
 
-  /*
-    This keeps the card feeling like part of
-    the page rather than a floating UI component.
-  */
+      .nav a {
+        font-size: 0.75rem;
+      }
 
-  transition:
-    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
-}
+      .nav a:last-child {
+        display: none;
+      }
 
-.project-card:hover {
-  transform: translateY(-5px);
-}
+      .hero {
+        min-height: 590px;
 
+        padding-top: 65px;
+      }
 
-/*
-  Keep the image restrained.
+      .hero h1 {
+        font-size: clamp(2.8rem, 12vw, 4.5rem);
+      }
 
-  The image itself should feel like part of
-  the project rather than a giant screenshot.
-*/
+      .hero-copy {
+        font-size: 1rem;
+      }
 
-.project-visual {
-  overflow: hidden;
-}
+      .hero-actions {
+        align-items: stretch;
+        flex-direction: column;
 
-.project-visual img {
-  display: block;
+        width: 100%;
+      }
 
-  width: 100%;
-  height: auto;
+      .btn {
+        width: 100%;
+      }
 
-  transform: scale(1);
+      .section-head {
+        display: block;
+      }
 
-  transition:
-    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-}
+      .section-note {
+        margin-top: 18px;
+      }
 
-.project-card:hover .project-visual img {
-  transform: scale(1.025);
-}
+      .project-list {
+        grid-template-columns: 1fr;
 
+        gap: 22px;
+      }
 
-/* -------------------------
-   PROJECT LINK
--------------------------- */
+      .project-visual {
+        height: 280px;
+      }
 
-.project-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+      .project-body {
+        padding: 25px;
+      }
 
-  transition:
-    gap 0.3s ease,
-    color 0.3s ease;
-}
+      .footer {
+        gap: 20px;
+        flex-direction: column;
+      }
 
-.project-card:hover .project-link {
-  gap: 12px;
-}
+      /*
+        On mobile, side-to-side movement becomes
+        a smaller vertical movement.
+      */
 
-.project-card:hover .arrow {
-  transform: translateX(2px);
-}
+      .reveal-left,
+      .reveal-right {
+        transform: translateY(45px);
+      }
 
-.arrow {
-  display: inline-block;
+    }
 
-  transition:
-    transform 0.3s ease;
-}
 
+    /* =====================================================
+       REDUCED MOTION
+    ===================================================== */
 
-/* -------------------------
-   SCROLL REVEAL
--------------------------- */
+    @media (prefers-reduced-motion: reduce) {
 
-.reveal {
+      html {
+        scroll-behavior: auto;
+      }
 
-  opacity: 0;
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+      }
 
-  transform: translateY(35px);
+      .hero-animate,
+      .reveal,
+      .reveal-left,
+      .reveal-right,
+      .reveal-up {
+        opacity: 1;
+        transform: none;
+      }
 
-  transition:
-    opacity 0.8s ease,
-    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    }
 
-}
+  </style>
 
+</head>
 
-/*
-  CollectCare enters from the left.
-*/
 
-.reveal-left {
-  transform: translateX(-70px);
-}
+<body>
 
 
-/*
-  Accessibility project enters from the right.
-*/
+<div class="site-shell">
 
-.reveal-right {
-  transform: translateX(70px);
-}
 
+  <!-- ===================================================
+       HEADER
+  ==================================================== -->
 
-/*
-  Once visible, everything returns
-  to its normal position.
-*/
+  <header class="topbar">
 
-.reveal.is-visible {
-  opacity: 1;
-  transform: translate(0, 0);
-}
+    <a class="brand" href="index.html">
+      Miya<span>.</span>
+    </a>
 
+    <nav class="nav" aria-label="Main navigation">
 
-/*
-  Small stagger between the two project cards.
-*/
+      <a class="active" href="index.html">
+        Home
+      </a>
 
-.project-card:nth-child(2) {
-  transition-delay: 120ms;
-}
+      <a href="#projects">
+        Work
+      </a>
 
+      <a href="about.html">
+        About
+      </a>
 
-/* -------------------------
-   WHAT I BRING
--------------------------- */
+      <a
+        href="https://github.com"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        GitHub ↗
+      </a>
 
-.what-i-bring {
-  padding-top: 25px;
-  padding-bottom: 80px;
-}
+    </nav>
 
-.statement {
-  font-family: 'Manrope', sans-serif;
+  </header>
 
-  font-size: clamp(1.7rem, 3vw, 2.5rem);
 
-  line-height: 1.15;
-  letter-spacing: -0.04em;
+  <main>
 
-  max-width: 800px;
 
-  margin: 0;
-}
+    <!-- =================================================
+         HERO
+    ================================================== -->
 
+    <section class="hero">
 
-/* -------------------------
-   ACCESSIBILITY
--------------------------- */
+      <div class="hero-content">
 
+        <p class="eyebrow mono hero-animate">
+          UX Designer · 2026 Portfolio
+        </p>
 
-/*
-  Clear keyboard focus.
-*/
 
-a:focus-visible {
-  outline: 2px solid currentColor;
-  outline-offset: 5px;
-}
+        <h1 class="hero-animate">
+          I design digital experiences that are
+          <em>clear, useful and human.</em>
+        </h1>
 
 
-/*
-  Don't force animation on users
-  who have requested reduced motion.
-*/
+        <p class="hero-copy hero-animate">
+          I’m Miya, a UX Designer interested in the space between research,
+          interaction, interface and product design. I turn complex problems
+          into simple, thoughtful experiences.
+        </p>
 
-@media (prefers-reduced-motion: reduce) {
 
-  html {
-    scroll-behavior: auto;
-  }
+        <div class="hero-actions hero-animate">
 
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
+          <a
+            class="btn primary"
+            href="#projects"
+          >
+            View selected work
+            <span aria-hidden="true">&nbsp;↓</span>
+          </a>
 
-  .hero-item,
-  .reveal,
-  .reveal-left,
-  .reveal-right {
-    opacity: 1;
-    transform: none;
-  }
+          <a
+            class="btn secondary"
+            href="about.html"
+          >
+            About me
+          </a>
 
-}
+        </div>
 
+      </div>
 
-/* -------------------------
-   MOBILE
--------------------------- */
 
-@media (max-width: 700px) {
+      <a
+        class="scroll-cue mono"
+        href="#projects"
+        aria-label="Scroll to selected work"
+      >
 
-  .hero {
-    min-height: auto;
+        <span class="scroll-line"></span>
 
-    padding-top: 50px;
-    padding-bottom: 90px;
-  }
+        Selected work ↓
 
-  .section-head {
-    display: block;
-  }
+      </a>
 
-  .section-note {
-    margin-top: 20px;
-  }
+    </section>
 
-  /*
-    On smaller screens the sideways
-    animation becomes vertical so it
-    doesn't feel like the page is moving
-    horizontally.
-  */
 
-  .reveal-left,
-  .reveal-right {
-    transform: translateY(30px);
-  }
 
-  .reveal.is-visible {
-    transform: translateY(0);
-  }
+    <!-- =================================================
+         PROJECTS
+    ================================================== -->
 
-  .scroll-cue {
-    bottom: 25px;
-  }
+    <section
+      id="projects"
+      class="section projects-section"
+    >
 
-}
+      <div class="section-head">
+
+        <div>
+
+          <p class="eyebrow mono">
+            Selected work
+          </p>
+
+          <h2 class="section-title">
+            Projects
+          </h2>
+
+        </div>
+
+
+        <p class="section-note">
+          Two case studies exploring UX, UI and accessibility.
+        </p>
+
+      </div>
+
+
+      <div class="project-list">
+
+
+        <!-- COLLECTCARE -->
+
+        <article
+          class="project-card reveal reveal-left"
+        >
+
+          <a
+            href="case-study-collectcare.html"
+            class="project-card-link"
+          >
+
+            <div class="project-visual">
+
+              <img
+                src="assets/images/collectcare-splash.png"
+                alt="CollectCare mobile interface"
+                loading="lazy"
+              >
+
+            </div>
+
+
+            <div class="project-body">
+
+              <p class="project-meta mono">
+                Mobile UX · Systems Design
+              </p>
+
+
+              <h3>
+                CollectCare Application
+              </h3>
+
+
+              <p>
+                Redesigning pharmacy collection journeys to establish
+                predictable, queue-free pickups through straightforward
+                messaging and slot booking systems.
+              </p>
+
+
+              <span class="project-link">
+
+                View case study
+
+                <span
+                  class="arrow"
+                  aria-hidden="true"
+                >
+                  →
+                </span>
+
+              </span>
+
+            </div>
+
+          </a>
+
+        </article>
+
+
+
+        <!-- ACCESSIBILITY -->
+
+        <article
+          class="project-card reveal reveal-right"
+        >
+
+          <a
+            href="case-study-accessibility.html"
+            class="project-card-link"
+          >
+
+            <div class="project-visual">
+
+              <img
+                src="assets/images/splash.png"
+                alt="Accessible health and nutrition interface"
+                loading="lazy"
+              >
+
+            </div>
+
+
+            <div class="project-body">
+
+              <p class="project-meta mono">
+                UI · Accessibility
+              </p>
+
+
+              <h3>
+                Accessible Health Platform
+              </h3>
+
+
+              <p>
+                Developing digital frameworks to help visually,
+                cognitively, and physically impaired home cooks navigate
+                intricate preparation guides independently.
+              </p>
+
+
+              <span class="project-link">
+
+                View case study
+
+                <span
+                  class="arrow"
+                  aria-hidden="true"
+                >
+                  →
+                </span>
+
+              </span>
+
+            </div>
+
+          </a>
+
+        </article>
+
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         WHAT I BRING
+    ================================================== -->
+
+    <section class="section what-i-bring">
+
+      <div class="clean-box reveal reveal-up">
+
+        <p class="eyebrow mono">
+          What I bring
+        </p>
+
+
+        <p class="statement">
+          Research-led thinking, strong interface design, and enough
+          technical understanding to make ideas work in the real world.
+        </p>
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+
+  <!-- ===================================================
+       FOOTER
+  ==================================================== -->
+
+  <footer class="footer">
+
+    <span>
+      Miya Richardson
+    </span>
+
+    <span>
+      UX / UI / Product Design
+    </span>
+
+  </footer>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     SCROLL REVEAL JAVASCRIPT
+====================================================== -->
+
+<script>
+
+  document.addEventListener("DOMContentLoaded", function () {
+
+    const elements = document.querySelectorAll(".reveal");
+
+
+    /*
+      Watch elements as they enter the viewport.
+    */
+
+    const observer = new IntersectionObserver(
+      function (entries) {
+
+        entries.forEach(function (entry) {
+
+          if (entry.isIntersecting) {
+
+            entry.target.classList.add("visible");
+
+            /*
+              Stop watching after the first reveal.
+              This prevents the animation from
+              repeatedly playing as you scroll up/down.
+            */
+
+            observer.unobserve(entry.target);
+
+          }
+
+        });
+
+      },
+      {
+        threshold: 0.15,
+
+        /*
+          Start the animation slightly before
+          the element reaches the centre of screen.
+        */
+
+        rootMargin: "0px 0px -80px 0px"
+      }
+    );
+
+
+    elements.forEach(function (element) {
+
+      observer.observe(element);
+
+    });
+
+  });
+
+</script>
+
+
+</body>
+</html>
