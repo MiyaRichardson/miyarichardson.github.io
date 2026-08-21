@@ -4,286 +4,558 @@
 <head>
 
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>
-    Accessible Health Platform | Miya Richardson
-  </title>
+  <title>Accessible Health Platform | Miya Richardson</title>
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1"
-  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
     rel="stylesheet"
-    href="portfolio.css"
   >
+
+  <link rel="stylesheet" href="portfolio.css">
 
 </head>
 
 
-<body class="sketchbook-container">
-
+<body>
 
 <div class="site-shell">
 
 
-  <div class="paper-sheet">
+  <!-- HEADER -->
 
+  <header class="topbar">
 
-    <header class="case-top">
+    <a class="brand" href="index.html">
+      Miya<span>.</span>
+    </a>
 
-      <a
-        class="brand"
-        href="index.html"
-      >
-        Miya<span>.</span>
+    <nav class="nav">
+
+      <a href="index.html">
+        Home
       </a>
 
+      <a href="index.html#projects">
+        Work
+      </a>
 
-      <nav class="nav">
+      <a href="about.html">
+        About
+      </a>
 
-        <a href="index.html">
-          Home
-        </a>
+    </nav>
 
-        <a href="index.html#projects">
-          Work
-        </a>
-
-        <a href="about.html">
-          About
-        </a>
-
-      </nav>
-
-    </header>
+  </header>
 
 
-
-    <div class="case-wrap">
-
-
-      <div class="case-content">
+  <main>
 
 
-        <article>
+    <article class="case-study">
 
 
-          <div class="case-hero">
+      <!-- INTRO -->
 
-            <p class="mono">
-              UI · Accessibility
+      <header class="case-study-header">
+
+        <p class="eyebrow mono">
+          UI · Accessibility
+        </p>
+
+        <h1>
+          Accessible Health Platform
+        </h1>
+
+
+        <div class="case-facts">
+
+          <div>
+
+            <span class="case-fact-label mono">
+              Role
+            </span>
+
+            <span>
+              UX / UI Designer
+            </span>
+
+          </div>
+
+
+          <div>
+
+            <span class="case-fact-label mono">
+              Platform
+            </span>
+
+            <span>
+              Responsive Web Platform
+            </span>
+
+          </div>
+
+
+          <div>
+
+            <span class="case-fact-label mono">
+              Focus
+            </span>
+
+            <span>
+              Inclusive Interaction
+            </span>
+
+          </div>
+
+        </div>
+
+      </header>
+
+
+      <!-- OVERVIEW -->
+
+      <section class="case-section single-column">
+
+        <div>
+
+          <p class="eyebrow mono">
+            Overview
+          </p>
+
+          <p>
+            This project involved designing an accessible health and nutrition web application for users with physical, cognitive, visual, and auditory impairments. The aim was to create a platform that supports independent cooking, reduces cognitive load, and ensures nutritional information is perceivable and operable for all users.
+          </p>
+
+        </div>
+
+      </section>
+
+
+      <!-- PERSONAS -->
+
+      <section class="case-section single-column">
+
+        <div>
+
+          <p class="eyebrow mono">
+            Personas
+          </p>
+
+          <p>
+            I created four personas representing each impairment category: physical, cognitive, visual, and auditory. These personas guided every design decision, ensuring the interface addressed real barriers faced by disabled users.
+          </p>
+
+        </div>
+
+
+        <div class="persona-grid">
+
+
+          <div>
+
+            <span class="mono case-label">
+              Persona Model 1
+            </span>
+
+            <img
+              src="assets/images/placeholder-persona1.png"
+              alt="User Persona Sketch 1"
+            >
+
+          </div>
+
+
+          <div>
+
+            <span class="mono case-label">
+              Persona Model 2
+            </span>
+
+            <img
+              src="assets/images/placeholder-persona2.png"
+              alt="User Persona Sketch 2"
+            >
+
+          </div>
+
+
+        </div>
+
+      </section>
+
+
+      <!-- ACCESSIBILITY RESEARCH -->
+
+      <section class="case-section single-column">
+
+        <div>
+
+          <p class="eyebrow mono">
+            Accessibility Research
+          </p>
+
+          <p>
+            I conducted research into accessible devices and assistive technologies, focusing on how users interact with voice control systems such as Siri, Google Assistant, and built-in OS accessibility features. This included analysing natural language patterns, common trigger phrases, and how users phrase cooking-related commands.
+          </p>
+
+        </div>
+
+
+        <div class="case-content-block">
+
+          <p class="eyebrow mono">
+            Key Discoveries Summary
+          </p>
+
+          <ul class="insight-list">
+
+            <li>
+              <strong>01</strong>
+              Users prefer short, direct commands (Next step, Repeat, How long?).
+            </li>
+
+            <li>
+              <strong>02</strong>
+              Natural language varies widely, so commands must accept flexible phrasing.
+            </li>
+
+            <li>
+              <strong>03</strong>
+              Voice systems must confirm actions clearly to avoid confusion.
+            </li>
+
+            <li>
+              <strong>04</strong>
+              Hands-free navigation is essential for users with motor impairments or messy cooking environments.
+            </li>
+
+          </ul>
+
+        </div>
+
+      </section>
+
+
+      <!-- DESIGN GOALS -->
+
+      <section class="case-section single-column">
+
+        <div>
+
+          <p class="eyebrow mono">
+            Design Goals
+          </p>
+
+        </div>
+
+
+        <div class="goal-grid">
+
+
+          <div>
+
+            <p class="mono case-label">
+              01 Cognitive Simplicity
             </p>
 
-            <h1>
-              Accessible Health Platform
-            </h1>
+            <p>
+              The interface was restructured into a linear, step-by-step flow to reduce cognitive load. Each task—searching, cooking, tracking nutrition—was broken into digestible, predictable steps.
+            </p>
+
+          </div>
 
 
-            <div class="case-facts">
+          <div>
 
-              <div>
-                <span class="mono">
-                  Role
-                </span>
+            <p class="mono case-label">
+              02&nbsp; Inclusive Interaction
+            </p>
 
-                UX / UI Designer
-              </div>
+            <p>
+              Touch targets, spacing, and focus states were designed to support users with motor impairments, while ARIA labels ensured full compatibility with assistive technologies.
+            </p>
 
-
-              <div>
-                <span class="mono">
-                  Platform
-                </span>
-
-                Responsive Web Platform
-              </div>
+          </div>
 
 
-              <div>
-                <span class="mono">
-                  Focus
-                </span>
+        </div>
 
-                Inclusive Interaction
-              </div>
+      </section>
+
+
+      <!-- WCAG -->
+
+      <section class="case-section single-column">
+
+        <div class="case-section-heading">
+
+          <p class="eyebrow mono">
+            WCAG 2.2 Implementation
+          </p>
+
+          <p class="case-sub-label mono">
+            Structural criteria standards
+          </p>
+
+        </div>
+
+
+        <div class="wcag-list">
+
+
+          <!-- CONTRAST -->
+
+          <div class="wcag-item">
+
+            <div>
+
+              <span class="mono case-label">
+                Standard 1.4.6
+              </span>
+
+              <h3>
+                Contrast Enhanced (AAA)
+              </h3>
+
+              <p>
+                Critical nutritional data uses a 7:1 contrast ratio to support users with low vision and colour blindness.
+              </p>
+
+            </div>
+
+
+            <div class="wcag-image">
+
+              <img
+                src="assets/images/placeholder-contrast.png"
+                alt="Contrast Evaluation Grid"
+              >
 
             </div>
 
           </div>
 
 
+          <!-- SIGN LANGUAGE -->
 
-          <div class="space-y-12 text-xl leading-relaxed case-text-limit">
+          <div class="wcag-item stacked">
 
+            <div>
 
-            <!-- OVERVIEW -->
+              <span class="mono case-label">
+                Standard 1.2.6
+              </span>
 
-            <section>
+              <h3>
+                Sign Language (AAA)
+              </h3>
 
-              <section class="space-y-4">
-              <h2 class="text-2xl font-normal italic text-deepindigo">Overview</h2>
-              <p class="ui-sans text-sketchgrey">
-                This project involved designing an accessible health and nutrition web application for users with physical, cognitive, visual, and auditory impairments. The aim was to create a platform that supports independent cooking, reduces cognitive load, and ensures nutritional information is perceivable and operable for all users.
+              <p>
+                To support users who rely on sign language, the app includes a dedicated BSL interpreter window for all instructional videos. Following accessibility best practice, the interpreter window occupies at least one-sixth of the video area, ensuring the signer remains clearly visible without obstructing essential content. Captions are displayed simultaneously, using a high-contrast background and sans-serif text to maximise readability.
               </p>
-            </section>
 
-            <section class="space-y-6">
-              <h2 class="text-2xl font-normal italic text-deepindigo">Personas</h2>
-              <p class="ui-sans text-sketchgrey">
-                I created four personas representing each impairment category: physical, cognitive, visual, and auditory. These personas guided every design decision, ensuring the interface addressed real barriers faced by disabled users.
-              </p>
-              
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="design-box p-6 flex flex-col justify-between rounded-sm">
-                  <div>
-                    <span class="mono text-xs uppercase tracking-wider text-slatepurple block mb-3"> Persona Model 1</span>
-                  </div>
-                  <img src="assets/images/placeholder-persona1.png" alt="User Persona Sketch 1" class="w-full h-auto object-contain border border-black/5 mt-2 bg-warmbg/20">
-                </div>
-                <div class="design-box p-6 flex flex-col justify-between rounded-sm">
-                  <div>
-                    <span class="mono text-xs uppercase tracking-wider text-slatepurple block mb-3">Persona Model 2</span>
-                  </div>
-                  <img src="assets/images/placeholder-persona2.png" alt="User Persona Sketch 2" class="w-full h-auto object-contain border border-black/5 mt-2 bg-warmbg/20">
-                </div>
-              </div>
-            </section>
+            </div>
 
-            <section class="space-y-4">
-              <h2 class="text-2xl font-normal italic text-deepindigo">Accessibility Research</h2>
-              <p class="ui-sans text-sketchgrey">
-                I conducted research into accessible devices and assistive technologies, focusing on how users interact with voice control systems such as Siri, Google Assistant, and built-in OS accessibility features. This included analysing natural language patterns, common trigger phrases, and how users phrase cooking-related commands.
-              </p>
-              
-              <div class="design-box p-6 bg-warmbg/10 rounded-sm">
-                <p class="mono text-xs uppercase tracking-widest text-deepindigo font-bold mb-4"> Key Discoveries Summary</p>
-                <ul class="space-y-3 ui-sans text-sketchgrey text-base">
-                  <li class="flex items-start gap-3">
-                    <span class="text-deepindigo font-bold">01 </span> <span>Users prefer short, direct commands (Next step, Repeat, How long?).</span>
-                  </li>
-                  <li class="flex items-start gap-3">
-                    <span class="text-deepindigo font-bold">02 </span> <span>Natural language varies widely, so commands must accept flexible phrasing.</span>
-                  </li>
-                  <li class="flex items-start gap-3">
-                    <span class="text-deepindigo font-bold">03 </span> <span>Voice systems must confirm actions clearly to avoid confusion.</span>
-                  </li>
-                  <li class="flex items-start gap-3">
-                    <span class="text-deepindigo font-bold">04 </span> <span>Hands-free navigation is essential for users with motor impairments or messy cooking environments.</span>
-                  </li>
-                </ul>
-              </div>
-            </section>
 
-            <section class="space-y-4">
-              <h2 class="text-2xl font-normal italic text-deepindigo">Design Goals</h2>
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div class="design-box p-6 rounded-sm">
-                  <h3 class="mono text-xs uppercase tracking-widest text-deepindigo font-bold mb-2">01 Cognitive Simplicity</h3>
-                  <p class="ui-sans text-sketchgrey text-base leading-relaxed">The interface was restructured into a linear, step-by-step flow to reduce cognitive load. Each task—searching, cooking, tracking nutrition—was broken into digestible, predictable steps.</p>
-                </div>
-                <div class="design-box p-6 rounded-sm">
-                  <h3 class="mono text-xs uppercase tracking-widest text-deepindigo font-bold mb-2">02  Inclusive Interaction</h3>
-                  <p class="ui-sans text-sketchgrey text-base leading-relaxed">Touch targets, spacing, and focus states were designed to support users with motor impairments, while ARIA labels ensured full compatibility with assistive technologies.</p>
-                </div>
-              </div>
-            </section>
+            <div class="wcag-image signlanguage-wrap">
 
-            <section class="space-y-8">
-              <div class="border-b border-solid border-black/5 pb-2">
-                <h2 class="text-2xl font-normal italic text-deepindigo">WCAG 2.2 Implementation</h2>
-                <p class="mono text-xs uppercase tracking-widest text-slatepurple font-bold mt-1"> Structural criteria standards</p>
-              </div>
+              <img
+                src="assets/images/signlanguage.png"
+                class="signlanguage-image"
+                alt="Sign Language Overlay Blueprint"
+              >
 
-              <div class="space-y-6">
-                <div class="design-box p-6 rounded-sm flex flex-col md:flex-row gap-6 items-center">
-                  <div class="space-y-2 md:w-1/2">
-                    <span class="mono text-xs uppercase tracking-wide text-slatepurple block">Standard 1.4.6</span>
-                    <h3 class="text-xl font-normal text-ink">Contrast Enhanced (AAA)</h3>
-                    <p class="ui-sans text-sketchgrey text-base">Critical nutritional data uses a 7:1 contrast ratio to support users with low vision and colour blindness.</p>
-                  </div>
-                  <div class="md:w-1/2 w-full bg-warmbg/20 p-2 border border-black/5">
-                    <img src="assets/images/placeholder-contrast.png" alt="Contrast Evaluation Grid" class="w-full h-auto object-contain">
-                  </div>
-                </div>
-
-                <div class="design-box p-6 rounded-sm flex flex-col gap-4">
-                  <div class="space-y-2">
-                    <span class="mono text-xs uppercase tracking-wide text-slatepurple block">Standard 1.2.6</span>
-                    <h3 class="text-xl font-normal text-ink">Sign Language (AAA)</h3>
-                    <p class="ui-sans text-sketchgrey text-base">
-                      To support users who rely on sign language, the app includes a dedicated BSL interpreter window for all instructional videos. Following accessibility best practice, the interpreter window occupies at least one-sixth of the video area, ensuring the signer remains clearly visible without obstructing essential content. Captions are displayed simultaneously, using a high-contrast background and sans-serif text to maximise readability.
-                    </p>
-                  </div>
-                  <div class="w-full bg-warmbg/20 p-2 border border-black/5">
-                    <img src="assets/images/placeholder-signlanguage.png" alt="Sign Language Overlay Blueprint" class="w-full h-auto object-contain">
-                  </div>
-                </div>
-
-                <div class="design-box p-6 rounded-sm flex flex-col md:flex-row gap-6 items-center">
-                  <div class="space-y-2 md:w-1/2">
-                    <span class="mono text-xs uppercase tracking-wide text-slatepurple block">Standard 3.3.1</span>
-                    <h3 class="text-xl font-normal text-ink">Error Identification (A)</h3>
-                    <p class="ui-sans text-sketchgrey text-base">Errors are described in text, not colour alone, supporting users with cognitive impairments.</p>
-                  </div>
-                  <div class="md:w-1/2 w-full bg-warmbg/20 p-2 border border-black/5">
-                    <img src="assets/images/placeholder-error.png" alt="Error Text Validation States" class="w-full h-auto object-contain">
-                  </div>
-                </div>
-
-                <div class="design-box p-6 rounded-sm flex flex-col md:flex-row gap-6 items-center">
-                  <div class="space-y-2 md:w-1/2">
-                    <span class="mono text-xs uppercase tracking-wide text-slatepurple block">Standard 2.4.7</span>
-                    <h3 class="text-xl font-normal text-ink">Focus Visible (AA)</h3>
-                    <p class="ui-sans text-sketchgrey text-base">A high-contrast focus ring ensures full keyboard navigation for users who cannot use a mouse.</p>
-                  </div>
-                  <div class="md:w-1/2 w-full bg-warmbg/20 p-2 border border-black/5">
-                    <img src="assets/images/placeholder-focus.png" alt="Keyboard Focus Ring Indicators" class="w-full h-auto object-contain">
-                  </div>
-                </div>
-
-                <div class="design-box p-6 rounded-sm flex flex-col gap-4">
-                  <div class="space-y-2">
-                    <span class="mono text-xs uppercase tracking-wide text-slatepurple block">Standard 1.4.8</span>
-                    <h3 class="text-xl font-normal text-ink">Visual Presentation (AAA)</h3>
-                    <p class="ui-sans text-sketchgrey text-base">
-                      The interface follows WCAG 1.4.8 by limiting line length, increasing line spacing, and providing generous spacing between paragraphs. Recipe descriptions do not exceed 80 characters per line, and line height is set to 1.2–1.4em depending on the content type. This improves readability for users with cognitive impairments, dyslexia, and attention-related conditions.
-                    </p>
-                  </div>
-                  <div class="w-full bg-warmbg/20 p-2 border border-black/5">
-                    <img src="assets/images/placeholder-readability.png" alt="Type Layout Line Spacing Map" class="w-full h-auto object-contain">
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            <section class="space-y-4">
-              <h2 class="text-2xl font-normal italic text-deepindigo">Post-Testing Update</h2>
-              <p class="ui-sans text-sketchgrey">
-                Usability testing revealed that users often lost track of which ingredients they had already used. To address this, a checklist system was added to the recipe steps, with large tap targets and screen reader friendly states (Checked / Not checked).
-              </p>
-              <div class="design-box p-4 rounded-sm bg-warmbg/10">
-                <img src="assets/images/placeholder-update.png" alt="Ingredient Checklist Testing Blueprint" class="w-full h-auto object-contain border border-black/5">
-              </div>
-            </section>
-
-            <section class="space-y-4">
-              <h2 class="text-2xl font-normal italic text-deepindigo">Final Screens</h2>
-              <p class="ui-sans text-sketchgrey">
-                A selection of final high-fidelity screens showcasing the completed interface. These demonstrate the visual system, accessibility patterns, and overall user experience brought together in the final build.
-              </p>
-              <div class="design-box p-4 rounded-sm bg-warmbg/10">
-                <img src="assets/images/placeholder-finalscreens.png" alt="Final High-Fidelity UI Presentation" class="w-full h-auto object-contain border border-black/5">
-              </div>
-            </section>
+            </div>
 
           </div>
-        </article>
 
-      </div>
+
+          <!-- ERROR -->
+
+          <div class="wcag-item">
+
+            <div>
+
+              <span class="mono case-label">
+                Standard 3.3.1
+              </span>
+
+              <h3>
+                Error Identification (A)
+              </h3>
+
+              <p>
+                Errors are described in text, not colour alone, supporting users with cognitive impairments.
+              </p>
+
+            </div>
+
+
+            <div class="wcag-image">
+
+              <img
+                src="assets/images/placeholder-error.png"
+                alt="Error Text Validation States"
+              >
+
+            </div>
+
+          </div>
+
+
+          <!-- FOCUS -->
+
+          <div class="wcag-item">
+
+            <div>
+
+              <span class="mono case-label">
+                Standard 2.4.7
+              </span>
+
+              <h3>
+                Focus Visible (AA)
+              </h3>
+
+              <p>
+                A high-contrast focus ring ensures full keyboard navigation for users who cannot use a mouse.
+              </p>
+
+            </div>
+
+
+            <div class="wcag-image">
+
+              <img
+                src="assets/images/placeholder-focus.png"
+                alt="Keyboard Focus Ring Indicators"
+              >
+
+            </div>
+
+          </div>
+
+
+          <!-- VISUAL PRESENTATION -->
+
+          <div class="wcag-item stacked">
+
+            <div>
+
+              <span class="mono case-label">
+                Standard 1.4.8
+              </span>
+
+              <h3>
+                Visual Presentation (AAA)
+              </h3>
+
+              <p>
+                The interface follows WCAG 1.4.8 by limiting line length, increasing line spacing, and providing generous spacing between paragraphs. Recipe descriptions do not exceed 80 characters per line, and line height is set to 1.2–1.4em depending on the content type. This improves readability for users with cognitive impairments, dyslexia, and attention-related conditions.
+              </p>
+
+            </div>
+
+
+            <div class="wcag-image">
+
+              <img
+                src="assets/images/placeholder-readability.png"
+                alt="Type Layout Line Spacing Map"
+              >
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </section>
+
+
+      <!-- POST TESTING -->
+
+      <section class="case-section single-column">
+
+        <div>
+
+          <p class="eyebrow mono">
+            Post-Testing Update
+          </p>
+
+          <p>
+            Usability testing revealed that users often lost track of which ingredients they had already used. To address this, a checklist system was added to the recipe steps, with large tap targets and screen reader friendly states (Checked / Not checked).
+          </p>
+
+        </div>
+
+
+        <div class="case-image-medium">
+
+          <img
+            src="assets/images/placeholder-update.png"
+            alt="Ingredient Checklist Testing Blueprint"
+          >
+
+        </div>
+
+      </section>
+
+
+      <!-- FINAL SCREENS -->
+
+      <section class="case-section single-column final-section">
+
+        <div>
+
+          <p class="eyebrow mono">
+            Final Screens
+          </p>
+
+          <p>
+            A selection of final high-fidelity screens showcasing the completed interface. These demonstrate the visual system, accessibility patterns, and overall user experience brought together in the final build.
+          </p>
+
+        </div>
+
+
+        <div class="case-image-final">
+
+          <img
+            src="assets/images/placeholder-finalscreens.png"
+            alt="Final High-Fidelity UI Presentation"
+          >
+
+        </div>
+
+      </section>
+
+
+    </article>
+
+  </main>
+
+
+  <footer class="footer">
+
+    <span>
+      Miya Richardson
+    </span>
+
+    <span>
+      Case Study
+    </span>
+
+  </footer>
+
+
 </div>
-<footer class="footer site-shell"><span>Miya Richardson</span><span>Case Study</span></footer>
+
 </body>
 </html>
-
