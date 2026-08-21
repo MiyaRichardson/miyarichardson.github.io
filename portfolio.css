@@ -1927,3 +1927,50 @@ button:focus-visible {
   }
 
 }
+/* Fix Key Gaps section */
+
+.case-content-block {
+  width: 100%;
+  max-width: none;
+}
+
+.insight-list {
+  width: 100%;
+  max-width: 850px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 70px;
+  row-gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.insight-list li {
+  padding: 22px 0;
+  border-top: 1px solid var(--line);
+  font-family: 'Manrope', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.insight-list li:nth-child(-n+2) {
+  border-top: none;
+}
+
+
+/* Mobile */
+
+@media (max-width: 650px) {
+
+  .insight-list {
+    grid-template-columns: 1fr;
+    column-gap: 0;
+  }
+
+  .insight-list li:nth-child(2) {
+    border-top: 1px solid var(--line);
+  }
+
+}
