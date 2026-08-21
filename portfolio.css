@@ -1927,32 +1927,41 @@ button:focus-visible {
   }
 
 }
-/* Fix Key Gaps section */
-
-.case-content-block {
-  width: 100%;
-  max-width: none;
-}
+/* =========================================================
+   KEY GAPS ACROSS COMPETITORS
+   ========================================================= */
 
 .insight-list {
-  width: 100%;
-  max-width: 850px;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  column-gap: 70px;
+  width: 100% !important;
+  max-width: none !important;
+
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+
+  column-gap: 80px;
   row-gap: 0;
-  margin: 0;
-  padding: 0;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
   list-style: none;
 }
 
 .insight-list li {
+  width: 100% !important;
+  max-width: none !important;
+  min-width: 0 !important;
+
   padding: 22px 0;
   border-top: 1px solid var(--line);
+
   font-family: 'Manrope', sans-serif;
   font-size: 1rem;
   line-height: 1.6;
   color: var(--muted);
+
+  overflow-wrap: normal;
+  word-break: normal;
 }
 
 .insight-list li:nth-child(-n+2) {
@@ -1965,7 +1974,7 @@ button:focus-visible {
 @media (max-width: 650px) {
 
   .insight-list {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
     column-gap: 0;
   }
 
