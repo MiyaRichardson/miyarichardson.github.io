@@ -1931,55 +1931,64 @@ button:focus-visible {
    KEY GAPS ACROSS COMPETITORS
    ========================================================= */
 
-.insight-list {
-  width: 100% !important;
-  max-width: none !important;
+.case-content-block .insight-list {
+  width: 100%;
+  max-width: none;
 
-  display: grid !important;
-  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 
   column-gap: 80px;
   row-gap: 0;
 
-  margin: 0 !important;
-  padding: 0 !important;
+  margin: 0;
+  padding: 0;
 
   list-style: none;
 }
 
-.insight-list li {
-  width: 100% !important;
-  max-width: none !important;
-  min-width: 0 !important;
+.case-content-block .insight-list li {
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+
+  /* IMPORTANT:
+     Key gaps do not contain a <strong> number,
+     so they must NOT use the numbered insight grid. */
+  display: block;
 
   padding: 22px 0;
-  border-top: 1px solid var(--line);
+
+  border-top: 1px solid #dededb;
 
   font-family: 'Manrope', sans-serif;
   font-size: 1rem;
   line-height: 1.6;
-  color: var(--muted);
+  color: #696965;
 
   overflow-wrap: normal;
   word-break: normal;
 }
 
-.insight-list li:nth-child(-n+2) {
+/* Remove the top border from the first row */
+.case-content-block .insight-list li:nth-child(-n+2) {
   border-top: none;
 }
 
 
-/* Mobile */
+/* =========================================================
+   MOBILE
+   ========================================================= */
 
 @media (max-width: 650px) {
 
-  .insight-list {
-    grid-template-columns: 1fr !important;
+  .case-content-block .insight-list {
+    grid-template-columns: 1fr;
     column-gap: 0;
   }
 
-  .insight-list li:nth-child(2) {
-    border-top: 1px solid var(--line);
+  .case-content-block .insight-list li:nth-child(2) {
+    border-top: 1px solid #dededb;
   }
 
 }
