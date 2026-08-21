@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Miya Richardson | UX Designer</title>
+
   <link rel="stylesheet" href="portfolio.css">
 </head>
 
@@ -11,58 +12,107 @@
 
 <div class="site-shell">
 
-  <header class="topbar">
-    <a class="brand" href="index.html">Miya<span>.</span></a>
+  <!-- =========================
+       HEADER
+  ========================== -->
 
-    <nav class="nav">
+  <header class="topbar">
+
+    <a class="brand" href="index.html" aria-label="Miya Richardson home">
+      Miya<span>.</span>
+    </a>
+
+    <nav class="nav" aria-label="Main navigation">
       <a class="active" href="index.html">Home</a>
       <a href="#projects">Work</a>
       <a href="about.html">About</a>
-      <a href="https://github.com" target="_blank" rel="noopener">GitHub ↗</a>
+      <a
+        href="https://github.com"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        GitHub ↗
+      </a>
     </nav>
+
   </header>
+
 
   <main>
 
-    <section class="hero">
+    <!-- =========================
+         HERO
+    ========================== -->
 
-      <p class="eyebrow mono">UX Designer · 2026 Portfolio</p>
+    <section class="hero hero-reveal">
 
-      <h1>
-        I design digital experiences that are
-        <em>clear, useful and human.</em>
-      </h1>
+      <div class="hero-content">
 
-      <p class="hero-copy">
-        I’m Miya, a UX Designer interested in the space between research,
-        interaction, interface and product design. I turn complex problems
-        into simple, thoughtful experiences.
-      </p>
+        <p class="eyebrow mono hero-item">
+          UX Designer · 2026 Portfolio
+        </p>
 
-      <div class="hero-actions">
-        <a class="btn primary" href="#projects">
-          View selected work ↓
-        </a>
+        <h1 class="hero-title hero-item">
+          I design digital experiences that are
+          <em>clear, useful and human.</em>
+        </h1>
 
-        <a class="btn secondary" href="about.html">
-          About me
-        </a>
+        <p class="hero-copy hero-item">
+          I’m Miya, a UX Designer interested in the space between research,
+          interaction, interface and product design. I turn complex problems
+          into simple, thoughtful experiences.
+        </p>
+
+        <div class="hero-actions hero-item">
+
+          <a class="btn primary" href="#projects">
+            View selected work
+            <span aria-hidden="true">↓</span>
+          </a>
+
+          <a class="btn secondary" href="about.html">
+            About me
+          </a>
+
+        </div>
+
       </div>
+
+      <!-- Small visual cue that there is content below -->
+      <a
+        href="#projects"
+        class="scroll-cue"
+        aria-label="Scroll to selected work"
+      >
+        <span class="scroll-line"></span>
+        <span class="mono">Selected work</span>
+      </a>
 
     </section>
 
 
-    <section id="projects" class="section">
+    <!-- =========================
+         PROJECTS
+    ========================== -->
+
+    <section id="projects" class="section projects-section">
 
       <div class="section-head">
 
-        <div>
-          <p class="eyebrow mono">Selected work</p>
-          <h2 class="section-title">Projects</h2>
+        <div class="section-heading reveal">
+
+          <p class="eyebrow mono">
+            Selected work
+          </p>
+
+          <h2 class="section-title">
+            Projects
+          </h2>
+
         </div>
 
-        <p class="section-note">
-          Two case studies in UX, UI and accessibility.
+        <p class="section-note reveal">
+          Two case studies exploring UX, UI and accessibility.
         </p>
 
       </div>
@@ -70,17 +120,27 @@
 
       <div class="project-list">
 
-        <!-- COLLECTCARE -->
 
-        <article class="project-card">
+        <!-- =========================
+             COLLECTCARE
+        ========================== -->
 
-          <a href="case-study-collectcare.html">
+        <article class="project-card reveal reveal-left">
+
+          <a
+            href="case-study-collectcare.html"
+            class="project-card-link"
+            aria-label="View CollectCare case study"
+          >
 
             <div class="project-visual">
+
               <img
                 src="assets/images/collectcare-splash.png"
                 alt="CollectCare mobile interface"
+                loading="lazy"
               >
+
             </div>
 
             <div class="project-body">
@@ -100,7 +160,8 @@
               </p>
 
               <span class="project-link">
-                View case study <span>→</span>
+                View case study
+                <span class="arrow" aria-hidden="true">→</span>
               </span>
 
             </div>
@@ -110,17 +171,24 @@
         </article>
 
 
-        <!-- ACCESSIBILITY -->
+        <!-- =========================
+             ACCESSIBILITY
+        ========================== -->
 
-        <article class="project-card">
+        <article class="project-card reveal reveal-right">
 
-          <a href="case-study-accessibility.html">
+          <a
+            href="case-study-accessibility.html"
+            class="project-card-link"
+            aria-label="View Accessible Health Platform case study"
+          >
 
             <div class="project-visual">
 
               <img
                 src="assets/images/splash.png"
                 alt="Accessible health and nutrition interface"
+                loading="lazy"
               >
 
             </div>
@@ -142,7 +210,8 @@
               </p>
 
               <span class="project-link">
-                View case study <span>→</span>
+                View case study
+                <span class="arrow" aria-hidden="true">→</span>
               </span>
 
             </div>
@@ -151,32 +220,25 @@
 
         </article>
 
+
       </div>
 
     </section>
 
 
-    <section
-      class="section"
-      style="padding-top:25px;padding-bottom:80px"
-    >
+    <!-- =========================
+         WHAT I BRING
+    ========================== -->
 
-      <div class="clean-box">
+    <section class="section what-i-bring">
+
+      <div class="clean-box reveal">
 
         <p class="eyebrow mono">
           What I bring
         </p>
 
-        <p
-          style="
-            font-family:'Manrope',sans-serif;
-            font-size:clamp(1.7rem,3vw,2.5rem);
-            line-height:1.15;
-            letter-spacing:-.04em;
-            max-width:800px;
-            margin:0
-          "
-        >
+        <p class="statement">
           Research-led thinking, strong interface design, and enough
           technical understanding to make ideas work in the real world.
         </p>
@@ -188,9 +250,15 @@
   </main>
 
 
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
   <footer class="footer">
 
-    <span>Miya Richardson</span>
+    <span>
+      Miya Richardson
+    </span>
 
     <span>
       UX / UI / Product Design
@@ -199,6 +267,102 @@
   </footer>
 
 </div>
+
+
+<!-- =========================
+     SCROLL REVEAL
+========================== -->
+
+<script>
+
+  document.addEventListener("DOMContentLoaded", () => {
+
+    const revealElements = document.querySelectorAll(".reveal");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+
+        entries.forEach((entry) => {
+
+          if (entry.isIntersecting) {
+
+            entry.target.classList.add("is-visible");
+
+            /*
+              Once the element has appeared,
+              stop observing it.
+
+              This means the animation doesn't
+              repeatedly play every time you scroll
+              past the project.
+            */
+            observer.unobserve(entry.target);
+
+          }
+
+        });
+
+      },
+      {
+        threshold: 0.12,
+        rootMargin: "0px 0px -60px 0px"
+      }
+    );
+
+
+    revealElements.forEach((element) => {
+      observer.observe(element);
+    });
+
+
+    /*
+      Hero animation.
+      A tiny delay between each element makes
+      the page feel intentional without becoming
+      a "presentation animation".
+    */
+
+    const heroItems = document.querySelectorAll(".hero-item");
+
+    heroItems.forEach((item, index) => {
+
+      setTimeout(() => {
+        item.classList.add("hero-visible");
+      }, 100 + (index * 110));
+
+    });
+
+
+    /*
+      Smooth scrolling for internal links.
+    */
+
+    document.querySelectorAll('a[href^="#"]').forEach((link) => {
+
+      link.addEventListener("click", (event) => {
+
+        const targetId = link.getAttribute("href");
+
+        if (!targetId || targetId === "#") return;
+
+        const target = document.querySelector(targetId);
+
+        if (!target) return;
+
+        event.preventDefault();
+
+        target.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+
+      });
+
+    });
+
+  });
+
+</script>
 
 </body>
 </html>
