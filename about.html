@@ -8,14 +8,6 @@
 
   <title>About Miya | Portfolio</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
-    rel="stylesheet"
-  >
-
   <link rel="stylesheet" href="portfolio.css">
 
 </head>
@@ -61,16 +53,15 @@
   </header>
 
 
-  <!-- MAIN -->
 
   <main>
 
 
-    <!-- PAGE INTRO -->
+    <!-- INTRO -->
 
-    <section class="about-page">
+    <section class="about-hero">
 
-      <div class="about-header">
+      <div class="about-hero-inner">
 
         <p class="eyebrow mono">
           UX Profile
@@ -82,73 +73,96 @@
 
       </div>
 
-
-      <!-- CONTENT -->
-
-      <div class="about-layout">
+    </section>
 
 
-        <!-- SIDEBAR -->
 
-        <aside class="about-sidebar">
+    <!-- ABOUT CONTENT -->
 
-          <p class="about-sidebar-title">
+    <section class="about-layout">
+
+
+      <!-- LEFT COLUMN -->
+
+      <aside class="about-sidebar">
+
+
+        <div class="about-sidebar-block">
+
+          <p class="about-label mono">
             How I work
           </p>
 
+          <div class="about-skills">
 
-          <div class="about-sidebar-item">
-            User Research
+            <span>
+              User Research
+            </span>
+
+            <span>
+              Information Architecture
+            </span>
+
+            <span>
+              Interaction Design
+            </span>
+
           </div>
 
-          <div class="about-sidebar-item">
-            Information Architecture
-          </div>
-
-          <div class="about-sidebar-item">
-            Interaction Design
-          </div>
+        </div>
 
 
-          <div style="margin-top:42px">
 
-            <p class="about-sidebar-title">
-              Key details
-            </p>
+        <div class="about-sidebar-block">
 
+          <p class="about-label mono">
+            Key details
+          </p>
 
-            <div class="about-sidebar-item">
+          <div class="about-details">
+
+            <div>
               Based in the UK
             </div>
 
-            <div class="about-sidebar-item">
+            <div>
               MSc in User Experience Design
             </div>
 
-            <div class="about-sidebar-item">
+            <div>
               Front-End Development Literate
             </div>
 
-            <div class="about-sidebar-item">
+            <div>
               User-Centred Design Specialist
             </div>
 
           </div>
 
-        </aside>
+        </div>
 
 
-        <!-- MAIN ABOUT CONTENT -->
-
-        <div class="about-content">
+      </aside>
 
 
-          <!-- DESIGN APPROACH -->
 
-          <section class="about-section">
+      <!-- RIGHT COLUMN -->
+
+      <div class="about-main">
+
+
+        <!-- DESIGN APPROACH -->
+
+        <section class="about-section">
+
+          <div class="about-section-number mono">
+            01
+          </div>
+
+          <div class="about-section-content">
 
             <h2>
-              01 Design Approach
+              Design Approach
             </h2>
 
             <p>
@@ -158,12 +172,21 @@
               I design interfaces that feel natural and intuitive to navigate.
             </p>
 
-          </section>
+          </div>
+
+        </section>
 
 
-          <!-- RESEARCH -->
 
-          <section class="about-section">
+        <!-- RESEARCH -->
+
+        <section class="about-section">
+
+          <div class="about-section-number mono">
+            02
+          </div>
+
+          <div class="about-section-content">
 
             <h2>
               Research &amp; Technical Execution
@@ -176,66 +199,56 @@
               prototypes hand over seamlessly to engineering teams.
             </p>
 
-          </section>
+          </div>
+
+        </section>
 
 
-          <!-- SKILLS -->
 
-          <section class="about-section">
+        <!-- CAPABILITIES -->
 
-            <div
-              style="
-                display:grid;
-                grid-template-columns:repeat(2,minmax(0,1fr));
-                gap:40px
-              "
-            >
-
-              <div>
-
-                <p
-                  class="eyebrow mono"
-                  style="margin-bottom:12px"
-                >
-                  User Research →
-                </p>
-
-                <p>
-                  Conducting discovery interviews, field observations,
-                  and usability audits to remove friction from user journeys.
-                </p>
-
-              </div>
+        <section class="about-capabilities">
 
 
-              <div>
+          <div class="about-capability">
 
-                <p
-                  class="eyebrow mono"
-                  style="margin-bottom:12px"
-                >
-                  Wireframing &amp; UI →
-                </p>
+            <p class="eyebrow mono">
+              User Research →
+            </p>
 
-                <p>
-                  Creating scalable UI layouts, component systems,
-                  and high-fidelity prototypes that streamline user workflows.
-                </p>
+            <p>
+              Conducting discovery interviews, field observations,
+              and usability audits to remove friction from user journeys.
+            </p>
 
-              </div>
-
-            </div>
-
-          </section>
+          </div>
 
 
-        </div>
+
+          <div class="about-capability">
+
+            <p class="eyebrow mono">
+              Wireframing &amp; UI →
+            </p>
+
+            <p>
+              Creating scalable UI layouts, component systems,
+              and high-fidelity prototypes that streamline user workflows.
+            </p>
+
+          </div>
+
+
+        </section>
+
 
       </div>
 
     </section>
 
+
   </main>
+
 
 
   <!-- FOOTER -->
